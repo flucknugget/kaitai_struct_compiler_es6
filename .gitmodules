@@ -1,0 +1,3 @@
+[submodule "kaitai_struct_compiler"]
+	path = kaitai_struct_compiler
+	url = https://github.com/kaitai-io/kaitai_struct_compiler

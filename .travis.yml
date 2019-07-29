@@ -1,0 +1,22 @@
+dist: xenial
+sudo: false
+
+language: scala
+scala:
+  - 2.12.4
+
+cache:
+  directories:
+    - $HOME/.ivy2
+
+script:
+  - ./build_es6_module.sh
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  keep_history: true
+  github_token: $GITHUB_TOKEN
+  target_branch: master
+  on:
+    branch: master
