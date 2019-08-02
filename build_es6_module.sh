@@ -10,6 +10,7 @@ echo
 rm -rf kaitai_struct_compiler
 git submodule init
 git submodule update --remote --merge
+git add kaitai_struct_compiler
 
 # fix @JSExport name
 sed -zi 's/annotation\.JSExport\n\n@JSExport/annotation._\n\n@JSExportTopLevel("KaitiaiStructCompiler")/' \
