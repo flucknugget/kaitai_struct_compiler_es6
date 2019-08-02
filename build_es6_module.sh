@@ -11,12 +11,6 @@ rm -rf kaitai_struct_compiler
 git submodule update
 git submodule foreach git pull origin master
 
-# update scala js for ModuleKind.ESModule
-#
-# TODO the next version of scalajs (1.0.0) comes with bigint support: _.withESFeatures(_.withAllowBigIntsForLongs(true)
-#      enable as soon as available
-sed -i 's/"sbt-scalajs" % "0.6.21"/"sbt-scalajs" % "0.6.28"/' kaitai_struct_compiler/project/plugins.sbt
-
 # fix @JSExport name
 sed -zi 's/annotation\.JSExport\n\n@JSExport/annotation._\n\n@JSExportTopLevel("KaitiaiStructCompiler")/' \
     kaitai_struct_compiler/js/src/main/scala/io/kaitai/struct/MainJs.scala
