@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191021.165800.787ff47c */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191022.214951.20e5bd42 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3810,9 +3810,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191021.165800.787ff47c";
-    this.gitCommit$1 = "787ff47c";
-    this.gitTime$1 = "2019-10-21T16:58:00+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191022.214951.20e5bd42";
+    this.gitCommit$1 = "20e5bd42";
+    this.gitTime$1 = "2019-10-22T21:49:51+00:00";
     return this
   };
 }
@@ -37297,6 +37297,14 @@ class $c_Lio_kaitai_struct_languages_CSharpCompiler$ extends $c_O {
       }
     } else {
       return r
+    }
+  };
+  ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err) {
+    const x = $m_Lio_kaitai_struct_datatype_EndOfStreamError$();
+    if ((x === err)) {
+      return "EndOfStreamException"
+    } else {
+      return err.name__T()
     }
   };
   types2class__sc_Iterable__T(names) {
@@ -73699,6 +73707,61 @@ class $c_Lio_kaitai_struct_languages_CSharpCompiler extends $c_Lio_kaitai_struct
     const array$1 = [io];
     jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
   };
+  attrValidateExpr__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_exprlang_Ast$expr__T__sci_List__V(attrId, attrType, checkExpr, errName, errArgs) {
+    const f = (function($this) {
+      return (function(v$2) {
+        const v = v$2;
+        return $this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(v)
+      })
+    })(this);
+    const this$1 = $m_sci_List$();
+    const bf = this$1.ReusableCBFInstance$2;
+    let jsx$1;
+    if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
+      if ((errArgs === $m_sci_Nil$())) {
+        jsx$1 = $m_sci_Nil$()
+      } else {
+        const arg1 = errArgs.head__O();
+        const h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1), $m_sci_Nil$());
+        let t = h;
+        let rest = errArgs.tail__sci_List();
+        while ((rest !== $m_sci_Nil$())) {
+          const arg1$1 = rest.head__O();
+          const nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$1), $m_sci_Nil$());
+          t.tl$5 = nx;
+          t = nx;
+          const this$2 = rest;
+          rest = this$2.tail__sci_List()
+        };
+        jsx$1 = h
+      }
+    } else {
+      const b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(errArgs, bf);
+      let these = errArgs;
+      while ((!these.isEmpty__Z())) {
+        const arg1$2 = these.head__O();
+        b.$$plus$eq__O__scm_Builder(f(arg1$2));
+        const this$3 = these;
+        these = this$3.tail__sci_List()
+      };
+      jsx$1 = b.result__O()
+    };
+    const errArgsStr = jsx$1.mkString__T__T(", ");
+    const jsx$3 = this.out$2;
+    const array = ["if (!(", "))"];
+    const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(checkExpr)];
+    jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
+    this.out$2.puts__T__V("{");
+    this.out$2.inc__V();
+    const jsx$5 = this.out$2;
+    const array$2 = ["throw new ", "(", ");"];
+    const jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+    const array$3 = [errName, errArgsStr];
+    jsx$5.puts__T__V(jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)));
+    this.out$2.dec__V();
+    this.out$2.puts__T__V("}")
+  };
   runReadCalc__V() {
     const this$1 = this.out$2;
     this$1.sb$2.append__T__scm_StringBuilder("\n");
@@ -73772,7 +73835,7 @@ class $c_Lio_kaitai_struct_languages_CSharpCompiler extends $c_Lio_kaitai_struct
     jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
   };
   ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err) {
-    return err.name__T()
+    return $m_Lio_kaitai_struct_languages_CSharpCompiler$().ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err)
   };
   fileFooter__T__V(topClassName) {
     this.out$2.dec__V();
