@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191022.214951.20e5bd42 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191027.133603.407389a8 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3810,9 +3810,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191022.214951.20e5bd42";
-    this.gitCommit$1 = "20e5bd42";
-    this.gitTime$1 = "2019-10-22T21:49:51+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191027.133603.407389a8";
+    this.gitCommit$1 = "407389a8";
+    this.gitTime$1 = "2019-10-27T13:36:03+00:00";
     return this
   };
 }
@@ -26979,26 +26979,28 @@ class $c_Lio_kaitai_struct_precompile_ErrorInInput$ extends $c_O {
   init___() {
     return this
   };
-  io$kaitai$struct$precompile$ErrorInInput$$message__jl_Throwable__sci_List__s_Option__T(err, path, file) {
-    let fileStr;
+  formatFileName__s_Option__T(file) {
     if ($is_s_Some(file)) {
       const x2 = file;
       const x = x2.value$2;
       const target = $g.String.fromCharCode(92);
       const replacement = $g.String.fromCharCode(47);
-      fileStr = x.split(target).join(replacement)
+      return x.split(target).join(replacement)
     } else {
       const x$2 = $m_s_None$();
-      if ((!(x$2 === file))) {
+      if ((x$2 === file)) {
+        return "(main)"
+      } else {
         throw new $c_s_MatchError().init___O(file)
-      };
-      fileStr = "(main)"
-    };
-    const this$16 = $m_s_Option$().apply__O__s_Option(err.getMessage__T());
-    const msg = (this$16.isEmpty__Z() ? err.toString__T() : this$16.get__O());
+      }
+    }
+  };
+  io$kaitai$struct$precompile$ErrorInInput$$message__jl_Throwable__sci_List__s_Option__T(err, path, file) {
+    const this$1 = $m_s_Option$().apply__O__s_Option(err.getMessage__T());
+    const msg = (this$1.isEmpty__Z() ? err.toString__T() : this$1.get__O());
     const array = ["", ": /", ": ", ""];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-    const array$1 = [fileStr, $f_sc_TraversableOnce__mkString__T__T__T__T(path, "", "/", ""), msg];
+    const array$1 = [this.formatFileName__s_Option__T(file), $f_sc_TraversableOnce__mkString__T__T__T__T(path, "", "/", ""), msg];
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
   };
 }
