@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191125.110709.ce52f41b */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191207.120639.d5f9feb9 */
 
 'use strict';
 /* Scala.js runtime support
@@ -1607,99 +1607,114 @@ const $f_Lio_kaitai_struct_translators_CommonMethods__translateAttribute__Lio_ka
   if ((attr.name$1 === $m_Lio_kaitai_struct_format_Identifier$().SIZEOF$1)) {
     return $thiz.byteSizeOfValue__T__Lio_kaitai_struct_datatype_DataType__O(value.toString__T(), valType)
   };
-  if ($is_Lio_kaitai_struct_datatype_DataType$UserType(valType)) {
-    const x2 = valType;
-    return $thiz.userTypeField__Lio_kaitai_struct_datatype_DataType$UserType__Lio_kaitai_struct_exprlang_Ast$expr__T__O(x2, value, attr.name$1)
-  } else if ($is_Lio_kaitai_struct_datatype_DataType$BytesType(valType)) {
+  const x = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$();
+  let jsx$1;
+  if ((x === valType)) {
+    jsx$1 = true
+  } else {
+    const x$3 = $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$();
+    jsx$1 = (x$3 === valType)
+  };
+  if (jsx$1) {
     const x1$2 = attr.name$1;
-    if ((x1$2 === "first")) {
-      return $thiz.bytesFirst__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$2 === "last")) {
-      return $thiz.bytesLast__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if (((x1$2 === "length") || (x1$2 === "size"))) {
-      return $thiz.bytesLength__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$2 === "min")) {
-      return $thiz.bytesMin__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$2 === "max")) {
-      return $thiz.bytesMax__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    if (($m_Lio_kaitai_struct_format_Identifier$().PARENT$1 === x1$2)) {
+      return $thiz.kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__O(value, attr.name$1)
     } else {
       throw new $c_s_MatchError().init___O(x1$2)
     }
-  } else if ($is_Lio_kaitai_struct_datatype_DataType$StrType(valType)) {
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(valType)) {
+    const x4 = valType;
+    return $thiz.userTypeField__Lio_kaitai_struct_datatype_DataType$UserType__Lio_kaitai_struct_exprlang_Ast$expr__T__O(x4, value, attr.name$1)
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$BytesType(valType)) {
     const x1$3 = attr.name$1;
-    if ((x1$3 === "length")) {
-      return $thiz.strLength__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$3 === "reverse")) {
-      return $thiz.strReverse__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$3 === "to_i")) {
-      const this$1 = $m_s_math_BigInt$();
-      return $thiz.strToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__O(value, new $c_Lio_kaitai_struct_exprlang_Ast$expr$IntNum().init___s_math_BigInt(this$1.apply__I__s_math_BigInt(10)))
+    if ((x1$3 === "first")) {
+      return $thiz.bytesFirst__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$3 === "last")) {
+      return $thiz.bytesLast__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if (((x1$3 === "length") || (x1$3 === "size"))) {
+      return $thiz.bytesLength__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$3 === "min")) {
+      return $thiz.bytesMin__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$3 === "max")) {
+      return $thiz.bytesMax__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
     } else {
       throw new $c_s_MatchError().init___O(x1$3)
     }
-  } else if ($is_Lio_kaitai_struct_datatype_DataType$IntType(valType)) {
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$StrType(valType)) {
     const x1$4 = attr.name$1;
-    if ((x1$4 === "to_s")) {
-      const this$2 = $m_s_math_BigInt$();
-      return $thiz.intToStr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__O(value, new $c_Lio_kaitai_struct_exprlang_Ast$expr$IntNum().init___s_math_BigInt(this$2.apply__I__s_math_BigInt(10)))
+    if ((x1$4 === "length")) {
+      return $thiz.strLength__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$4 === "reverse")) {
+      return $thiz.strReverse__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$4 === "to_i")) {
+      const this$1 = $m_s_math_BigInt$();
+      return $thiz.strToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__O(value, new $c_Lio_kaitai_struct_exprlang_Ast$expr$IntNum().init___s_math_BigInt(this$1.apply__I__s_math_BigInt(10)))
     } else {
       throw new $c_s_MatchError().init___O(x1$4)
     }
-  } else if ($is_Lio_kaitai_struct_datatype_DataType$FloatType(valType)) {
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$IntType(valType)) {
     const x1$5 = attr.name$1;
-    if ((x1$5 === "to_i")) {
-      return $thiz.floatToInt__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    if ((x1$5 === "to_s")) {
+      const this$2 = $m_s_math_BigInt$();
+      return $thiz.intToStr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__O(value, new $c_Lio_kaitai_struct_exprlang_Ast$expr$IntNum().init___s_math_BigInt(this$2.apply__I__s_math_BigInt(10)))
     } else {
       throw new $c_s_MatchError().init___O(x1$5)
     }
-  } else if ($is_Lio_kaitai_struct_datatype_DataType$ArrayType(valType)) {
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$FloatType(valType)) {
     const x1$6 = attr.name$1;
-    if ((x1$6 === "first")) {
-      return $thiz.arrayFirst__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$6 === "last")) {
-      return $thiz.arrayLast__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$6 === "size")) {
-      return $thiz.arraySize__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$6 === "min")) {
-      return $thiz.arrayMin__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-    } else if ((x1$6 === "max")) {
-      return $thiz.arrayMax__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    if ((x1$6 === "to_i")) {
+      return $thiz.floatToInt__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
     } else {
       throw new $c_s_MatchError().init___O(x1$6)
     }
+  } else if ($is_Lio_kaitai_struct_datatype_DataType$ArrayType(valType)) {
+    const x1$7 = attr.name$1;
+    if ((x1$7 === "first")) {
+      return $thiz.arrayFirst__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$7 === "last")) {
+      return $thiz.arrayLast__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$7 === "size")) {
+      return $thiz.arraySize__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$7 === "min")) {
+      return $thiz.arrayMin__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else if ((x1$7 === "max")) {
+      return $thiz.arrayMax__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
+    } else {
+      throw new $c_s_MatchError().init___O(x1$7)
+    }
   } else {
-    const x = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$();
-    if ((x === valType)) {
-      const x1$7 = attr.name$1;
-      if ((x1$7 === "size")) {
+    const x$5 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$();
+    if ((x$5 === valType)) {
+      const x1$8 = attr.name$1;
+      if ((x1$8 === "size")) {
         return $thiz.kaitaiStreamSize__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-      } else if ((x1$7 === "eof")) {
+      } else if ((x1$8 === "eof")) {
         return $thiz.kaitaiStreamEof__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
-      } else if ((x1$7 === "pos")) {
+      } else if ((x1$8 === "pos")) {
         return $thiz.kaitaiStreamPos__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
       } else {
-        throw new $c_s_MatchError().init___O(x1$7)
+        throw new $c_s_MatchError().init___O(x1$8)
       }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$EnumType(valType)) {
-      const x9 = valType;
-      const x1$8 = attr.name$1;
-      if ((x1$8 === "to_i")) {
-        return $thiz.enumToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType$EnumType__O(value, x9)
-      } else {
-        const array = ["called invalid attribute '", "' on expression of type ", ""];
-        const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-        const array$1 = [attr.name$1, valType];
-        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
-      }
-    } else if ($is_Lio_kaitai_struct_datatype_DataType$BooleanType(valType)) {
+      const x11 = valType;
       const x1$9 = attr.name$1;
       if ((x1$9 === "to_i")) {
+        return $thiz.enumToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType$EnumType__O(value, x11)
+      } else {
+        const array = ["called invalid attribute '", "' on expression of type ", ""];
+        const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+        const array$1 = [attr.name$1, valType];
+        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
+      }
+    } else if ($is_Lio_kaitai_struct_datatype_DataType$BooleanType(valType)) {
+      const x1$10 = attr.name$1;
+      if ((x1$10 === "to_i")) {
         return $thiz.boolToInt__Lio_kaitai_struct_exprlang_Ast$expr__O(value)
       } else {
         const array$2 = ["called invalid attribute '", "' on expression of type ", ""];
-        const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+        const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
         const array$3 = [attr.name$1, valType];
-        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
+        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
       }
     } else {
       throw new $c_s_MatchError().init___O(valType)
@@ -3824,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191125.110709.ce52f41b";
-    this.gitCommit$1 = "ce52f41b";
-    this.gitTime$1 = "2019-11-25T11:07:09+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191207.120639.d5f9feb9";
+    this.gitCommit$1 = "d5f9feb9";
+    this.gitTime$1 = "2019-12-07T12:06:39+00:00";
     return this
   };
 }
@@ -10299,55 +10314,60 @@ class $c_Lio_kaitai_struct_translators_TypeDetector extends $c_O {
       jsx$1 = (x$3 === valType)
     };
     if (jsx$1) {
-      throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
+      const x1$2 = attr.name$1;
+      if (($m_Lio_kaitai_struct_format_Identifier$().PARENT$1 === x1$2)) {
+        return $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$()
+      } else {
+        throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
+      }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(valType)) {
       const x8 = valType;
-      const x1$2 = x8.classSpec$2;
-      if ($is_s_Some(x1$2)) {
-        const x2 = x1$2;
+      const x1$3 = x8.classSpec$2;
+      if ($is_s_Some(x1$3)) {
+        const x2 = x1$3;
         const tt = x2.value$2;
         return this.provider$1.determineType__Lio_kaitai_struct_format_ClassSpec__T__Lio_kaitai_struct_datatype_DataType(tt, attr.name$1)
       } else {
         const x$5 = $m_s_None$();
-        if ((x$5 === x1$2)) {
+        if ((x$5 === x1$3)) {
           const array = ["expression '", "' has undecided type '", "' (while asking for attribute '", "')"];
           const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
           const array$1 = [value, x8.name$2, attr.name$1];
           throw new $c_Lio_kaitai_struct_precompile_TypeUndecidedError().init___T(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
         } else {
-          throw new $c_s_MatchError().init___O(x1$2)
+          throw new $c_s_MatchError().init___O(x1$3)
         }
       }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BytesType(valType)) {
-      const x1$3 = attr.name$1;
-      if (((x1$3 === "length") || (x1$3 === "size"))) {
+      const x1$4 = attr.name$1;
+      if (((x1$4 === "length") || (x1$4 === "size"))) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
-      } else if (((x1$3 === "first") || ((x1$3 === "last") || ((x1$3 === "min") || (x1$3 === "max"))))) {
+      } else if (((x1$4 === "first") || ((x1$4 === "last") || ((x1$4 === "min") || (x1$4 === "max"))))) {
         return new $c_Lio_kaitai_struct_datatype_DataType$Int1Type().init___Z(false)
       } else {
         throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
       }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$StrType(valType)) {
-      const x1$4 = attr.name$1;
-      if ((x1$4 === "length")) {
+      const x1$5 = attr.name$1;
+      if ((x1$5 === "length")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
-      } else if ((x1$4 === "reverse")) {
+      } else if ((x1$5 === "reverse")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcStrType$()
-      } else if ((x1$4 === "to_i")) {
+      } else if ((x1$5 === "to_i")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
       } else {
         throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
       }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$IntType(valType)) {
-      const x1$5 = attr.name$1;
-      if ((x1$5 === "to_s")) {
+      const x1$6 = attr.name$1;
+      if ((x1$6 === "to_s")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcStrType$()
       } else {
         throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
       }
     } else if ($is_Lio_kaitai_struct_datatype_DataType$FloatType(valType)) {
-      const x1$6 = attr.name$1;
-      if ((x1$6 === "to_i")) {
+      const x1$7 = attr.name$1;
+      if ((x1$7 === "to_i")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
       } else {
         throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
@@ -10369,10 +10389,10 @@ class $c_Lio_kaitai_struct_translators_TypeDetector extends $c_O {
         const inType$2 = x3.elType$2;
         inType$3 = inType$2
       };
-      const x1$8 = attr.name$1;
-      if (((x1$8 === "first") || ((x1$8 === "last") || ((x1$8 === "min") || (x1$8 === "max"))))) {
+      const x1$9 = attr.name$1;
+      if (((x1$9 === "first") || ((x1$9 === "last") || ((x1$9 === "min") || (x1$9 === "max"))))) {
         return inType$3
-      } else if ((x1$8 === "size")) {
+      } else if ((x1$9 === "size")) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
       } else {
         throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
@@ -10380,26 +10400,26 @@ class $c_Lio_kaitai_struct_translators_TypeDetector extends $c_O {
     } else {
       const x$7 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$();
       if ((x$7 === valType)) {
-        const x1$9 = attr.name$1;
-        if ((x1$9 === "size")) {
+        const x1$10 = attr.name$1;
+        if ((x1$10 === "size")) {
           return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
-        } else if ((x1$9 === "pos")) {
+        } else if ((x1$10 === "pos")) {
           return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
-        } else if ((x1$9 === "eof")) {
+        } else if ((x1$10 === "eof")) {
           return $m_Lio_kaitai_struct_datatype_DataType$CalcBooleanType$()
         } else {
           throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
         }
       } else if ($is_Lio_kaitai_struct_datatype_DataType$EnumType(valType)) {
-        const x1$10 = attr.name$1;
-        if ((x1$10 === "to_i")) {
+        const x1$11 = attr.name$1;
+        if ((x1$11 === "to_i")) {
           return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
         } else {
           throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
         }
       } else if ($is_Lio_kaitai_struct_datatype_DataType$BooleanType(valType)) {
-        const x1$11 = attr.name$1;
-        if ((x1$11 === "to_i")) {
+        const x1$12 = attr.name$1;
+        if ((x1$12 === "to_i")) {
           return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
         } else {
           throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(attr.name$1, valType)
@@ -31458,6 +31478,9 @@ class $c_Lio_kaitai_struct_translators_ExpressionValidator extends $c_Lio_kaitai
   bytesToStr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__V(value, expr) {
     this.validate__Lio_kaitai_struct_exprlang_Ast$expr__V(value);
     this.validate__Lio_kaitai_struct_exprlang_Ast$expr__V(expr)
+  };
+  kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__O(value, name) {
+    this.validate__Lio_kaitai_struct_exprlang_Ast$expr__V(value)
   };
   bytesMin__Lio_kaitai_struct_exprlang_Ast$expr__O(b) {
     this.validate__Lio_kaitai_struct_exprlang_Ast$expr__V(b)
@@ -53680,6 +53703,9 @@ class $c_Lio_kaitai_struct_translators_BaseTranslator extends $c_Lio_kaitai_stru
   booleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__T(op) {
     return $f_Lio_kaitai_struct_translators_CommonOps__booleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__T(this, op)
   };
+  kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__O(value, name) {
+    return this.anyField__Lio_kaitai_struct_exprlang_Ast$expr__T__T(value, name)
+  };
   kaitaiStreamSize__Lio_kaitai_struct_exprlang_Ast$expr__T(value) {
     return this.anyField__Lio_kaitai_struct_exprlang_Ast$expr__T__T(value, "size")
   };
@@ -54460,6 +54486,9 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
   booleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__T(op) {
     return $f_Lio_kaitai_struct_translators_CommonOps__booleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__T(this, op)
   };
+  kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__O(value, name) {
+    return this.kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__Lio_kaitai_struct_translators_TranslatorResult(value, name)
+  };
   specialName__T__T(id) {
     if ((($m_Lio_kaitai_struct_format_Identifier$().ROOT$1 === id) || (($m_Lio_kaitai_struct_format_Identifier$().PARENT$1 === id) || ($m_Lio_kaitai_struct_format_Identifier$().IO$1 === id)))) {
       return id
@@ -54554,6 +54583,17 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
     const array$1 = [this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(s), this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(from), this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(to)];
     return new $c_Lio_kaitai_struct_translators_ResultString().init___T(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
   };
+  kaitaiStructField__Lio_kaitai_struct_exprlang_Ast$expr__T__Lio_kaitai_struct_translators_TranslatorResult(value, name) {
+    const valueStr = this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(value);
+    if ((!(($m_Lio_kaitai_struct_format_Identifier$().ROOT$1 === name) || (($m_Lio_kaitai_struct_format_Identifier$().PARENT$1 === name) || ($m_Lio_kaitai_struct_format_Identifier$().IO$1 === name))))) {
+      throw new $c_s_MatchError().init___O(name)
+    };
+    const _1 = this.specialName__T__T(name);
+    const array = ["", ".", ""];
+    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [valueStr, _1];
+    return new $c_Lio_kaitai_struct_translators_ResultString().init___T(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
+  };
   strToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__O(s, base) {
     return this.strToInt__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(s, base)
   };
@@ -54596,11 +54636,11 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
     this.out$2.dec__V();
     this.out$2.puts__T__V("}")
   };
-  trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op, right) {
-    return new $c_Lio_kaitai_struct_translators_ResultString().init___T($f_Lio_kaitai_struct_translators_CommonOps__doNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__T(this, left, op, right))
-  };
   arraySize__Lio_kaitai_struct_exprlang_Ast$expr__O(a) {
     return this.arraySize__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(a)
+  };
+  trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op, right) {
+    return new $c_Lio_kaitai_struct_translators_ResultString().init___T($f_Lio_kaitai_struct_translators_CommonOps__doNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__T(this, left, op, right))
   };
   byteSizeOfValue__T__Lio_kaitai_struct_datatype_DataType__O(attrName, valType) {
     return this.byteSizeOfValue__T__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_translators_TranslatorResult(attrName, valType)
