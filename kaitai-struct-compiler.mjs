@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191207.120639.d5f9feb9 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191210.212048.5a319004 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3839,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191207.120639.d5f9feb9";
-    this.gitCommit$1 = "d5f9feb9";
-    this.gitTime$1 = "2019-12-07T12:06:39+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191210.212048.5a319004";
+    this.gitCommit$1 = "5a319004";
+    this.gitTime$1 = "2019-12-10T21:20:48+00:00";
     return this
   };
 }
@@ -8920,7 +8920,22 @@ class $c_Lio_kaitai_struct_precompile_ResolveTypes extends $c_O {
         } else {
           const x$4 = $m_s_None$();
           if ((x$4 === x1$3)) {
-            return $m_s_None$()
+            const x$6 = curClass.name$1.head__O();
+            if (((x$6 === null) ? (firstName === null) : $objectEquals(x$6, firstName))) {
+              return this.resolveEnumSpec__Lio_kaitai_struct_format_ClassSpec__sci_List__s_Option(curClass, restNames)
+            } else {
+              const resolvedTop = this.specs$1.get__O__s_Option(firstName);
+              const x$8 = $m_s_None$();
+              if ((x$8 === resolvedTop)) {
+                return $m_s_None$()
+              } else if ($is_s_Some(resolvedTop)) {
+                const x2$3 = resolvedTop;
+                const classSpec = x2$3.value$2;
+                return (restNames.isEmpty__Z() ? $m_s_None$() : this.resolveEnumSpec__Lio_kaitai_struct_format_ClassSpec__sci_List__s_Option(classSpec, restNames))
+              } else {
+                throw new $c_s_MatchError().init___O(resolvedTop)
+              }
+            }
           } else {
             throw new $c_s_MatchError().init___O(x1$3)
           }
@@ -17598,6 +17613,30 @@ const $m_sr_RichChar$ = (function() {
     $n_sr_RichChar$ = new $c_sr_RichChar$().init___()
   };
   return $n_sr_RichChar$
+});
+class $c_sr_RichLong$ extends $c_O {
+  init___() {
+    return this
+  };
+  isValidInt$extension__J__Z($$this) {
+    const value = $$this.lo$2;
+    const hi = (value >> 31);
+    return ((value === $$this.lo$2) && (hi === $$this.hi$2))
+  };
+}
+const $d_sr_RichLong$ = new $TypeData().initClass({
+  sr_RichLong$: 0
+}, false, "scala.runtime.RichLong$", {
+  sr_RichLong$: 1,
+  O: 1
+});
+$c_sr_RichLong$.prototype.$classData = $d_sr_RichLong$;
+let $n_sr_RichLong$ = (void 0);
+const $m_sr_RichLong$ = (function() {
+  if ((!$n_sr_RichLong$)) {
+    $n_sr_RichLong$ = new $c_sr_RichLong$().init___()
+  };
+  return $n_sr_RichLong$
 });
 class $c_sr_ScalaRunTime$ extends $c_O {
   init___() {
@@ -78071,6 +78110,9 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
     }
   };
+  long2str__J__T(l) {
+    return ($m_sr_RichLong$().isValidInt$extension__J__Z(l) ? $m_sjsr_RuntimeLong$().scala$scalajs$runtime$RuntimeLong$$toString__I__I__T(l.lo$2, l.hi$2) : ($m_sjsr_RuntimeLong$().scala$scalajs$runtime$RuntimeLong$$toString__I__I__T(l.lo$2, l.hi$2) + "L"))
+  };
   switchCmpExpr__Lio_kaitai_struct_exprlang_Ast$expr__T(condition) {
     const e = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Compare().init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr(this.NAME$undSWITCH$undON$2, $m_Lio_kaitai_struct_exprlang_Ast$cmpop$Eq$(), condition);
     return $f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T(this, e)
@@ -78234,7 +78276,7 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
             const jsx$4 = $this.out$2;
             const array$2 = ["", "(", "),"];
             const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-            const array$3 = [label.toUpperCase(), new $c_sjsr_RuntimeLong().init___I__I(lo, hi)];
+            const array$3 = [label.toUpperCase(), $this.long2str__J__T(new $c_sjsr_RuntimeLong().init___I__I(lo, hi))];
             jsx$4.puts__T__V(jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
           } else {
             throw new $c_s_MatchError().init___O(x0$2)
@@ -78251,7 +78293,7 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       const jsx$6 = this.out$2;
       const array$4 = ["", "(", ");"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
-      const array$5 = [label$1.toUpperCase(), new $c_sjsr_RuntimeLong().init___I__I(lo$1, hi$1)];
+      const array$5 = [label$1.toUpperCase(), this.long2str__J__T(new $c_sjsr_RuntimeLong().init___I__I(lo$1, hi$1))];
       jsx$6.puts__T__V(jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)))
     } else {
       throw new $c_s_MatchError().init___O(x1)
