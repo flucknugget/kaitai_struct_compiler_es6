@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191210.212048.5a319004 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191219.144622.4a814ed9 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3239,7 +3239,7 @@ class $c_Lio_kaitai_struct_MainJs$ extends $c_O {
   };
   compile__T__sjs_js_Object__Lio_kaitai_struct_JavaScriptImporter__Z__sjs_js_Promise(langStr, yaml, importer, debug) {
     try {
-      const config = new $c_Lio_kaitai_struct_RuntimeConfig().init___Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig__T__Lio_kaitai_struct_JavaRuntimeConfig__T__T__T__T((!debug), debug, false, new $c_Lio_kaitai_struct_CppRuntimeConfig().init___sci_List__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers($m_sci_Nil$(), false, false, $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$()), "", new $c_Lio_kaitai_struct_JavaRuntimeConfig().init___T__T__T("", "io.kaitai.struct.ByteBufferKaitaiStream", "java.nio.BufferUnderflowException"), "Kaitai", "", "", "kaitai_struct/runtime/nim/kaitai");
+      const config = new $c_Lio_kaitai_struct_RuntimeConfig().init___Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig__T__Lio_kaitai_struct_JavaRuntimeConfig__T__T__T__T((!debug), debug, false, new $c_Lio_kaitai_struct_CppRuntimeConfig().init___sci_List__Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers($m_sci_Nil$(), false, false, false, $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$()), "", new $c_Lio_kaitai_struct_JavaRuntimeConfig().init___T__T__T("", "io.kaitai.struct.ByteBufferKaitaiStream", "java.nio.BufferUnderflowException"), "Kaitai", "", "", "kaitai_struct/runtime/nim/kaitai");
       const this$5 = $m_Lio_kaitai_struct_languages_components_LanguageCompilerStatic$();
       const lang = this$5.NAME$undTO$undCLASS$1.apply__O__O(langStr);
       const jsx$2 = $m_sjs_js_JSConverters$JSRichFuture$();
@@ -3839,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191210.212048.5a319004";
-    this.gitCommit$1 = "5a319004";
-    this.gitTime$1 = "2019-12-10T21:20:48+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191219.144622.4a814ed9";
+    this.gitCommit$1 = "4a814ed9";
+    this.gitTime$1 = "2019-12-19T14:46:22+00:00";
     return this
   };
 }
@@ -7135,6 +7135,20 @@ class $c_Lio_kaitai_struct_format_ParseUtils$ extends $c_O {
   asMapStr__O__sci_List__sci_Map(src, path) {
     return this.anyMapToStrMap__sci_Map__sci_List__sci_Map(this.asMap__O__sci_List__sci_Map(src, path), path)
   };
+  asExpression__O__sci_List__Lio_kaitai_struct_exprlang_Ast$expr(src, path) {
+    try {
+      const this$1 = $m_Lio_kaitai_struct_exprlang_Expressions$();
+      const src$1 = this.asStr__O__sci_List__T(src, path);
+      return this$1.realParse__p1__T__Lfastparse_core_Parser__O(src$1, this$1.topExpr$1)
+    } catch (e) {
+      if ($is_Lio_kaitai_struct_exprlang_Expressions$ParseException(e)) {
+        const epe = e;
+        throw $m_Lio_kaitai_struct_format_YAMLParseException$().expression__Lio_kaitai_struct_exprlang_Expressions$ParseException__sci_List__Lio_kaitai_struct_format_YAMLParseException(epe, path)
+      } else {
+        throw e
+      }
+    }
+  };
   getOptValueStr__sci_Map__T__sci_List__s_Option(src, field, path) {
     const x1 = src.get__O__s_Option(field);
     const x = $m_s_None$();
@@ -7595,7 +7609,13 @@ const $m_Lio_kaitai_struct_format_RepeatSpec$ = (function() {
   return $n_Lio_kaitai_struct_format_RepeatSpec$
 });
 class $c_Lio_kaitai_struct_format_ValidationSpec$ extends $c_O {
+  constructor() {
+    super();
+    this.LEGAL$undKEYS$1 = null
+  };
   init___() {
+    $n_Lio_kaitai_struct_format_ValidationSpec$ = this;
+    this.LEGAL$undKEYS$1 = $m_Lio_kaitai_struct_format_ValidationEq$().LEGAL$undKEYS$1.$$plus$plus__sc_GenTraversableOnce__sc_Set($m_Lio_kaitai_struct_format_ValidationRange$().LEGAL$undKEYS$1).$$plus$plus__sc_GenTraversableOnce__sc_Set($m_Lio_kaitai_struct_format_ValidationAnyOf$().LEGAL$undKEYS$1).$$plus$plus__sc_GenTraversableOnce__sc_Set($m_Lio_kaitai_struct_format_ValidationExpr$().LEGAL$undKEYS$1);
     return this
   };
   fromYaml__O__sci_List__Lio_kaitai_struct_format_ValidationSpec(src, path) {
@@ -7613,6 +7633,9 @@ class $c_Lio_kaitai_struct_format_ValidationSpec$ extends $c_O {
       const lo = t.lo$2;
       const hi = t.hi$2;
       return this.fromString__T__sci_List__Lio_kaitai_struct_format_ValidationSpec($m_sjsr_RuntimeLong$().scala$scalajs$runtime$RuntimeLong$$toString__I__I__T(lo, hi), path)
+    } else if ($is_sci_Map(src)) {
+      const x6 = src;
+      return this.fromMap__sci_Map__sci_List__Lio_kaitai_struct_format_ValidationSpec($m_Lio_kaitai_struct_format_ParseUtils$().anyMapToStrMap__sci_Map__sci_List__sci_Map(x6, path), path)
     } else {
       throw $m_Lio_kaitai_struct_format_YAMLParseException$().badType__T__O__sci_List__Lio_kaitai_struct_format_YAMLParseException("string or map", src, path)
     }
@@ -7620,6 +7643,26 @@ class $c_Lio_kaitai_struct_format_ValidationSpec$ extends $c_O {
   fromString__T__sci_List__Lio_kaitai_struct_format_ValidationSpec(value, path) {
     const this$1 = $m_Lio_kaitai_struct_exprlang_Expressions$();
     return new $c_Lio_kaitai_struct_format_ValidationEq().init___Lio_kaitai_struct_exprlang_Ast$expr(this$1.realParse__p1__T__Lfastparse_core_Parser__O(value, this$1.topExpr$1))
+  };
+  fromMap__sci_Map__sci_List__Lio_kaitai_struct_format_ValidationSpec(src, path) {
+    const opt1 = $m_Lio_kaitai_struct_format_ValidationEq$().fromMap__sci_Map__sci_List__s_Option(src, path);
+    if (opt1.isDefined__Z()) {
+      return opt1.get__O()
+    };
+    const opt2 = $m_Lio_kaitai_struct_format_ValidationRange$().fromMap__sci_Map__sci_List__s_Option(src, path);
+    if (opt2.isDefined__Z()) {
+      return opt2.get__O()
+    };
+    const opt3 = $m_Lio_kaitai_struct_format_ValidationAnyOf$().fromMap__sci_Map__sci_List__s_Option(src, path);
+    if (opt3.isDefined__Z()) {
+      return opt3.get__O()
+    };
+    const opt4 = $m_Lio_kaitai_struct_format_ValidationExpr$().fromMap__sci_Map__sci_List__s_Option(src, path);
+    if (opt4.isDefined__Z()) {
+      return opt4.get__O()
+    };
+    $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, this.LEGAL$undKEYS$1, path, $m_s_None$());
+    throw $m_Lio_kaitai_struct_format_YAMLParseException$().noKeys__sci_List__sci_Set__Lio_kaitai_struct_format_YAMLParseException(path, this.LEGAL$undKEYS$1)
   };
 }
 const $d_Lio_kaitai_struct_format_ValidationSpec$ = new $TypeData().initClass({
@@ -7951,29 +7994,56 @@ const $f_Lio_kaitai_struct_languages_components_SwitchIfOps__switchCases__Lio_ka
     $thiz.switchCasesRender__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_exprlang_Ast$expr__sci_Map__F1__F1__V(id, on, cases, normalCaseProc, elseCaseProc)
   }
 });
+const $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V = (function($thiz, attrId, attr, op, expected, err) {
+  const jsx$5 = $f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr);
+  const jsx$4 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Compare().init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr(new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(attrId.humanReadable__T())), op, expected);
+  const jsx$3 = $thiz.ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err);
+  $m_sci_List$();
+  const jsx$2 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(attrId.humanReadable__T()));
+  const this$1 = $m_Lio_kaitai_struct_format_IoIdentifier$();
+  const jsx$1 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(this$1.name$2));
+  const this$2 = attr.path__sci_List();
+  const array = [expected, jsx$2, jsx$1, new $c_Lio_kaitai_struct_exprlang_Ast$expr$Str().init___T($f_sc_TraversableOnce__mkString__T__T__T__T(this$2, "/", "/", ""))];
+  let i = (((-1) + (array.length | 0)) | 0);
+  let result = $m_sci_Nil$();
+  while ((i >= 0)) {
+    const this$6 = result;
+    const index = i;
+    const x = array[index];
+    result = new $c_sci_$colon$colon().init___O__sci_List(x, this$6);
+    i = (((-1) + i) | 0)
+  };
+  $thiz.attrValidateExpr__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_exprlang_Ast$expr__T__sci_List__V(attrId, jsx$5, jsx$4, jsx$3, result)
+});
 const $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidate__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_format_ValidationSpec__V = (function($thiz, attrId, attr, valid) {
   if ($is_Lio_kaitai_struct_format_ValidationEq(valid)) {
     const x2 = valid;
     const expected = x2.value$1;
-    const jsx$5 = $f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr);
-    const jsx$4 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Compare().init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr(new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(attrId.humanReadable__T())), $m_Lio_kaitai_struct_exprlang_Ast$cmpop$Eq$(), expected);
-    const jsx$3 = $thiz.ksErrorName__Lio_kaitai_struct_datatype_KSError__T(new $c_Lio_kaitai_struct_datatype_ValidationNotEqualError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr)));
-    $m_sci_List$();
-    const jsx$2 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(attrId.humanReadable__T()));
-    const this$1 = $m_Lio_kaitai_struct_format_IoIdentifier$();
-    const jsx$1 = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Name().init___Lio_kaitai_struct_exprlang_Ast$identifier(new $c_Lio_kaitai_struct_exprlang_Ast$identifier().init___T(this$1.name$2));
-    const this$2 = attr.path__sci_List();
-    const array = [expected, jsx$2, jsx$1, new $c_Lio_kaitai_struct_exprlang_Ast$expr$Str().init___T($f_sc_TraversableOnce__mkString__T__T__T__T(this$2, "/", "/", ""))];
-    let i = (((-1) + (array.length | 0)) | 0);
-    let result = $m_sci_Nil$();
-    while ((i >= 0)) {
-      const this$6 = result;
-      const index = i;
-      const x = array[index];
-      result = new $c_sci_$colon$colon().init___O__sci_List(x, this$6);
-      i = (((-1) + i) | 0)
-    };
-    $thiz.attrValidateExpr__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_exprlang_Ast$expr__T__sci_List__V(attrId, jsx$5, jsx$4, jsx$3, result)
+    const op = $m_Lio_kaitai_struct_exprlang_Ast$cmpop$Eq$();
+    const err = new $c_Lio_kaitai_struct_datatype_ValidationNotEqualError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr));
+    $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V($thiz, attrId, attr, op, expected, err)
+  } else if ($is_Lio_kaitai_struct_format_ValidationMin(valid)) {
+    const x3 = valid;
+    const min = x3.min$1;
+    const op$1 = $m_Lio_kaitai_struct_exprlang_Ast$cmpop$GtE$();
+    const err$1 = new $c_Lio_kaitai_struct_datatype_ValidationLessThanError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr));
+    $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V($thiz, attrId, attr, op$1, min, err$1)
+  } else if ($is_Lio_kaitai_struct_format_ValidationMax(valid)) {
+    const x4 = valid;
+    const max = x4.max$1;
+    const op$2 = $m_Lio_kaitai_struct_exprlang_Ast$cmpop$LtE$();
+    const err$2 = new $c_Lio_kaitai_struct_datatype_ValidationGreaterThanError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr));
+    $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V($thiz, attrId, attr, op$2, max, err$2)
+  } else if ($is_Lio_kaitai_struct_format_ValidationRange(valid)) {
+    const x5 = valid;
+    const min$2 = x5.min$1;
+    const max$2 = x5.max$1;
+    const op$3 = $m_Lio_kaitai_struct_exprlang_Ast$cmpop$GtE$();
+    const err$3 = new $c_Lio_kaitai_struct_datatype_ValidationLessThanError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr));
+    $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V($thiz, attrId, attr, op$3, min$2, err$3);
+    const op$4 = $m_Lio_kaitai_struct_exprlang_Ast$cmpop$LtE$();
+    const err$4 = new $c_Lio_kaitai_struct_datatype_ValidationGreaterThanError().init___Lio_kaitai_struct_datatype_DataType($f_Lio_kaitai_struct_format_AttrLikeSpec__dataTypeComposite__Lio_kaitai_struct_datatype_DataType(attr));
+    $f_Lio_kaitai_struct_languages_components_ValidateOps__attrValidateExprCompare__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_format_AttrLikeSpec__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_KSError__V($thiz, attrId, attr, op$4, max$2, err$4)
   } else {
     throw new $c_s_MatchError().init___O(valid)
   }
@@ -26442,6 +26512,265 @@ const $m_Lio_kaitai_struct_format_ParamDefSpec$ = (function() {
   };
   return $n_Lio_kaitai_struct_format_ParamDefSpec$
 });
+class $c_Lio_kaitai_struct_format_ValidationAnyOf$ extends $c_O {
+  constructor() {
+    super();
+    this.LEGAL$undKEYS$1 = null
+  };
+  init___() {
+    $n_Lio_kaitai_struct_format_ValidationAnyOf$ = this;
+    const array = ["any-of"];
+    let jsx$1;
+    if (((array.length | 0) === 0)) {
+      jsx$1 = $m_sci_Set$EmptySet$()
+    } else {
+      const b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+      let i = 0;
+      const len = (array.length | 0);
+      while ((i < len)) {
+        const index = i;
+        const arg1 = array[index];
+        b.$$plus$eq__O__scm_SetBuilder(arg1);
+        i = ((1 + i) | 0)
+      };
+      jsx$1 = b.elems$1
+    };
+    this.LEGAL$undKEYS$1 = jsx$1;
+    return this
+  };
+  fromMap__sci_Map__sci_List__s_Option(src, path) {
+    const this$1 = src.get__O__s_Option("any-of");
+    if (this$1.isDefined__Z()) {
+      $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, this.LEGAL$undKEYS$1, path, $m_s_None$());
+      return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationAnyOf().init___sci_List($m_Lio_kaitai_struct_format_ParseUtils$().getList__sci_Map__T__F2__sci_List__sci_List(src, "any-of", new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($this) {
+        return (function(src$2$2, path$2$2) {
+          const path$2 = path$2$2;
+          return $m_Lio_kaitai_struct_format_ParseUtils$().asExpression__O__sci_List__Lio_kaitai_struct_exprlang_Ast$expr(src$2$2, path$2)
+        })
+      })(this)), path)))
+    } else {
+      return $m_s_None$()
+    }
+  };
+}
+const $d_Lio_kaitai_struct_format_ValidationAnyOf$ = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationAnyOf$: 0
+}, false, "io.kaitai.struct.format.ValidationAnyOf$", {
+  Lio_kaitai_struct_format_ValidationAnyOf$: 1,
+  O: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationAnyOf$.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationAnyOf$;
+let $n_Lio_kaitai_struct_format_ValidationAnyOf$ = (void 0);
+const $m_Lio_kaitai_struct_format_ValidationAnyOf$ = (function() {
+  if ((!$n_Lio_kaitai_struct_format_ValidationAnyOf$)) {
+    $n_Lio_kaitai_struct_format_ValidationAnyOf$ = new $c_Lio_kaitai_struct_format_ValidationAnyOf$().init___()
+  };
+  return $n_Lio_kaitai_struct_format_ValidationAnyOf$
+});
+class $c_Lio_kaitai_struct_format_ValidationEq$ extends $c_O {
+  constructor() {
+    super();
+    this.LEGAL$undKEYS$1 = null
+  };
+  init___() {
+    $n_Lio_kaitai_struct_format_ValidationEq$ = this;
+    const array = ["eq"];
+    let jsx$1;
+    if (((array.length | 0) === 0)) {
+      jsx$1 = $m_sci_Set$EmptySet$()
+    } else {
+      const b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+      let i = 0;
+      const len = (array.length | 0);
+      while ((i < len)) {
+        const index = i;
+        const arg1 = array[index];
+        b.$$plus$eq__O__scm_SetBuilder(arg1);
+        i = ((1 + i) | 0)
+      };
+      jsx$1 = b.elems$1
+    };
+    this.LEGAL$undKEYS$1 = jsx$1;
+    return this
+  };
+  fromMap__sci_Map__sci_List__s_Option(src, path) {
+    const this$1 = $m_Lio_kaitai_struct_format_ParseUtils$().getOptValueExpression__sci_Map__T__sci_List__s_Option(src, "eq", path);
+    if (this$1.isEmpty__Z()) {
+      return $m_s_None$()
+    } else {
+      const arg1 = this$1.get__O();
+      const x0$1 = arg1;
+      $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, $m_Lio_kaitai_struct_format_ValidationEq$().LEGAL$undKEYS$1, path, $m_s_None$());
+      return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationEq().init___Lio_kaitai_struct_exprlang_Ast$expr(x0$1))
+    }
+  };
+}
+const $d_Lio_kaitai_struct_format_ValidationEq$ = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationEq$: 0
+}, false, "io.kaitai.struct.format.ValidationEq$", {
+  Lio_kaitai_struct_format_ValidationEq$: 1,
+  O: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationEq$.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationEq$;
+let $n_Lio_kaitai_struct_format_ValidationEq$ = (void 0);
+const $m_Lio_kaitai_struct_format_ValidationEq$ = (function() {
+  if ((!$n_Lio_kaitai_struct_format_ValidationEq$)) {
+    $n_Lio_kaitai_struct_format_ValidationEq$ = new $c_Lio_kaitai_struct_format_ValidationEq$().init___()
+  };
+  return $n_Lio_kaitai_struct_format_ValidationEq$
+});
+class $c_Lio_kaitai_struct_format_ValidationExpr$ extends $c_O {
+  constructor() {
+    super();
+    this.LEGAL$undKEYS$1 = null
+  };
+  init___() {
+    $n_Lio_kaitai_struct_format_ValidationExpr$ = this;
+    const array = ["expr"];
+    let jsx$1;
+    if (((array.length | 0) === 0)) {
+      jsx$1 = $m_sci_Set$EmptySet$()
+    } else {
+      const b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+      let i = 0;
+      const len = (array.length | 0);
+      while ((i < len)) {
+        const index = i;
+        const arg1 = array[index];
+        b.$$plus$eq__O__scm_SetBuilder(arg1);
+        i = ((1 + i) | 0)
+      };
+      jsx$1 = b.elems$1
+    };
+    this.LEGAL$undKEYS$1 = jsx$1;
+    return this
+  };
+  fromMap__sci_Map__sci_List__s_Option(src, path) {
+    const this$1 = $m_Lio_kaitai_struct_format_ParseUtils$().getOptValueExpression__sci_Map__T__sci_List__s_Option(src, "expr", path);
+    if (this$1.isEmpty__Z()) {
+      return $m_s_None$()
+    } else {
+      const arg1 = this$1.get__O();
+      const x0$2 = arg1;
+      $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, $m_Lio_kaitai_struct_format_ValidationExpr$().LEGAL$undKEYS$1, path, $m_s_None$());
+      return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationExpr().init___Lio_kaitai_struct_exprlang_Ast$expr(x0$2))
+    }
+  };
+}
+const $d_Lio_kaitai_struct_format_ValidationExpr$ = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationExpr$: 0
+}, false, "io.kaitai.struct.format.ValidationExpr$", {
+  Lio_kaitai_struct_format_ValidationExpr$: 1,
+  O: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationExpr$.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationExpr$;
+let $n_Lio_kaitai_struct_format_ValidationExpr$ = (void 0);
+const $m_Lio_kaitai_struct_format_ValidationExpr$ = (function() {
+  if ((!$n_Lio_kaitai_struct_format_ValidationExpr$)) {
+    $n_Lio_kaitai_struct_format_ValidationExpr$ = new $c_Lio_kaitai_struct_format_ValidationExpr$().init___()
+  };
+  return $n_Lio_kaitai_struct_format_ValidationExpr$
+});
+class $c_Lio_kaitai_struct_format_ValidationRange$ extends $c_O {
+  constructor() {
+    super();
+    this.LEGAL$undKEYS$1 = null
+  };
+  init___() {
+    $n_Lio_kaitai_struct_format_ValidationRange$ = this;
+    const array = ["min", "max"];
+    let jsx$1;
+    if (((array.length | 0) === 0)) {
+      jsx$1 = $m_sci_Set$EmptySet$()
+    } else {
+      const b = new $c_scm_SetBuilder().init___sc_Set($m_sci_Set$EmptySet$());
+      let i = 0;
+      const len = (array.length | 0);
+      while ((i < len)) {
+        const index = i;
+        const arg1 = array[index];
+        b.$$plus$eq__O__scm_SetBuilder(arg1);
+        i = ((1 + i) | 0)
+      };
+      jsx$1 = b.elems$1
+    };
+    this.LEGAL$undKEYS$1 = jsx$1;
+    return this
+  };
+  fromMap__sci_Map__sci_List__s_Option(src, path) {
+    const minExprOpt = $m_Lio_kaitai_struct_format_ParseUtils$().getOptValueExpression__sci_Map__T__sci_List__s_Option(src, "min", path);
+    const maxExprOpt = $m_Lio_kaitai_struct_format_ParseUtils$().getOptValueExpression__sci_Map__T__sci_List__s_Option(src, "max", path);
+    const x1 = new $c_T2().init___O__O(minExprOpt, maxExprOpt);
+    const p2 = x1.$$und1$f;
+    const p3 = x1.$$und2$f;
+    const x = $m_s_None$();
+    let jsx$1;
+    if ((x === p2)) {
+      const x$3 = $m_s_None$();
+      jsx$1 = (x$3 === p3)
+    } else {
+      jsx$1 = false
+    };
+    if (jsx$1) {
+      return $m_s_None$()
+    };
+    const p4 = x1.$$und1$f;
+    const p5 = x1.$$und2$f;
+    if ($is_s_Some(p4)) {
+      const x6 = p4;
+      const minExpr = x6.value$2;
+      const x$5 = $m_s_None$();
+      if ((x$5 === p5)) {
+        $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, this.LEGAL$undKEYS$1, path, $m_s_None$());
+        return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationMin().init___Lio_kaitai_struct_exprlang_Ast$expr(minExpr))
+      }
+    };
+    const p7 = x1.$$und1$f;
+    const p8 = x1.$$und2$f;
+    const x$7 = $m_s_None$();
+    if (((x$7 === p7) && $is_s_Some(p8))) {
+      const x9 = p8;
+      const maxExpr = x9.value$2;
+      $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, this.LEGAL$undKEYS$1, path, $m_s_None$());
+      return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationMax().init___Lio_kaitai_struct_exprlang_Ast$expr(maxExpr))
+    };
+    const p10 = x1.$$und1$f;
+    const p11 = x1.$$und2$f;
+    if ($is_s_Some(p10)) {
+      const x12 = p10;
+      const minExpr$2 = x12.value$2;
+      if ($is_s_Some(p11)) {
+        const x13 = p11;
+        const maxExpr$2 = x13.value$2;
+        $m_Lio_kaitai_struct_format_ParseUtils$().ensureLegalKeys__sci_Map__sci_Set__sci_List__s_Option__V(src, this.LEGAL$undKEYS$1, path, $m_s_None$());
+        return new $c_s_Some().init___O(new $c_Lio_kaitai_struct_format_ValidationRange().init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr(minExpr$2, maxExpr$2))
+      }
+    };
+    throw new $c_s_MatchError().init___O(x1)
+  };
+}
+const $d_Lio_kaitai_struct_format_ValidationRange$ = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationRange$: 0
+}, false, "io.kaitai.struct.format.ValidationRange$", {
+  Lio_kaitai_struct_format_ValidationRange$: 1,
+  O: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationRange$.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationRange$;
+let $n_Lio_kaitai_struct_format_ValidationRange$ = (void 0);
+const $m_Lio_kaitai_struct_format_ValidationRange$ = (function() {
+  if ((!$n_Lio_kaitai_struct_format_ValidationRange$)) {
+    $n_Lio_kaitai_struct_format_ValidationRange$ = new $c_Lio_kaitai_struct_format_ValidationRange$().init___()
+  };
+  return $n_Lio_kaitai_struct_format_ValidationRange$
+});
 class $c_Lio_kaitai_struct_format_YAMLParseException$ extends $c_O {
   badProcess__T__sci_List__Lio_kaitai_struct_format_YAMLParseException(got, path) {
     const array = ["incorrect process expression `", "`"];
@@ -26451,6 +26780,16 @@ class $c_Lio_kaitai_struct_format_YAMLParseException$ extends $c_O {
   };
   init___() {
     return this
+  };
+  noKeys__sci_List__sci_Set__Lio_kaitai_struct_format_YAMLParseException(path, expectedKeys) {
+    const array = ["expected any of ", ", found none"];
+    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const this$3 = $m_sci_List$();
+    const cbf = this$3.ReusableCBFInstance$2;
+    const this$4 = $f_sc_TraversableLike__to__scg_CanBuildFrom__O(expectedKeys, cbf);
+    const ord = $m_s_math_Ordering$String$();
+    const array$1 = [$f_sc_SeqLike__sorted__s_math_Ordering__O(this$4, ord).mkString__T__T(", ")];
+    return new $c_Lio_kaitai_struct_format_YAMLParseException().init___T__sci_List(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)), path)
   };
   invalidId__T__T__sci_List__Lio_kaitai_struct_format_YAMLParseException(id, entity, path) {
     const array = ["invalid ", " ID: '", "', expected /", "/"];
@@ -36032,20 +36371,22 @@ class $c_Lio_kaitai_struct_CppRuntimeConfig extends $c_O {
     this.namespace$1 = null;
     this.usePragmaOnce$1 = false;
     this.stdStringFrontBack$1 = false;
+    this.useListInitializers$1 = false;
     this.pointers$1 = null
   };
   productPrefix__T() {
     return "CppRuntimeConfig"
   };
-  init___sci_List__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers(namespace, usePragmaOnce, stdStringFrontBack, pointers) {
+  productArity__I() {
+    return 5
+  };
+  init___sci_List__Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers(namespace, usePragmaOnce, stdStringFrontBack, useListInitializers, pointers) {
     this.namespace$1 = namespace;
     this.usePragmaOnce$1 = usePragmaOnce;
     this.stdStringFrontBack$1 = stdStringFrontBack;
+    this.useListInitializers$1 = useListInitializers;
     this.pointers$1 = pointers;
     return this
-  };
-  productArity__I() {
-    return 4
   };
   equals__O__Z(x$1) {
     if ((this === x$1)) {
@@ -36054,7 +36395,7 @@ class $c_Lio_kaitai_struct_CppRuntimeConfig extends $c_O {
       const CppRuntimeConfig$1 = x$1;
       const x = this.namespace$1;
       const x$2 = CppRuntimeConfig$1.namespace$1;
-      if (((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.usePragmaOnce$1 === CppRuntimeConfig$1.usePragmaOnce$1)) && (this.stdStringFrontBack$1 === CppRuntimeConfig$1.stdStringFrontBack$1))) {
+      if ((((((x === null) ? (x$2 === null) : x.equals__O__Z(x$2)) && (this.usePragmaOnce$1 === CppRuntimeConfig$1.usePragmaOnce$1)) && (this.stdStringFrontBack$1 === CppRuntimeConfig$1.stdStringFrontBack$1)) && (this.useListInitializers$1 === CppRuntimeConfig$1.useListInitializers$1))) {
         const x$3 = this.pointers$1;
         const x$4 = CppRuntimeConfig$1.pointers$1;
         return (x$3 === x$4)
@@ -36080,6 +36421,10 @@ class $c_Lio_kaitai_struct_CppRuntimeConfig extends $c_O {
         break
       }
       case 3: {
+        return this.useListInitializers$1;
+        break
+      }
+      case 4: {
         return this.pointers$1;
         break
       }
@@ -36096,8 +36441,9 @@ class $c_Lio_kaitai_struct_CppRuntimeConfig extends $c_O {
     acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.namespace$1));
     acc = $m_sr_Statics$().mix__I__I__I(acc, (this.usePragmaOnce$1 ? 1231 : 1237));
     acc = $m_sr_Statics$().mix__I__I__I(acc, (this.stdStringFrontBack$1 ? 1231 : 1237));
+    acc = $m_sr_Statics$().mix__I__I__I(acc, (this.useListInitializers$1 ? 1231 : 1237));
     acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.pointers$1));
-    return $m_sr_Statics$().finalizeHash__I__I__I(acc, 4)
+    return $m_sr_Statics$().finalizeHash__I__I__I(acc, 5)
   };
   productIterator__sc_Iterator() {
     return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
@@ -41542,6 +41888,146 @@ const $m_Lio_kaitai_struct_datatype_UndecidedEndiannessError$ = (function() {
   };
   return $n_Lio_kaitai_struct_datatype_UndecidedEndiannessError$
 });
+class $c_Lio_kaitai_struct_datatype_ValidationGreaterThanError extends $c_O {
+  constructor() {
+    super();
+    this.dt$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationGreaterThanError"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_datatype_ValidationGreaterThanError(x$1)) {
+      const ValidationGreaterThanError$1 = x$1;
+      const x = this.dt$1;
+      const x$2 = ValidationGreaterThanError$1.dt$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.dt$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  name__T() {
+    return "ValidationGreaterThanError"
+  };
+  init___Lio_kaitai_struct_datatype_DataType(dt) {
+    this.dt$1 = dt;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_datatype_ValidationGreaterThanError = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_datatype_ValidationGreaterThanError)))
+});
+const $isArrayOf_Lio_kaitai_struct_datatype_ValidationGreaterThanError = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_datatype_ValidationGreaterThanError)))
+});
+const $d_Lio_kaitai_struct_datatype_ValidationGreaterThanError = new $TypeData().initClass({
+  Lio_kaitai_struct_datatype_ValidationGreaterThanError: 0
+}, false, "io.kaitai.struct.datatype.ValidationGreaterThanError", {
+  Lio_kaitai_struct_datatype_ValidationGreaterThanError: 1,
+  O: 1,
+  Lio_kaitai_struct_datatype_KSError: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_datatype_ValidationGreaterThanError.prototype.$classData = $d_Lio_kaitai_struct_datatype_ValidationGreaterThanError;
+class $c_Lio_kaitai_struct_datatype_ValidationLessThanError extends $c_O {
+  constructor() {
+    super();
+    this.dt$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationLessThanError"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_datatype_ValidationLessThanError(x$1)) {
+      const ValidationLessThanError$1 = x$1;
+      const x = this.dt$1;
+      const x$2 = ValidationLessThanError$1.dt$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.dt$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  name__T() {
+    return "ValidationLessThanError"
+  };
+  init___Lio_kaitai_struct_datatype_DataType(dt) {
+    this.dt$1 = dt;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_datatype_ValidationLessThanError = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_datatype_ValidationLessThanError)))
+});
+const $isArrayOf_Lio_kaitai_struct_datatype_ValidationLessThanError = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_datatype_ValidationLessThanError)))
+});
+const $d_Lio_kaitai_struct_datatype_ValidationLessThanError = new $TypeData().initClass({
+  Lio_kaitai_struct_datatype_ValidationLessThanError: 0
+}, false, "io.kaitai.struct.datatype.ValidationLessThanError", {
+  Lio_kaitai_struct_datatype_ValidationLessThanError: 1,
+  O: 1,
+  Lio_kaitai_struct_datatype_KSError: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_datatype_ValidationLessThanError.prototype.$classData = $d_Lio_kaitai_struct_datatype_ValidationLessThanError;
 class $c_Lio_kaitai_struct_datatype_ValidationNotEqualError extends $c_O {
   constructor() {
     super();
@@ -45538,6 +46024,73 @@ const $d_Lio_kaitai_struct_format_UrlRef = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lio_kaitai_struct_format_UrlRef.prototype.$classData = $d_Lio_kaitai_struct_format_UrlRef;
+class $c_Lio_kaitai_struct_format_ValidationAnyOf extends $c_O {
+  constructor() {
+    super();
+    this.values$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationAnyOf"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_format_ValidationAnyOf(x$1)) {
+      const ValidationAnyOf$1 = x$1;
+      const x = this.values$1;
+      const x$2 = ValidationAnyOf$1.values$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.values$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  init___sci_List(values) {
+    this.values$1 = values;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_format_ValidationAnyOf = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_format_ValidationAnyOf)))
+});
+const $isArrayOf_Lio_kaitai_struct_format_ValidationAnyOf = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_format_ValidationAnyOf)))
+});
+const $d_Lio_kaitai_struct_format_ValidationAnyOf = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationAnyOf: 0
+}, false, "io.kaitai.struct.format.ValidationAnyOf", {
+  Lio_kaitai_struct_format_ValidationAnyOf: 1,
+  O: 1,
+  Lio_kaitai_struct_format_ValidationSpec: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationAnyOf.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationAnyOf;
 class $c_Lio_kaitai_struct_format_ValidationEq extends $c_O {
   constructor() {
     super();
@@ -45605,6 +46158,286 @@ const $d_Lio_kaitai_struct_format_ValidationEq = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_Lio_kaitai_struct_format_ValidationEq.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationEq;
+class $c_Lio_kaitai_struct_format_ValidationExpr extends $c_O {
+  constructor() {
+    super();
+    this.checkExpr$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationExpr"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_format_ValidationExpr(x$1)) {
+      const ValidationExpr$1 = x$1;
+      const x = this.checkExpr$1;
+      const x$2 = ValidationExpr$1.checkExpr$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.checkExpr$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  init___Lio_kaitai_struct_exprlang_Ast$expr(checkExpr) {
+    this.checkExpr$1 = checkExpr;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_format_ValidationExpr = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_format_ValidationExpr)))
+});
+const $isArrayOf_Lio_kaitai_struct_format_ValidationExpr = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_format_ValidationExpr)))
+});
+const $d_Lio_kaitai_struct_format_ValidationExpr = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationExpr: 0
+}, false, "io.kaitai.struct.format.ValidationExpr", {
+  Lio_kaitai_struct_format_ValidationExpr: 1,
+  O: 1,
+  Lio_kaitai_struct_format_ValidationSpec: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationExpr.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationExpr;
+class $c_Lio_kaitai_struct_format_ValidationMax extends $c_O {
+  constructor() {
+    super();
+    this.max$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationMax"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_format_ValidationMax(x$1)) {
+      const ValidationMax$1 = x$1;
+      const x = this.max$1;
+      const x$2 = ValidationMax$1.max$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.max$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  init___Lio_kaitai_struct_exprlang_Ast$expr(max) {
+    this.max$1 = max;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_format_ValidationMax = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_format_ValidationMax)))
+});
+const $isArrayOf_Lio_kaitai_struct_format_ValidationMax = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_format_ValidationMax)))
+});
+const $d_Lio_kaitai_struct_format_ValidationMax = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationMax: 0
+}, false, "io.kaitai.struct.format.ValidationMax", {
+  Lio_kaitai_struct_format_ValidationMax: 1,
+  O: 1,
+  Lio_kaitai_struct_format_ValidationSpec: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationMax.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationMax;
+class $c_Lio_kaitai_struct_format_ValidationMin extends $c_O {
+  constructor() {
+    super();
+    this.min$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationMin"
+  };
+  productArity__I() {
+    return 1
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_format_ValidationMin(x$1)) {
+      const ValidationMin$1 = x$1;
+      const x = this.min$1;
+      const x$2 = ValidationMin$1.min$1;
+      return ((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.min$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  init___Lio_kaitai_struct_exprlang_Ast$expr(min) {
+    this.min$1 = min;
+    return this
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $is_Lio_kaitai_struct_format_ValidationMin = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_format_ValidationMin)))
+});
+const $isArrayOf_Lio_kaitai_struct_format_ValidationMin = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_format_ValidationMin)))
+});
+const $d_Lio_kaitai_struct_format_ValidationMin = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationMin: 0
+}, false, "io.kaitai.struct.format.ValidationMin", {
+  Lio_kaitai_struct_format_ValidationMin: 1,
+  O: 1,
+  Lio_kaitai_struct_format_ValidationSpec: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationMin.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationMin;
+class $c_Lio_kaitai_struct_format_ValidationRange extends $c_O {
+  constructor() {
+    super();
+    this.min$1 = null;
+    this.max$1 = null
+  };
+  productPrefix__T() {
+    return "ValidationRange"
+  };
+  productArity__I() {
+    return 2
+  };
+  equals__O__Z(x$1) {
+    if ((this === x$1)) {
+      return true
+    } else if ($is_Lio_kaitai_struct_format_ValidationRange(x$1)) {
+      const ValidationRange$1 = x$1;
+      const x = this.min$1;
+      const x$2 = ValidationRange$1.min$1;
+      if (((x === null) ? (x$2 === null) : x.equals__O__Z(x$2))) {
+        const x$3 = this.max$1;
+        const x$4 = ValidationRange$1.max$1;
+        return ((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4))
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  };
+  productElement__I__O(x$1) {
+    switch (x$1) {
+      case 0: {
+        return this.min$1;
+        break
+      }
+      case 1: {
+        return this.max$1;
+        break
+      }
+      default: {
+        throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+      }
+    }
+  };
+  toString__T() {
+    return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
+  };
+  hashCode__I() {
+    const this$2 = $m_s_util_hashing_MurmurHash3$();
+    return this$2.productHash__s_Product__I__I(this, (-889275714))
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+  init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr(min, max) {
+    this.min$1 = min;
+    this.max$1 = max;
+    return this
+  };
+}
+const $is_Lio_kaitai_struct_format_ValidationRange = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lio_kaitai_struct_format_ValidationRange)))
+});
+const $isArrayOf_Lio_kaitai_struct_format_ValidationRange = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lio_kaitai_struct_format_ValidationRange)))
+});
+const $d_Lio_kaitai_struct_format_ValidationRange = new $TypeData().initClass({
+  Lio_kaitai_struct_format_ValidationRange: 0
+}, false, "io.kaitai.struct.format.ValidationRange", {
+  Lio_kaitai_struct_format_ValidationRange: 1,
+  O: 1,
+  Lio_kaitai_struct_format_ValidationSpec: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_format_ValidationRange.prototype.$classData = $d_Lio_kaitai_struct_format_ValidationRange;
 class $c_Lio_kaitai_struct_languages_CppCompiler$PrivateAccess$ extends $c_O {
   productPrefix__T() {
     return "PrivateAccess"
