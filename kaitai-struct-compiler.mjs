@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20191229.122634.4df03c4f */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20191231.111928.4d37e53b */
 
 'use strict';
 /* Scala.js runtime support
@@ -3839,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20191229.122634.4df03c4f";
-    this.gitCommit$1 = "4df03c4f";
-    this.gitTime$1 = "2019-12-29T12:26:34+00:00";
+    this.version$1 = "0.9-SNAPSHOT20191231.111928.4d37e53b";
+    this.gitCommit$1 = "4d37e53b";
+    this.gitTime$1 = "2019-12-31T11:19:28+00:00";
     return this
   };
 }
@@ -44507,7 +44507,7 @@ class $c_Lio_kaitai_struct_format_GenericStructClassSpec$ extends $c_O {
     return "GenericStructClassSpec"
   };
   toDataType__Lio_kaitai_struct_datatype_DataType() {
-    return $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$()
+    return $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$()
   };
   hashCode__I() {
     return (-1090503097)
@@ -45858,7 +45858,7 @@ class $c_Lio_kaitai_struct_format_UnknownClassSpec$ extends $c_O {
     return "UnknownClassSpec"
   };
   toDataType__Lio_kaitai_struct_datatype_DataType() {
-    return $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$()
+    return $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$()
   };
   hashCode__I() {
     return 1618510921
