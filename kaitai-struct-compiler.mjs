@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200111.234404.a93c183a */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200116.101940.47923970 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3839,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200111.234404.a93c183a";
-    this.gitCommit$1 = "a93c183a";
-    this.gitTime$1 = "2020-01-11T23:44:04+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200116.101940.47923970";
+    this.gitCommit$1 = "47923970";
+    this.gitTime$1 = "2020-01-16T10:19:40+00:00";
     return this
   };
 }
@@ -69224,7 +69224,7 @@ class $c_Lio_kaitai_struct_languages_GoCompiler extends $c_Lio_kaitai_struct_lan
     this.out$2.puts__T__V("}")
   };
   outFileName__T__T(topClassName) {
-    const array = ["src/", "/", ".go"];
+    const array = ["", "/", ".go"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [this.config$1.goPackage$1, topClassName];
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
@@ -79124,7 +79124,7 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
     this.out$2.puts__T__V("}")
   };
   outFileName__T__T(topClassName) {
-    const array = ["src/", "/", ".java"];
+    const array = ["", "/", ".java"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const thiz = this.config$1.java$1.javaPackage$1;
     const target = $g.String.fromCharCode(46);
