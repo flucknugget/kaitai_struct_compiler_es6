@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200116.101940.47923970 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200118.151547.90382c3d */
 
 'use strict';
 /* Scala.js runtime support
@@ -3839,9 +3839,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200116.101940.47923970";
-    this.gitCommit$1 = "47923970";
-    this.gitTime$1 = "2020-01-16T10:19:40+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200118.151547.90382c3d";
+    this.gitCommit$1 = "90382c3d";
+    this.gitTime$1 = "2020-01-18T15:15:47+00:00";
     return this
   };
 }
@@ -10501,6 +10501,8 @@ class $c_Lio_kaitai_struct_translators_TypeDetector extends $c_O {
             return $m_Lio_kaitai_struct_datatype_DataType$CalcStrType$()
           } else if (($is_Lio_kaitai_struct_datatype_DataType$StrType(objType) && (_2 === "to_i"))) {
             return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
+          } else if (($is_Lio_kaitai_struct_datatype_DataType$BytesType(objType) && (_2 === "to_s"))) {
+            return $m_Lio_kaitai_struct_datatype_DataType$CalcStrType$()
           } else {
             throw new $c_Lio_kaitai_struct_precompile_MethodNotFoundError().init___T__Lio_kaitai_struct_datatype_DataType(methodName.name$1, objType)
           }
@@ -11203,14 +11205,14 @@ class $c_Lio_kaitai_struct_translators_TypeDetector$ extends $c_O {
         return t1
       };
       if ($is_Lio_kaitai_struct_datatype_DataType$IntMultiType(t1)) {
-        const x38 = t1;
+        const x40 = t1;
         if ($is_Lio_kaitai_struct_datatype_DataType$IntMultiType(t2)) {
-          const x39 = t2;
-          const x$3 = x38.endian$3;
-          const x$4 = x39.endian$3;
-          if ((((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4)) && (x38.signed$3 === x39.signed$3))) {
-            const width = ((x38.width$3.width$1 > x39.width$3.width$1) ? x38.width$3 : x39.width$3);
-            return new $c_Lio_kaitai_struct_datatype_DataType$IntMultiType().init___Z__Lio_kaitai_struct_datatype_DataType$IntWidth__s_Option(x38.signed$3, width, x38.endian$3)
+          const x41 = t2;
+          const x$3 = x40.endian$3;
+          const x$4 = x41.endian$3;
+          if ((((x$3 === null) ? (x$4 === null) : x$3.equals__O__Z(x$4)) && (x40.signed$3 === x41.signed$3))) {
+            const width = ((x40.width$3.width$1 > x41.width$3.width$1) ? x40.width$3 : x41.width$3);
+            return new $c_Lio_kaitai_struct_datatype_DataType$IntMultiType().init___Z__Lio_kaitai_struct_datatype_DataType$IntWidth__s_Option(x40.signed$3, width, x40.endian$3)
           } else {
             return $m_Lio_kaitai_struct_datatype_DataType$CalcIntType$()
           }
@@ -11225,12 +11227,15 @@ class $c_Lio_kaitai_struct_translators_TypeDetector$ extends $c_O {
       if (($is_Lio_kaitai_struct_datatype_DataType$BytesType(t1) && $is_Lio_kaitai_struct_datatype_DataType$BytesType(t2))) {
         return $m_Lio_kaitai_struct_datatype_DataType$CalcBytesType$()
       };
+      if (($is_Lio_kaitai_struct_datatype_DataType$StrType(t1) && $is_Lio_kaitai_struct_datatype_DataType$StrType(t2))) {
+        return $m_Lio_kaitai_struct_datatype_DataType$CalcStrType$()
+      };
       if ($is_Lio_kaitai_struct_datatype_DataType$UserType(t1)) {
-        const x46 = t1;
+        const x50 = t1;
         if ($is_Lio_kaitai_struct_datatype_DataType$UserType(t2)) {
-          const x47 = t2;
-          const _1 = x46.classSpec$2;
-          const _2 = x47.classSpec$2;
+          const x51 = t2;
+          const _1 = x50.classSpec$2;
+          const _2 = x51.classSpec$2;
           const x$5 = $m_s_None$();
           let jsx$1;
           if ((x$5 === _1)) {
@@ -11240,12 +11245,12 @@ class $c_Lio_kaitai_struct_translators_TypeDetector$ extends $c_O {
             jsx$1 = false
           };
           if (jsx$1) {
-            const x$9 = x46.name$2;
-            const x$10 = x47.name$2;
+            const x$9 = x50.name$2;
+            const x$10 = x51.name$2;
             if (((x$9 === null) ? (x$10 === null) : x$9.equals__O__Z(x$10))) {
-              return x46
+              return x50
             } else {
-              return ((x46.isOwning__Z() || x47.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$())
+              return ((x50.isOwning__Z() || x51.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$())
             }
           };
           if ($is_s_Some(_1)) {
@@ -11254,10 +11259,10 @@ class $c_Lio_kaitai_struct_translators_TypeDetector$ extends $c_O {
             if ($is_s_Some(_2)) {
               const x7 = _2;
               const cs2 = x7.value$2;
-              return (((cs1 === null) ? (cs2 === null) : cs1.equals__O__Z(cs2)) ? x46 : ((x46.isOwning__Z() || x47.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$()))
+              return (((cs1 === null) ? (cs2 === null) : cs1.equals__O__Z(cs2)) ? x50 : ((x50.isOwning__Z() || x51.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$()))
             }
           };
-          return ((x46.isOwning__Z() || x47.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$())
+          return ((x50.isOwning__Z() || x51.isOwning__Z()) ? $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$() : $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$())
         }
       };
       if (($is_Lio_kaitai_struct_datatype_DataType$UserType(t1) && $is_Lio_kaitai_struct_datatype_DataType$ComplexDataType(t2))) {
