@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200216.170130.0c02aec2 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200218.160212.9d1a1c22 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3842,9 +3842,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200216.170130.0c02aec2";
-    this.gitCommit$1 = "0c02aec2";
-    this.gitTime$1 = "2020-02-16T17:01:30+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200218.160212.9d1a1c22";
+    this.gitCommit$1 = "9d1a1c22";
+    this.gitTime$1 = "2020-02-18T16:02:12+00:00";
     return this
   };
 }
@@ -55951,141 +55951,141 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
       const n$3 = x5.n$1;
       return this.trBoolLiteral__Z__Lio_kaitai_struct_translators_TranslatorResult(n$3)
     };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$BoolOp(v)) {
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$EnumById(v)) {
       const x6 = v;
-      const op = x6.op$1;
-      const values = x6.values$1;
-      return this.trBooleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__sc_Seq__Lio_kaitai_struct_translators_ResultString(op, values)
+      const enumType = x6.enumName$1;
+      const id = x6.id$1;
+      const inType = x6.inType$1;
+      const enumSpec = this.provider$2.resolveEnum__Lio_kaitai_struct_exprlang_Ast$typeId__T__Lio_kaitai_struct_format_EnumSpec(inType, enumType.name$1);
+      return this.trEnumById__sci_List__T__Lio_kaitai_struct_translators_ResultString(enumSpec.name$1, this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(id))
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$EnumByLabel(v)) {
+      const x7 = v;
+      const enumType$2 = x7.enumName$1;
+      const label = x7.label$1;
+      const inType$2 = x7.inType$1;
+      const enumSpec$2 = this.provider$2.resolveEnum__Lio_kaitai_struct_exprlang_Ast$typeId__T__Lio_kaitai_struct_format_EnumSpec(inType$2, enumType$2.name$1);
+      return this.trEnumByLabel__sci_List__T__Lio_kaitai_struct_translators_ResultString(enumSpec$2.name$1, label.name$1)
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Name(v)) {
+      const x8 = v;
+      const name = x8.id$1;
+      if ((name !== null)) {
+        return this.trLocalName__T__Lio_kaitai_struct_translators_TranslatorResult(name.name$1)
+      }
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$UnaryOp(v)) {
+      const x9 = v;
+      const op = x9.op$1;
+      const operand = x9.operand$1;
+      const jsx$3 = this.unaryOp__Lio_kaitai_struct_exprlang_Ast$unaryop__T(op);
+      let jsx$1;
+      if (($is_Lio_kaitai_struct_exprlang_Ast$expr$IntNum(operand) || $is_Lio_kaitai_struct_exprlang_Ast$expr$FloatNum(operand))) {
+        jsx$1 = this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(operand)
+      } else {
+        const array = ["(", ")"];
+        const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+        const array$1 = [this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(operand)];
+        jsx$1 = jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
+      };
+      return new $c_Lio_kaitai_struct_translators_ResultString().init___T((("" + jsx$3) + jsx$1))
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Compare(v)) {
+      const x10 = v;
+      const left = x10.left$1;
+      const op$2 = x10.ops$1;
+      const right = x10.right$1;
+      const _1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(left);
+      const _2 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(right);
+      if (($is_Lio_kaitai_struct_datatype_DataType$NumericType(_1) && $is_Lio_kaitai_struct_datatype_DataType$NumericType(_2))) {
+        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      } else if (($is_Lio_kaitai_struct_datatype_DataType$StrType(_1) && $is_Lio_kaitai_struct_datatype_DataType$StrType(_2))) {
+        return this.trStrCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      } else if (($is_Lio_kaitai_struct_datatype_DataType$BytesType(_1) && $is_Lio_kaitai_struct_datatype_DataType$BytesType(_2))) {
+        return this.trBytesCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      } else if (($is_Lio_kaitai_struct_datatype_DataType$BooleanType(_1) && $is_Lio_kaitai_struct_datatype_DataType$BooleanType(_2))) {
+        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      } else if (($is_Lio_kaitai_struct_datatype_DataType$EnumType(_1) && $is_Lio_kaitai_struct_datatype_DataType$EnumType(_2))) {
+        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      } else {
+        const array$2 = ["can't do ", " ", " ", ""];
+        const jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+        const array$3 = [_1, op$2, _2];
+        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
+      }
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$BinOp(v)) {
-      const x7 = v;
-      const left = x7.left$1;
-      const op$2 = x7.op$1;
-      const right = x7.right$1;
-      if ((left !== null)) {
-        if ((op$2 !== null)) {
-          if ((right !== null)) {
-            const _1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(left);
-            const _2 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(right);
-            if (($is_Lio_kaitai_struct_datatype_DataType$NumericType(_1) && $is_Lio_kaitai_struct_datatype_DataType$NumericType(_2))) {
-              return this.trNumericBinOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$operator__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, op$2, right)
+      const x11 = v;
+      const left$2 = x11.left$1;
+      const op$3 = x11.op$1;
+      const right$2 = x11.right$1;
+      if ((left$2 !== null)) {
+        if ((op$3 !== null)) {
+          if ((right$2 !== null)) {
+            const _1$1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(left$2);
+            const _2$1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(right$2);
+            if (($is_Lio_kaitai_struct_datatype_DataType$NumericType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$NumericType(_2$1))) {
+              return this.trNumericBinOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$operator__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$3, right$2)
             } else {
-              let jsx$1;
-              if ($is_Lio_kaitai_struct_datatype_DataType$StrType(_1)) {
-                if ($is_Lio_kaitai_struct_datatype_DataType$StrType(_2)) {
+              let jsx$5;
+              if ($is_Lio_kaitai_struct_datatype_DataType$StrType(_1$1)) {
+                if ($is_Lio_kaitai_struct_datatype_DataType$StrType(_2$1)) {
                   const x = $m_Lio_kaitai_struct_exprlang_Ast$operator$Add$();
-                  jsx$1 = (x === op$2)
+                  jsx$5 = (x === op$3)
                 } else {
-                  jsx$1 = false
+                  jsx$5 = false
                 }
               } else {
-                jsx$1 = false
+                jsx$5 = false
               };
-              if (jsx$1) {
-                return this.trStrConcat__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left, right)
+              if (jsx$5) {
+                return this.trStrConcat__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, right$2)
               } else {
-                const array = ["can't do ", " ", " ", ""];
-                const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-                const array$1 = [_1, op$2, _2];
-                throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
+                const array$4 = ["can't do ", " ", " ", ""];
+                const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
+                const array$5 = [_1$1, op$3, _2$1];
+                throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)))
               }
             }
           }
         }
       }
     };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$UnaryOp(v)) {
-      const x8 = v;
-      const op$3 = x8.op$1;
-      const operand = x8.operand$1;
-      const jsx$5 = this.unaryOp__Lio_kaitai_struct_exprlang_Ast$unaryop__T(op$3);
-      let jsx$3;
-      if (($is_Lio_kaitai_struct_exprlang_Ast$expr$IntNum(operand) || $is_Lio_kaitai_struct_exprlang_Ast$expr$FloatNum(operand))) {
-        jsx$3 = this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(operand)
-      } else {
-        const array$2 = ["(", ")"];
-        const jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-        const array$3 = [this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(operand)];
-        jsx$3 = jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3))
-      };
-      return new $c_Lio_kaitai_struct_translators_ResultString().init___T((("" + jsx$5) + jsx$3))
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$BoolOp(v)) {
+      const x12 = v;
+      const op$4 = x12.op$1;
+      const values = x12.values$1;
+      return this.trBooleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__sc_Seq__Lio_kaitai_struct_translators_ResultString(op$4, values)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$IfExp(v)) {
-      const x9 = v;
-      const condition = x9.condition$1;
-      const ifTrue = x9.ifTrue$1;
-      const ifFalse = x9.ifFalse$1;
+      const x13 = v;
+      const condition = x13.condition$1;
+      const ifTrue = x13.ifTrue$1;
+      const ifFalse = x13.ifFalse$1;
       return this.trIfExp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_ResultLocalVar(condition, ifTrue, ifFalse)
     };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Compare(v)) {
-      const x10 = v;
-      const left$2 = x10.left$1;
-      const op$4 = x10.ops$1;
-      const right$2 = x10.right$1;
-      const _1$1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(left$2);
-      const _2$1 = this.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(right$2);
-      if (($is_Lio_kaitai_struct_datatype_DataType$NumericType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$NumericType(_2$1))) {
-        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$4, right$2)
-      } else if (($is_Lio_kaitai_struct_datatype_DataType$StrType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$StrType(_2$1))) {
-        return this.trStrCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$4, right$2)
-      } else if (($is_Lio_kaitai_struct_datatype_DataType$BytesType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$BytesType(_2$1))) {
-        return this.trBytesCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$4, right$2)
-      } else if (($is_Lio_kaitai_struct_datatype_DataType$BooleanType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$BooleanType(_2$1))) {
-        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$4, right$2)
-      } else if (($is_Lio_kaitai_struct_datatype_DataType$EnumType(_1$1) && $is_Lio_kaitai_struct_datatype_DataType$EnumType(_2$1))) {
-        return this.trNumericCompareOp__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(left$2, op$4, right$2)
-      } else {
-        const array$4 = ["can't do ", " ", " ", ""];
-        const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
-        const array$5 = [_1$1, op$4, _2$1];
-        throw new $c_Lio_kaitai_struct_precompile_TypeMismatchError().init___T(jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)))
-      }
-    };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$EnumById(v)) {
-      const x11 = v;
-      const enumType = x11.enumName$1;
-      const id = x11.id$1;
-      const inType = x11.inType$1;
-      const enumSpec = this.provider$2.resolveEnum__Lio_kaitai_struct_exprlang_Ast$typeId__T__Lio_kaitai_struct_format_EnumSpec(inType, enumType.name$1);
-      return this.trEnumById__sci_List__T__Lio_kaitai_struct_translators_ResultString(enumSpec.name$1, this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(id))
-    };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$EnumByLabel(v)) {
-      const x12 = v;
-      const enumType$2 = x12.enumName$1;
-      const label = x12.label$1;
-      const inType$2 = x12.inType$1;
-      const enumSpec$2 = this.provider$2.resolveEnum__Lio_kaitai_struct_exprlang_Ast$typeId__T__Lio_kaitai_struct_format_EnumSpec(inType$2, enumType$2.name$1);
-      return this.trEnumByLabel__sci_List__T__Lio_kaitai_struct_translators_ResultString(enumSpec$2.name$1, label.name$1)
-    };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$CastToType(v)) {
-      const x19 = v;
-      return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doCastOrArray__Lio_kaitai_struct_exprlang_Ast$expr$CastToType__O(this, x19)
-    };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Subscript(v)) {
-      const x13 = v;
-      const container = x13.value$1;
-      const idx = x13.idx$1;
+      const x14 = v;
+      const container = x14.value$1;
+      const idx = x14.idx$1;
       return this.arraySubscript__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_ResultString(container, idx)
     };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Name(v)) {
-      const x14 = v;
-      const name = x14.id$1;
-      if ((name !== null)) {
-        return this.trLocalName__T__Lio_kaitai_struct_translators_TranslatorResult(name.name$1)
-      }
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Attribute(v)) {
+      const x20 = v;
+      return $f_Lio_kaitai_struct_translators_CommonMethods__translateAttribute__Lio_kaitai_struct_exprlang_Ast$expr$Attribute__O(this, x20)
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Call(v)) {
+      const x21 = v;
+      return $f_Lio_kaitai_struct_translators_CommonMethods__translateCall__Lio_kaitai_struct_exprlang_Ast$expr$Call__O(this, x21)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$List(v)) {
       const x15 = v;
       const elts = x15.elts$1;
       return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doGuessArrayLiteral__sc_Seq__O(this, elts)
     };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Attribute(v)) {
-      const x21 = v;
-      return $f_Lio_kaitai_struct_translators_CommonMethods__translateAttribute__Lio_kaitai_struct_exprlang_Ast$expr$Attribute__O(this, x21)
-    };
-    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Call(v)) {
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$CastToType(v)) {
       const x22 = v;
-      return $f_Lio_kaitai_struct_translators_CommonMethods__translateCall__Lio_kaitai_struct_exprlang_Ast$expr$Call__O(this, x22)
+      return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doCastOrArray__Lio_kaitai_struct_exprlang_Ast$expr$CastToType__O(this, x22)
     };
     throw new $c_s_MatchError().init___O(v)
   };
@@ -68875,7 +68875,7 @@ class $c_Lio_kaitai_struct_languages_GoCompiler extends $c_Lio_kaitai_struct_lan
     const array$1 = [$m_Lio_kaitai_struct_languages_GoCompiler$().types2class__sci_List__T(className), this.publicMemberName__Lio_kaitai_struct_format_Identifier__T(instName), $m_Lio_kaitai_struct_languages_GoCompiler$().kaitaiType2NativeType__Lio_kaitai_struct_datatype_DataType__T(dataType)];
     jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
     this.out$2.inc__V();
-    this.translator$2.returnRes$2 = new $c_s_Some().init___O(($is_Lio_kaitai_struct_datatype_DataType$IntType(dataType) ? "0" : ($is_Lio_kaitai_struct_datatype_DataType$BooleanType(dataType) ? "false" : ($is_Lio_kaitai_struct_datatype_DataType$StrType(dataType) ? "\"\"" : "nil"))))
+    this.translator$2.returnRes$2 = new $c_s_Some().init___O(($is_Lio_kaitai_struct_datatype_DataType$NumericType(dataType) ? "0" : ($is_Lio_kaitai_struct_datatype_DataType$BooleanType(dataType) ? "false" : ($is_Lio_kaitai_struct_datatype_DataType$StrType(dataType) ? "\"\"" : "nil"))))
   };
   condRepeatEosHeader__Lio_kaitai_struct_format_Identifier__T__Lio_kaitai_struct_datatype_DataType__Z__V(id, io, dataType, needRaw) {
     if (needRaw) {
