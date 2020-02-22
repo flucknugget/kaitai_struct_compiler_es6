@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200218.160212.9d1a1c22 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200221.030758.47550938 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3842,9 +3842,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200218.160212.9d1a1c22";
-    this.gitCommit$1 = "9d1a1c22";
-    this.gitTime$1 = "2020-02-18T16:02:12+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200221.030758.47550938";
+    this.gitCommit$1 = "47550938";
+    this.gitTime$1 = "2020-02-21T03:07:58+00:00";
     return this
   };
 }
@@ -70199,7 +70199,7 @@ class $c_Lio_kaitai_struct_languages_JavaScriptCompiler extends $c_Lio_kaitai_st
       };
       const x2 = io;
       const x$3 = x2.value$2;
-      const array = ["start: ", ".pos, ioOffset: ", "._byteOffset"];
+      const array = ["start: ", ".pos, ioOffset: ", ".byteOffset"];
       const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
       const array$1 = [x$3, x$3];
       ioProps = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
