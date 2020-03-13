@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200309.193944.4041e10d */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200312.210544.a7b89c23 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3856,9 +3856,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200309.193944.4041e10d";
-    this.gitCommit$1 = "4041e10d";
-    this.gitTime$1 = "2020-03-09T19:39:44+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200312.210544.a7b89c23";
+    this.gitCommit$1 = "a7b89c23";
+    this.gitTime$1 = "2020-03-12T21:05:44+00:00";
     return this
   };
 }
@@ -38546,7 +38546,7 @@ class $c_Lio_kaitai_struct_languages_PHPCompiler$ extends $c_O {
     return jsx$1.mkString__T__T("\\")
   };
   ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err) {
-    return ("\\Kaitai\\Struct\\" + err.name__T())
+    return ("\\Kaitai\\Struct\\Error\\" + err.name__T())
   };
 }
 const $d_Lio_kaitai_struct_languages_PHPCompiler$ = new $TypeData().initClass({
@@ -73226,12 +73226,70 @@ class $c_Lio_kaitai_struct_languages_PHPCompiler extends $c_Lio_kaitai_struct_la
       return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
     }
   };
+  attrValidateExpr__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_exprlang_Ast$expr__T__sci_List__V(attrId, attrType, checkExpr, errName, errArgs) {
+    const f = (function($this) {
+      return (function(v$2) {
+        const v = v$2;
+        return $this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(v)
+      })
+    })(this);
+    const this$1 = $m_sci_List$();
+    const bf = this$1.ReusableCBFInstance$2;
+    let jsx$1;
+    if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
+      if ((errArgs === $m_sci_Nil$())) {
+        jsx$1 = $m_sci_Nil$()
+      } else {
+        const arg1 = errArgs.head__O();
+        const h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1), $m_sci_Nil$());
+        let t = h;
+        let rest = errArgs.tail__sci_List();
+        while ((rest !== $m_sci_Nil$())) {
+          const arg1$1 = rest.head__O();
+          const nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$1), $m_sci_Nil$());
+          t.tl$5 = nx;
+          t = nx;
+          const this$2 = rest;
+          rest = this$2.tail__sci_List()
+        };
+        jsx$1 = h
+      }
+    } else {
+      const b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(errArgs, bf);
+      let these = errArgs;
+      while ((!these.isEmpty__Z())) {
+        const arg1$2 = these.head__O();
+        b.$$plus$eq__O__scm_Builder(f(arg1$2));
+        const this$3 = these;
+        these = this$3.tail__sci_List()
+      };
+      jsx$1 = b.result__O()
+    };
+    const errArgsStr = jsx$1.mkString__T__T(", ");
+    const jsx$3 = this.out$2;
+    const array = ["if (!(", ")) {"];
+    const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(checkExpr)];
+    jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
+    this.out$2.inc__V();
+    const jsx$5 = this.out$2;
+    const array$2 = ["throw new ", "(", ");"];
+    const jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+    const array$3 = [errName, errArgsStr];
+    jsx$5.puts__T__V(jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)));
+    this.out$2.dec__V();
+    this.out$2.puts__T__V("}")
+  };
   runReadCalc__V() {
     const this$1 = this.out$2;
     this$1.sb$2.append__T__scm_StringBuilder("\n");
     this.out$2.puts__T__V("if (is_null($this->_m__is_le)) {");
     this.out$2.inc__V();
-    this.out$2.puts__T__V("throw new \\RuntimeException(\"Unable to decide on endianness\");");
+    const jsx$2 = this.out$2;
+    const array = ["throw new ", ";"];
+    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [$m_Lio_kaitai_struct_languages_PHPCompiler$().ksErrorName__Lio_kaitai_struct_datatype_KSError__T($m_Lio_kaitai_struct_datatype_UndecidedEndiannessError$())];
+    jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
     this.out$2.dec__V();
     this.out$2.puts__T__V("} else if ($this->_m__is_le) {");
     this.out$2.inc__V();
