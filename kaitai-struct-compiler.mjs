@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200317.181822.ffed3eff */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200318.222827.20adc1c7 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3256,7 +3256,7 @@ class $c_Lio_kaitai_struct_MainJs$ extends $c_O {
   };
   compile__T__sjs_js_Object__Lio_kaitai_struct_JavaScriptImporter__Z__sjs_js_Promise(langStr, yaml, importer, debug) {
     try {
-      const config = new $c_Lio_kaitai_struct_RuntimeConfig().init___Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig__T__Lio_kaitai_struct_JavaRuntimeConfig__T__T__T__T((!debug), debug, false, new $c_Lio_kaitai_struct_CppRuntimeConfig().init___sci_List__Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers($m_sci_Nil$(), false, false, false, $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$()), "", new $c_Lio_kaitai_struct_JavaRuntimeConfig().init___T__T__T("", "io.kaitai.struct.ByteBufferKaitaiStream", "java.nio.BufferUnderflowException"), "Kaitai", "", "", "kaitai_struct/runtime/nim/kaitai");
+      const config = new $c_Lio_kaitai_struct_RuntimeConfig().init___Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig__T__Lio_kaitai_struct_JavaRuntimeConfig__T__T__T__T((!debug), debug, false, new $c_Lio_kaitai_struct_CppRuntimeConfig().init___sci_List__Z__Z__Z__Lio_kaitai_struct_CppRuntimeConfig$Pointers($m_sci_Nil$(), false, false, false, $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$()), "", new $c_Lio_kaitai_struct_JavaRuntimeConfig().init___T__T__T("", "io.kaitai.struct.ByteBufferKaitaiStream", "java.nio.BufferUnderflowException"), "Kaitai", "", "", "kaitai_struct_nim_runtime");
       const this$5 = $m_Lio_kaitai_struct_languages_components_LanguageCompilerStatic$();
       const lang = this$5.NAME$undTO$undCLASS$1.apply__O__O(langStr);
       const jsx$2 = $m_sjs_js_JSConverters$JSRichFuture$();
@@ -3856,9 +3856,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200317.181822.ffed3eff";
-    this.gitCommit$1 = "ffed3eff";
-    this.gitTime$1 = "2020-03-17T18:18:22+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200318.222827.20adc1c7";
+    this.gitCommit$1 = "20adc1c7";
+    this.gitTime$1 = "2020-03-18T22:28:27+00:00";
     return this
   };
 }
@@ -21648,7 +21648,7 @@ class $c_Lio_kaitai_struct_NimClassCompiler extends $c_O {
     jsx$32.puts__T__V(jsx$31.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$31)));
     this.out$1.inc__V();
     const jsx$34 = this.out$1;
-    const array$32 = ["", ".read(newKaitaiStream(filename), nil, nil)"];
+    const array$32 = ["", ".read(newKaitaiFileStream(filename), nil, nil)"];
     const jsx$33 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$32));
     const array$33 = [t];
     jsx$34.puts__T__V(jsx$33.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$33)));
@@ -21980,7 +21980,7 @@ class $c_Lio_kaitai_struct_NimClassCompiler$ extends $c_O {
         return "string"
       };
       if ($is_Lio_kaitai_struct_datatype_DataType$BytesType(x1)) {
-        return "seq[byte]"
+        return "string"
       };
       const x$22 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$();
       let jsx$7;
@@ -55711,6 +55711,11 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
       throw new $c_s_MatchError().init___O(x1$3)
     }
   };
+  doByteSizeOfType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_translators_TranslatorResult(typeName) {
+    const this$1 = $m_s_math_BigInt$();
+    const i = $m_Lio_kaitai_struct_translators_CommonSizeOf$().bitToByteSize__I__I($m_Lio_kaitai_struct_translators_CommonSizeOf$().getBitsSizeOfType__T__Lio_kaitai_struct_datatype_DataType__I(typeName.nameAsStr__T(), this.detectCastType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_datatype_DataType(typeName)));
+    return this.trIntLiteral__s_math_BigInt__Lio_kaitai_struct_translators_TranslatorResult(this$1.apply__I__s_math_BigInt(i))
+  };
   trBooleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__sc_Seq__Lio_kaitai_struct_translators_ResultString(op, values) {
     return new $c_Lio_kaitai_struct_translators_ResultString().init___T($f_Lio_kaitai_struct_translators_CommonOps__doBooleanOp__Lio_kaitai_struct_exprlang_Ast$boolop__sc_Seq__T(this, op, values))
   };
@@ -55802,6 +55807,11 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
   bytesToStr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(value, expr) {
     return this.bytesToStr__T__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_TranslatorResult(this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(value), expr)
   };
+  byteSizeOfClassSpec__Lio_kaitai_struct_format_ClassSpec__Lio_kaitai_struct_translators_TranslatorResult(cs) {
+    const this$1 = $m_s_math_BigInt$();
+    const i = $m_Lio_kaitai_struct_translators_CommonSizeOf$().getByteSizeOfClassSpec__Lio_kaitai_struct_format_ClassSpec__I(cs);
+    return this.trIntLiteral__s_math_BigInt__Lio_kaitai_struct_translators_TranslatorResult(this$1.apply__I__s_math_BigInt(i))
+  };
   unaryOp__Lio_kaitai_struct_exprlang_Ast$unaryop__T(op) {
     const x = $m_Lio_kaitai_struct_exprlang_Ast$unaryop$Invert$();
     if ((x === op)) {
@@ -55839,6 +55849,11 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
     } else {
       throw new $c_s_MatchError().init___O(id)
     }
+  };
+  doBitSizeOfType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_translators_TranslatorResult(typeName) {
+    const this$1 = $m_s_math_BigInt$();
+    const i = $m_Lio_kaitai_struct_translators_CommonSizeOf$().getBitsSizeOfType__T__Lio_kaitai_struct_datatype_DataType__I(typeName.nameAsStr__T(), this.detectCastType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_datatype_DataType(typeName));
+    return this.trIntLiteral__s_math_BigInt__Lio_kaitai_struct_translators_TranslatorResult(this$1.apply__I__s_math_BigInt(i))
   };
   bytesMin__Lio_kaitai_struct_exprlang_Ast$expr__O(b) {
     return this.arrayMin__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_ResultLocalVar(b)
@@ -56175,7 +56190,7 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
       const x8 = v;
       const name = x8.id$1;
       if ((name !== null)) {
-        return this.trLocalName__T__Lio_kaitai_struct_translators_TranslatorResult(name.name$1)
+        return ((name.name$1 === $m_Lio_kaitai_struct_format_Identifier$().SIZEOF$1) ? this.byteSizeOfClassSpec__Lio_kaitai_struct_format_ClassSpec__Lio_kaitai_struct_translators_TranslatorResult(this.provider$2.nowClass$1) : this.trLocalName__T__Lio_kaitai_struct_translators_TranslatorResult(name.name$1))
       }
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$UnaryOp(v)) {
@@ -56275,12 +56290,12 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
       return this.arraySubscript__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_translators_ResultString(container, idx)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Attribute(v)) {
-      const x20 = v;
-      return $f_Lio_kaitai_struct_translators_CommonMethods__translateAttribute__Lio_kaitai_struct_exprlang_Ast$expr$Attribute__O(this, x20)
+      const x22 = v;
+      return $f_Lio_kaitai_struct_translators_CommonMethods__translateAttribute__Lio_kaitai_struct_exprlang_Ast$expr$Attribute__O(this, x22)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$Call(v)) {
-      const x21 = v;
-      return $f_Lio_kaitai_struct_translators_CommonMethods__translateCall__Lio_kaitai_struct_exprlang_Ast$expr$Call__O(this, x21)
+      const x23 = v;
+      return $f_Lio_kaitai_struct_translators_CommonMethods__translateCall__Lio_kaitai_struct_exprlang_Ast$expr$Call__O(this, x23)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$List(v)) {
       const x15 = v;
@@ -56288,8 +56303,18 @@ class $c_Lio_kaitai_struct_translators_GoTranslator extends $c_Lio_kaitai_struct
       return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doGuessArrayLiteral__sc_Seq__O(this, elts)
     };
     if ($is_Lio_kaitai_struct_exprlang_Ast$expr$CastToType(v)) {
-      const x22 = v;
-      return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doCastOrArray__Lio_kaitai_struct_exprlang_Ast$expr$CastToType__O(this, x22)
+      const x24 = v;
+      return $f_Lio_kaitai_struct_translators_CommonArraysAndCast__doCastOrArray__Lio_kaitai_struct_exprlang_Ast$expr$CastToType__O(this, x24)
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$ByteSizeOfType(v)) {
+      const x16 = v;
+      const typeName = x16.typeName$1;
+      return this.doByteSizeOfType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_translators_TranslatorResult(typeName)
+    };
+    if ($is_Lio_kaitai_struct_exprlang_Ast$expr$BitSizeOfType(v)) {
+      const x17 = v;
+      const typeName$2 = x17.typeName$1;
+      return this.doBitSizeOfType__Lio_kaitai_struct_exprlang_Ast$typeId__Lio_kaitai_struct_translators_TranslatorResult(typeName$2)
     };
     throw new $c_s_MatchError().init___O(v)
   };
@@ -61218,7 +61243,7 @@ class $c_Lio_kaitai_struct_translators_NimTranslator extends $c_Lio_kaitai_struc
     return this.strReverse__Lio_kaitai_struct_exprlang_Ast$expr__T(s)
   };
   doByteArrayLiteral__sc_Seq__T(arr) {
-    const array = ["@[", "].mapIt(toByte(it))"];
+    const array = ["@[", "].mapIt(it.toByte).toString"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [arr.mkString__T__T(", ")];
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
