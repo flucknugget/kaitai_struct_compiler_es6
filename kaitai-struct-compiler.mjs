@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200415.220538.b59db30f */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200418.141130.b499aad7 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3857,9 +3857,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200415.220538.b59db30f";
-    this.gitCommit$1 = "b59db30f";
-    this.gitTime$1 = "2020-04-15T22:05:38+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200418.141130.b499aad7";
+    this.gitCommit$1 = "b499aad7";
+    this.gitTime$1 = "2020-04-18T14:11:30+00:00";
     return this
   };
 }
@@ -61182,7 +61182,9 @@ class $c_Lio_kaitai_struct_translators_NimTranslator extends $c_Lio_kaitai_struc
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
   };
   doLocalName__T__T(s) {
-    if (($m_Lio_kaitai_struct_format_Identifier$().INDEX$1 === s)) {
+    if (($m_Lio_kaitai_struct_format_Identifier$().ITERATOR$1 === s)) {
+      return this.doName__T__T(s)
+    } else if (($m_Lio_kaitai_struct_format_Identifier$().INDEX$1 === s)) {
       return this.doName__T__T(s)
     } else if (($m_Lio_kaitai_struct_format_Identifier$().ROOT$1 === s)) {
       const array = ["", "(this.", ")"];
@@ -77292,7 +77294,7 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
   };
   condRepeatExprHeader__Lio_kaitai_struct_format_Identifier__T__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_datatype_NeedRaw__Lio_kaitai_struct_exprlang_Ast$expr__V(id, io, dataType, needRaw, repeatExpr) {
     const jsx$2 = this.out$2;
-    const array = ["for i in 0 ..< ", ":"];
+    const array = ["for i in 0 ..< int(", "):"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [$f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T(this, repeatExpr)];
     jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
@@ -77615,6 +77617,7 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
     }
   };
   condRepeatUntilFooter__Lio_kaitai_struct_format_Identifier__T__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_datatype_NeedRaw__Lio_kaitai_struct_exprlang_Ast$expr__V(id, io, dataType, needRaw, repeatExpr) {
+    this.typeProvider$2.$$undcurrentIteratorType$1 = new $c_s_Some().init___O(dataType);
     const jsx$2 = this.out$2;
     const array = ["if ", ":"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
@@ -77638,7 +77641,7 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
     this.handleAssignmentSimple__Lio_kaitai_struct_format_Identifier__T__V(instName, cast)
   };
   handleAssignmentIterative__Lio_kaitai_struct_format_Identifier__T__V(id, expr) {
-    const exprName = (this.idToStr__Lio_kaitai_struct_format_Identifier__T(id) + "Expr");
+    const exprName = ($is_Lio_kaitai_struct_format_RawIdentifier(id) ? this.translator$2.doName__T__T($m_Lio_kaitai_struct_format_Identifier$().ITERATOR2$1) : this.translator$2.doName__T__T($m_Lio_kaitai_struct_format_Identifier$().ITERATOR$1));
     const jsx$2 = this.out$2;
     const array = ["let ", " = ", ""];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
@@ -77655,10 +77658,17 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [this.idToStr__Lio_kaitai_struct_format_Identifier__T(id)];
     const ioName = jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1));
+    const x = $m_Lio_kaitai_struct_format_NoRepeat$();
+    let arg;
+    if ((x === rep)) {
+      arg = (this.idToStr__Lio_kaitai_struct_format_Identifier__T(id) + "Expr")
+    } else {
+      arg = this.translator$2.doName__T__T($m_Lio_kaitai_struct_format_Identifier$().ITERATOR2$1)
+    };
     const jsx$3 = this.out$2;
-    const array$2 = ["let ", " = newKaitaiStream(", "Expr)"];
+    const array$2 = ["let ", " = newKaitaiStream(", ")"];
     const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-    const array$3 = [ioName, this.idToStr__Lio_kaitai_struct_format_Identifier__T(id)];
+    const array$3 = [ioName, arg];
     jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)));
     return ioName
   };
