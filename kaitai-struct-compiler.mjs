@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200422.210015.abe2d8b2 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200424.223221.6f6cc0c5 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3857,9 +3857,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200422.210015.abe2d8b2";
-    this.gitCommit$1 = "abe2d8b2";
-    this.gitTime$1 = "2020-04-22T21:00:15+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200424.223221.6f6cc0c5";
+    this.gitCommit$1 = "6f6cc0c5";
+    this.gitTime$1 = "2020-04-24T22:32:21+00:00";
     return this
   };
 }
@@ -4077,7 +4077,7 @@ class $c_Lio_kaitai_struct_datatype_DataType$ extends $c_O {
     const groupNames$2 = $m_sci_Nil$();
     const $$this$2 = this$8.repr$1;
     this.ReBitType$1 = new $c_s_util_matching_Regex().init___T__sc_Seq($$this$2, groupNames$2);
-    const this$11 = new $c_sci_StringOps().init___T("^((?:[a-z][a-z0-9_]*(?:::)?)+)\\((.*)\\)$");
+    const this$11 = new $c_sci_StringOps().init___T("^((?:[a-z][a-z0-9_]*::)*[a-z][a-z0-9_]*)\\((.*)\\)$");
     const groupNames$3 = $m_sci_Nil$();
     const $$this$3 = this$11.repr$1;
     this.ReUserTypeWithArgs$1 = new $c_s_util_matching_Regex().init___T__sc_Seq($$this$3, groupNames$3);
