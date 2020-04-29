@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200424.223221.6f6cc0c5 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200429.191754.746e34e4 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3857,9 +3857,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200424.223221.6f6cc0c5";
-    this.gitCommit$1 = "6f6cc0c5";
-    this.gitTime$1 = "2020-04-24T22:32:21+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200429.191754.746e34e4";
+    this.gitCommit$1 = "746e34e4";
+    this.gitTime$1 = "2020-04-29T19:17:54+00:00";
     return this
   };
 }
@@ -66634,16 +66634,19 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
       const array$7 = [io, terminator, include, consume, eosError];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", "->read_bits_int(1)"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", "->read_bits_int_", "(1)"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, bitEndian.toSuffix__T()];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", "->read_bits_int(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", "->read_bits_int_", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, bitEndian$2.toSuffix__T(), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -68564,16 +68567,19 @@ class $c_Lio_kaitai_struct_languages_PerlCompiler extends $c_Lio_kaitai_struct_l
       const array$7 = [io, terminator, this.translator$2.doBoolLiteral__Z__T(include), this.translator$2.doBoolLiteral__Z__T(consume), this.translator$2.doBoolLiteral__Z__T(eosError)];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", "->read_bits_int(1)"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", "->read_bits_int_", "(1)"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, bitEndian.toSuffix__T()];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", "->read_bits_int(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", "->read_bits_int_", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, bitEndian$2.toSuffix__T(), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -70823,16 +70829,19 @@ class $c_Lio_kaitai_struct_languages_JavaScriptCompiler extends $c_Lio_kaitai_st
       const array$7 = [io, terminator, include, consume, eosError];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", ".readBitsInt(1) != 0"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", ".readBitsInt", "(1) != 0"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian.toSuffix__T())];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", ".readBitsInt(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", ".readBitsInt", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian$2.toSuffix__T()), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -72160,16 +72169,19 @@ class $c_Lio_kaitai_struct_languages_LuaCompiler extends $c_Lio_kaitai_struct_la
       const array$7 = [io, terminator, include, consume, eosError];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", ":read_bits_int(1)"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", ":read_bits_int_", "(1)"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, bitEndian.toSuffix__T()];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", ":read_bits_int(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", ":read_bits_int_", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, bitEndian$2.toSuffix__T(), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -73319,16 +73331,19 @@ class $c_Lio_kaitai_struct_languages_PHPCompiler extends $c_Lio_kaitai_struct_la
       const array$7 = [io, terminator, include, consume, eosError];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", "->readBitsInt(1) != 0"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", "->readBitsInt", "(1) != 0"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian.toSuffix__T())];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", "->readBitsInt(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", "->readBitsInt", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian$2.toSuffix__T()), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -75616,16 +75631,19 @@ class $c_Lio_kaitai_struct_languages_CSharpCompiler extends $c_Lio_kaitai_struct
       const array$7 = [io, terminator, include, consume, eosError];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", ".ReadBitsInt(1) != 0"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", ".ReadBitsInt", "(1) != 0"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian.toSuffix__T())];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", ".ReadBitsInt(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", ".ReadBitsInt", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian$2.toSuffix__T()), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -78126,16 +78144,19 @@ class $c_Lio_kaitai_struct_languages_PythonCompiler extends $c_Lio_kaitai_struct
       const array$7 = [io, terminator, this.bool2Py__Z__T(include), this.bool2Py__Z__T(consume), this.bool2Py__Z__T(eosError)];
       return jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", ".read_bits_int(1) != 0"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", ".read_bits_int_", "(1) != 0"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, bitEndian.toSuffix__T()];
       return jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", ".read_bits_int(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", ".read_bits_int_", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, bitEndian$2.toSuffix__T(), width];
       return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$UserType(dataType)) {
       const x10 = dataType;
@@ -80902,16 +80923,19 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       const array$7 = [io, terminator, include, consume, eosError];
       expr = jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType1(dataType)) {
-      const array$8 = ["", ".readBitsInt(1) != 0"];
+      const x4 = dataType;
+      const bitEndian = x4.bitEndian$2;
+      const array$8 = ["", ".readBitsInt", "(1) != 0"];
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [io];
+      const array$9 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian.toSuffix__T())];
       expr = jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
     } else if ($is_Lio_kaitai_struct_datatype_DataType$BitsType(dataType)) {
       const x5 = dataType;
       const width = x5.width$3;
-      const array$10 = ["", ".readBitsInt(", ")"];
+      const bitEndian$2 = x5.bitEndian$3;
+      const array$10 = ["", ".readBitsInt", "(", ")"];
       const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
-      const array$11 = [io, width];
+      const array$11 = [io, $m_Lio_kaitai_struct_Utils$().upperCamelCase__T__T(bitEndian$2.toSuffix__T()), width];
       expr = jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11))
     } else {
       if ((!$is_Lio_kaitai_struct_datatype_DataType$UserType(dataType))) {
