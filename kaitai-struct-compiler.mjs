@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200501.140531.2248d578 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200511.100358.e5c116f7 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3857,9 +3857,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200501.140531.2248d578";
-    this.gitCommit$1 = "2248d578";
-    this.gitTime$1 = "2020-05-01T14:05:31+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200511.100358.e5c116f7";
+    this.gitCommit$1 = "e5c116f7";
+    this.gitTime$1 = "2020-05-11T10:03:58+00:00";
     return this
   };
 }
@@ -38261,7 +38261,7 @@ class $c_Lio_kaitai_struct_languages_NimCompiler$ extends $c_O {
       };
       const x$30 = $m_Lio_kaitai_struct_datatype_DataType$AnyType$();
       if ((x$30 === x1)) {
-        return "any"
+        return "KaitaiStruct"
       };
       throw new $c_s_MatchError().init___O(x1)
     }
@@ -77802,13 +77802,10 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
         const x4 = proc;
         const name = x4.name$1;
         const args = x4.args$1;
-        const namespace = $f_sc_TraversableLike__init__O(name).mkString__T__T("/");
-        const this$18 = new $c_sci_StringOps().init___T(namespace);
-        const procPath = ((namespace + ($f_sc_TraversableOnce__nonEmpty__Z(this$18) ? "/" : "")) + $f_sc_LinearSeqOptimized__last__O(name));
-        const procName = $m_Lio_kaitai_struct_languages_NimCompiler$().camelCase__T__Z__T($f_sc_LinearSeqOptimized__last__O(name), false);
-        const this$19 = this.importList$2;
-        const s = (this.config$1.nimOpaque$1 + procPath);
-        $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$19.list$1, s);
+        const namespace = name.head__O();
+        const procPath = $f_sc_TraversableOnce__mkString__T__T__T__T(name, "", ".", "");
+        const this$17 = this.importList$2;
+        $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$17.list$1, namespace);
         const array$8 = ["", "(", ", ", ")"];
         const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
         const jsx$5 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
@@ -77817,8 +77814,8 @@ class $c_Lio_kaitai_struct_languages_NimCompiler extends $c_Lio_kaitai_struct_la
             return $f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T($this, e)
           })
         })(this));
-        const this$22 = $m_sc_Seq$();
-        const array$9 = [procName, srcExpr, args.map__F1__scg_CanBuildFrom__O(jsx$5, this$22.ReusableCBFInstance$2).mkString__T__T(", ")];
+        const this$20 = $m_sc_Seq$();
+        const array$9 = [procPath, srcExpr, args.map__F1__scg_CanBuildFrom__O(jsx$5, this$20.ReusableCBFInstance$2).mkString__T__T(", ")];
         expr$2 = jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9))
       }
     };
