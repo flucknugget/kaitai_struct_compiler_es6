@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200523.214733.bc36f123 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200605.082023.a51ba810 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3877,9 +3877,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200523.214733.bc36f123";
-    this.gitCommit$1 = "bc36f123";
-    this.gitTime$1 = "2020-05-23T21:47:33+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200605.082023.a51ba810";
+    this.gitCommit$1 = "a51ba810";
+    this.gitTime$1 = "2020-06-05T08:20:23+00:00";
     return this
   };
 }
@@ -39383,6 +39383,34 @@ const $d_s_PartialFunction$$anon$1 = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 $c_s_PartialFunction$$anon$1.prototype.$classData = $d_s_PartialFunction$$anon$1;
+class $c_s_PartialFunction$Lifted extends $c_sr_AbstractFunction1 {
+  constructor() {
+    super();
+    this.pf$2 = null
+  };
+  apply__O__O(v1) {
+    return this.apply__O__s_Option(v1)
+  };
+  init___s_PartialFunction(pf) {
+    this.pf$2 = pf;
+    return this
+  };
+  apply__O__s_Option(x) {
+    const z = this.pf$2.applyOrElse__O__F1__O(x, $m_s_PartialFunction$().scala$PartialFunction$$fallback$undpf$f);
+    return ((!$m_s_PartialFunction$().scala$PartialFunction$$fallbackOccurred__O__Z(z)) ? new $c_s_Some().init___O(z) : $m_s_None$())
+  };
+}
+const $d_s_PartialFunction$Lifted = new $TypeData().initClass({
+  s_PartialFunction$Lifted: 0
+}, false, "scala.PartialFunction$Lifted", {
+  s_PartialFunction$Lifted: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_s_PartialFunction$Lifted.prototype.$classData = $d_s_PartialFunction$Lifted;
 class $c_s_Predef$$anon$2 extends $c_s_Predef$$less$colon$less {
   init___() {
     return this
@@ -76432,6 +76460,76 @@ class $c_Lio_kaitai_struct_languages_LuaCompiler extends $c_Lio_kaitai_struct_la
       return jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3))
     }
   };
+  attrValidateExpr__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_exprlang_Ast$expr__T__sci_List__V(attrId, attrType, checkExpr, errName, errArgs) {
+    const f = (function($this) {
+      return (function(v$2) {
+        const v = v$2;
+        return $this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(v)
+      })
+    })(this);
+    const this$1 = $m_sci_List$();
+    const bf = this$1.ReusableCBFInstance$2;
+    let errArgsCode;
+    if ((bf === $m_sci_List$().ReusableCBFInstance$2)) {
+      if ((errArgs === $m_sci_Nil$())) {
+        errArgsCode = $m_sci_Nil$()
+      } else {
+        const arg1 = errArgs.head__O();
+        const h = new $c_sci_$colon$colon().init___O__sci_List(f(arg1), $m_sci_Nil$());
+        let t = h;
+        let rest = errArgs.tail__sci_List();
+        while ((rest !== $m_sci_Nil$())) {
+          const arg1$1 = rest.head__O();
+          const nx = new $c_sci_$colon$colon().init___O__sci_List(f(arg1$1), $m_sci_Nil$());
+          t.tl$5 = nx;
+          t = nx;
+          const this$2 = rest;
+          rest = this$2.tail__sci_List()
+        };
+        errArgsCode = h
+      }
+    } else {
+      const b = $f_sc_TraversableLike__builder$1__psc_TraversableLike__scg_CanBuildFrom__scm_Builder(errArgs, bf);
+      let these = errArgs;
+      while ((!these.isEmpty__Z())) {
+        const arg1$2 = these.head__O();
+        b.$$plus$eq__O__scm_Builder(f(arg1$2));
+        const this$3 = these;
+        these = this$3.tail__sci_List()
+      };
+      errArgsCode = b.result__O()
+    };
+    const jsx$2 = this.out$2;
+    const array = ["if not(", ") then"];
+    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [this.translator$2.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(checkExpr)];
+    jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
+    this.out$2.inc__V();
+    let msg;
+    if ((errName === "ValidationNotEqualError")) {
+      const this$8 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(errArgsCode);
+      const this$9 = this$8.apply__O__s_Option(0);
+      const _1 = (this$9.isEmpty__Z() ? "[expected]" : this$9.get__O());
+      const this$10 = new $c_s_PartialFunction$Lifted().init___s_PartialFunction(errArgsCode);
+      const this$11 = this$10.apply__O__s_Option(1);
+      const _2 = (this$11.isEmpty__Z() ? "[actual]" : this$11.get__O());
+      const expected = _1;
+      const actual = _2;
+      const array$2 = ["\"not equal, expected \" ..  ", " .. \", but got \" .. ", ""];
+      const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+      const array$3 = [expected, actual];
+      msg = jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3))
+    } else {
+      msg = (("\"" + errName) + "\"")
+    };
+    const jsx$5 = this.out$2;
+    const array$4 = ["error(", ")"];
+    const jsx$4 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
+    const array$5 = [msg];
+    jsx$5.puts__T__V(jsx$4.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)));
+    this.out$2.dec__V();
+    this.out$2.puts__T__V("end")
+  };
   runReadCalc__V() {
     const this$1 = this.out$2;
     this$1.sb$2.append__T__scm_StringBuilder("\n");
@@ -76499,7 +76597,7 @@ class $c_Lio_kaitai_struct_languages_LuaCompiler extends $c_Lio_kaitai_struct_la
     /*<skip>*/
   };
   ksErrorName__Lio_kaitai_struct_datatype_KSError__T(err) {
-    $m_s_Predef$().$$qmark$qmark$qmark__sr_Nothing$()
+    return err.name__T()
   };
   universalDoc__Lio_kaitai_struct_format_DocSpec__V(doc) {
     const x1 = doc.summary$1;
@@ -84775,20 +84873,20 @@ class $c_sc_AbstractSeq extends $c_sc_AbstractIterable {
   indices__sci_Range() {
     return $f_sc_SeqLike__indices__sci_Range(this)
   };
-  runWith__F1__F1(action) {
-    return $f_s_PartialFunction__runWith__F1__F1(this, action)
-  };
   isEmpty__Z() {
     return $f_sc_SeqLike__isEmpty__Z(this)
+  };
+  runWith__F1__F1(action) {
+    return $f_s_PartialFunction__runWith__F1__F1(this, action)
   };
   equals__O__Z(that) {
     return $f_sc_GenSeqLike__equals__O__Z(this, that)
   };
-  toString__T() {
-    return $f_sc_TraversableLike__toString__T(this)
-  };
   $$colon$plus__O__scg_CanBuildFrom__O(elem, bf) {
     return $f_sc_SeqLike__$$colon$plus__O__scg_CanBuildFrom__O(this, elem, bf)
+  };
+  toString__T() {
+    return $f_sc_TraversableLike__toString__T(this)
   };
   size__I() {
     return this.length__I()
@@ -84796,11 +84894,11 @@ class $c_sc_AbstractSeq extends $c_sc_AbstractIterable {
   thisCollection__sc_Seq() {
     return this
   };
-  applyOrElse__O__F1__O(x, $default) {
-    return $f_s_PartialFunction__applyOrElse__O__F1__O(this, x, $default)
-  };
   hashCode__I() {
     return $m_s_util_hashing_MurmurHash3$().seqHash__sc_Seq__I(this.seq__sc_Seq())
+  };
+  applyOrElse__O__F1__O(x, $default) {
+    return $f_s_PartialFunction__applyOrElse__O__F1__O(this, x, $default)
   };
 }
 const $is_sci_Seq = (function(obj) {
