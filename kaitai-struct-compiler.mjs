@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200607.053216.a0d7f531 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200614.011502.dc83f27d */
 
 'use strict';
 /* Scala.js runtime support
@@ -3877,9 +3877,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200607.053216.a0d7f531";
-    this.gitCommit$1 = "a0d7f531";
-    this.gitTime$1 = "2020-06-07T05:32:16+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200614.011502.dc83f27d";
+    this.gitCommit$1 = "dc83f27d";
+    this.gitTime$1 = "2020-06-14T01:15:02+00:00";
     return this
   };
 }
@@ -74166,7 +74166,7 @@ class $c_Lio_kaitai_struct_languages_RustCompiler extends $c_Lio_kaitai_struct_l
   switchCaseStart__Lio_kaitai_struct_exprlang_Ast$expr__V(condition) {
     if (this.switchIfs$2) {
       const jsx$2 = this.out$2;
-      const array = ["elss if ", " {"];
+      const array = ["else if ", " {"];
       const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
       const array$1 = [this.switchCmpExpr__Lio_kaitai_struct_exprlang_Ast$expr__T(condition)];
       jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
