@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200711.203407.05a6207d */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200719.002206.324beeef */
 
 'use strict';
 /* Scala.js runtime support
@@ -3881,9 +3881,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200711.203407.05a6207d";
-    this.gitCommit$1 = "05a6207d";
-    this.gitTime$1 = "2020-07-11T20:34:07+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200719.002206.324beeef";
+    this.gitCommit$1 = "324beeef";
+    this.gitTime$1 = "2020-07-19T00:22:06+00:00";
     return this
   };
 }
@@ -5780,6 +5780,8 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
   constructor() {
     super();
     this.wscomment$1 = null;
+    this.nameStart$1 = null;
+    this.namePart$1 = null;
     this.identifier$1 = null;
     this.letter$1 = null;
     this.lowercase$1 = null;
@@ -5807,10 +5809,7 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
     this.bindigit$1 = null;
     this.hexdigit$1 = null;
     this.floatnumber$1 = null;
-    this.pointfloat$1 = null;
-    this.exponentfloat$1 = null;
-    this.intpart$1 = null;
-    this.fraction$1 = null;
+    this.fixed$1 = null;
     this.exponent$1 = null
   };
   init___() {
@@ -5832,46 +5831,62 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
     })(this));
     const name = new $c_Lsourcecode_Name().init___T("wscomment");
     this.wscomment$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name.value$2, p$2, this$7.implicitReprOps$1);
-    const this$15 = $m_Lfastparse_all$();
-    const this$14 = $m_Lfastparse_all$();
-    const this$13 = $m_Lfastparse_all$();
-    const p$8 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$2$1) {
+    const this$9 = $m_Lfastparse_all$();
+    const p$4 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$2$1) {
       return (function() {
-        const this$9 = $m_Lfastparse_all$();
         const this$8 = $m_Lfastparse_all$();
         const p$3 = $m_Lio_kaitai_struct_exprlang_Lexical$().letter$1;
-        const p$4 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$3, this$8.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"));
-        const jsx$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$4, this$9.implicitReprOps$1);
-        const this$12 = $m_Lfastparse_all$();
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$3, this$8.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
+      })
+    })(this));
+    const name$1 = new $c_Lsourcecode_Name().init___T("nameStart");
+    this.nameStart$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$1.value$2, p$4, this$9.implicitReprOps$1);
+    const this$12 = $m_Lfastparse_all$();
+    const p$7 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3$1) {
+      return (function() {
         const this$11 = $m_Lfastparse_all$();
         const this$10 = $m_Lfastparse_all$();
         const p$5 = $m_Lio_kaitai_struct_exprlang_Lexical$().letter$1;
         const p$6 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$5, this$10.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().digit$1);
-        const p$7 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$6, this$11.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"));
-        return jsx$1.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$7, this$12.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$6, this$11.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
       })
     })(this));
-    const name$1 = new $c_Lsourcecode_Name().init___T("identifier");
-    const p$9 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$1.value$2, p$8, this$13.implicitReprOps$1);
-    const p$10 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$9, this$14.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-    this.identifier$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$10, this$15.implicitReprOps$1).map__F1__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Ast$identifier$());
+    const name$2 = new $c_Lsourcecode_Name().init___T("namePart");
+    this.namePart$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$2.value$2, p$7, this$12.implicitReprOps$1);
     const this$17 = $m_Lfastparse_all$();
-    const p$12 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$3$1) {
+    const this$16 = $m_Lfastparse_all$();
+    const this$15 = $m_Lfastparse_all$();
+    const p$10 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4$1) {
       return (function() {
-        const this$16 = $m_Lfastparse_all$();
-        const p$11 = $m_Lio_kaitai_struct_exprlang_Lexical$().lowercase$1;
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$11, this$16.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().uppercase$1)
+        const this$13 = $m_Lfastparse_all$();
+        const p$8 = $m_Lio_kaitai_struct_exprlang_Lexical$().nameStart$1;
+        const jsx$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$8, this$13.implicitReprOps$1);
+        const this$14 = $m_Lfastparse_all$();
+        const p$9 = $m_Lio_kaitai_struct_exprlang_Lexical$().namePart$1;
+        return jsx$1.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$9, this$14.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$2 = new $c_Lsourcecode_Name().init___T("letter");
-    this.letter$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$2.value$2, p$12, this$17.implicitReprOps$1);
-    const this$27 = $m_Lfastparse_all$();
-    const p$13 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$4$1) {
+    const name$3 = new $c_Lsourcecode_Name().init___T("identifier");
+    const p$11 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$3.value$2, p$10, this$15.implicitReprOps$1);
+    const p$12 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$11, this$16.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
+    this.identifier$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$12, this$17.implicitReprOps$1).map__F1__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Ast$identifier$());
+    const this$19 = $m_Lfastparse_all$();
+    const p$14 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$5$1) {
       return (function() {
-        const this$24 = $m_Lfastparse_all$();
-        const this$21 = new $c_sr_RichChar().init___C(97);
+        const this$18 = $m_Lfastparse_all$();
+        const p$13 = $m_Lio_kaitai_struct_exprlang_Lexical$().lowercase$1;
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$13, this$18.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().uppercase$1)
+      })
+    })(this));
+    const name$4 = new $c_Lsourcecode_Name().init___T("letter");
+    this.letter$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$4.value$2, p$14, this$19.implicitReprOps$1);
+    const this$29 = $m_Lfastparse_all$();
+    const p$15 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$6$1) {
+      return (function() {
+        const this$26 = $m_Lfastparse_all$();
+        const this$23 = new $c_sr_RichChar().init___C(97);
         const end = new $c_jl_Character().init___C(122);
-        const array = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$21, end)];
+        const array = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$23, end)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b = new $c_sjs_js_WrappedArray().init___();
@@ -5891,18 +5906,18 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b.array$6.push(elem);
           i = ((1 + i) | 0)
         };
-        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b, this$24.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
+        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b, this$26.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
       })
     })(this));
-    const name$3 = new $c_Lsourcecode_Name().init___T("lowercase");
-    this.lowercase$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$3.value$2, p$13, this$27.implicitReprOps$1);
-    const this$37 = $m_Lfastparse_all$();
-    const p$14 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$5$1) {
+    const name$5 = new $c_Lsourcecode_Name().init___T("lowercase");
+    this.lowercase$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$5.value$2, p$15, this$29.implicitReprOps$1);
+    const this$39 = $m_Lfastparse_all$();
+    const p$16 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$7$1) {
       return (function() {
-        const this$34 = $m_Lfastparse_all$();
-        const this$31 = new $c_sr_RichChar().init___C(65);
+        const this$36 = $m_Lfastparse_all$();
+        const this$33 = new $c_sr_RichChar().init___C(65);
         const end$1 = new $c_jl_Character().init___C(90);
-        const array$1 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$31, end$1)];
+        const array$1 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$33, end$1)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b$1 = new $c_sjs_js_WrappedArray().init___();
@@ -5922,18 +5937,18 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$1.array$6.push(elem$1);
           i$1 = ((1 + i$1) | 0)
         };
-        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$1, this$34.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
+        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$1, this$36.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
       })
     })(this));
-    const name$4 = new $c_Lsourcecode_Name().init___T("uppercase");
-    this.uppercase$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$4.value$2, p$14, this$37.implicitReprOps$1);
-    const this$47 = $m_Lfastparse_all$();
-    const p$15 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$6$1) {
+    const name$6 = new $c_Lsourcecode_Name().init___T("uppercase");
+    this.uppercase$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$6.value$2, p$16, this$39.implicitReprOps$1);
+    const this$49 = $m_Lfastparse_all$();
+    const p$17 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$8$1) {
       return (function() {
-        const this$44 = $m_Lfastparse_all$();
-        const this$41 = new $c_sr_RichChar().init___C(48);
+        const this$46 = $m_Lfastparse_all$();
+        const this$43 = new $c_sr_RichChar().init___C(48);
         const end$2 = new $c_jl_Character().init___C(57);
-        const array$2 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$41, end$2)];
+        const array$2 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$43, end$2)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b$2 = new $c_sjs_js_WrappedArray().init___();
@@ -5953,166 +5968,166 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$2.array$6.push(elem$2);
           i$2 = ((1 + i$2) | 0)
         };
-        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$2, this$44.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
+        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$2, this$46.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
       })
     })(this));
-    const name$5 = new $c_Lsourcecode_Name().init___T("digit");
-    this.digit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$5.value$2, p$15, this$47.implicitReprOps$1);
-    const this$49 = $m_Lfastparse_all$();
-    const p$17 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$7$1) {
+    const name$7 = new $c_Lsourcecode_Name().init___T("digit");
+    this.digit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$7.value$2, p$17, this$49.implicitReprOps$1);
+    const this$51 = $m_Lfastparse_all$();
+    const p$19 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$9$1) {
       return (function() {
-        const this$48 = $m_Lfastparse_all$();
-        const p$16 = $m_Lio_kaitai_struct_exprlang_Lexical$().singlestring$1;
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$16, this$48.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().doublestring$1)
-      })
-    })(this));
-    const name$6 = new $c_Lsourcecode_Name().init___T("stringliteral");
-    this.stringliteral$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$6.value$2, p$17, this$49.implicitReprOps$1);
-    const this$55 = $m_Lfastparse_all$();
-    const p$21 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$8$1) {
-      return (function() {
-        const this$53 = $m_Lfastparse_all$();
         const this$50 = $m_Lfastparse_all$();
-        const jsx$3 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("'"), this$50.implicitReprOps$1);
-        const this$52 = $m_Lfastparse_all$();
-        const this$51 = $m_Lfastparse_all$();
-        const p$18 = $m_Lio_kaitai_struct_exprlang_Lexical$().singlestringchar$1;
-        const p$19 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$18, this$51.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        const p$20 = jsx$3.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$19, this$52.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$4 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$20, this$53.implicitReprOps$1);
-        const jsx$2 = $m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("'");
-        const this$54 = $m_Lfastparse_core_Implicits$Sequencer$();
-        return jsx$4.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$2, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$54))
+        const p$18 = $m_Lio_kaitai_struct_exprlang_Lexical$().singlestring$1;
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$18, this$50.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().doublestring$1)
       })
     })(this));
-    const name$7 = new $c_Lsourcecode_Name().init___T("singlestring");
-    this.singlestring$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$7.value$2, p$21, this$55.implicitReprOps$1);
-    const this$63 = $m_Lfastparse_all$();
-    const p$22 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$9$1) {
+    const name$8 = new $c_Lsourcecode_Name().init___T("stringliteral");
+    this.stringliteral$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$8.value$2, p$19, this$51.implicitReprOps$1);
+    const this$57 = $m_Lfastparse_all$();
+    const p$23 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$10$1) {
       return (function() {
-        const this$62 = $m_Lfastparse_all$().CharsWhile$2;
+        const this$55 = $m_Lfastparse_all$();
+        const this$52 = $m_Lfastparse_all$();
+        const jsx$3 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("'"), this$52.implicitReprOps$1);
+        const this$54 = $m_Lfastparse_all$();
+        const this$53 = $m_Lfastparse_all$();
+        const p$20 = $m_Lio_kaitai_struct_exprlang_Lexical$().singlestringchar$1;
+        const p$21 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$20, this$53.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        const p$22 = jsx$3.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$21, this$54.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$4 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$22, this$55.implicitReprOps$1);
+        const jsx$2 = $m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("'");
+        const this$56 = $m_Lfastparse_core_Implicits$Sequencer$();
+        return jsx$4.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$2, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$56))
+      })
+    })(this));
+    const name$9 = new $c_Lsourcecode_Name().init___T("singlestring");
+    this.singlestring$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$9.value$2, p$23, this$57.implicitReprOps$1);
+    const this$65 = $m_Lfastparse_all$();
+    const p$24 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$11$1) {
+      return (function() {
+        const this$64 = $m_Lfastparse_all$().CharsWhile$2;
         const pred$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1) {
           return (function(x$1$2$1) {
             let x$1$3;
             if ((x$1$2$1 === null)) {
               x$1$3 = 0
             } else {
-              const this$57 = x$1$2$1;
-              x$1$3 = this$57.value$1
+              const this$59 = x$1$2$1;
+              x$1$3 = this$59.value$1
             };
-            const this$61 = new $c_sci_StringOps().init___T("'");
+            const this$63 = new $c_sci_StringOps().init___T("'");
             const elem$3 = new $c_jl_Character().init___C(x$1$3);
-            return (!$f_sc_SeqLike__contains__O__Z(this$61, elem$3))
+            return (!$f_sc_SeqLike__contains__O__Z(this$63, elem$3))
           })
-        })(this$9$1));
+        })(this$11$1));
         $m_Lfastparse_all$();
         const min = 1;
-        return this$62.create__F1__I__Z__Lfastparse_parsers_Intrinsics$ElemsWhile(pred$1, min, true)
+        return this$64.create__F1__I__Z__Lfastparse_parsers_Intrinsics$ElemsWhile(pred$1, min, true)
       })
     })(this));
-    const name$8 = new $c_Lsourcecode_Name().init___T("singlestringchar");
-    this.singlestringchar$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$8.value$2, p$22, this$63.implicitReprOps$1);
-    const this$70 = $m_Lfastparse_all$();
-    const this$69 = $m_Lfastparse_all$();
-    const p$25 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$10$1) {
+    const name$10 = new $c_Lsourcecode_Name().init___T("singlestringchar");
+    this.singlestringchar$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$10.value$2, p$24, this$65.implicitReprOps$1);
+    const this$72 = $m_Lfastparse_all$();
+    const this$71 = $m_Lfastparse_all$();
+    const p$27 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$12$1) {
       return (function() {
+        const this$69 = $m_Lfastparse_all$();
+        const this$66 = $m_Lfastparse_all$();
+        const jsx$7 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("\""), this$66.implicitReprOps$1);
         const this$67 = $m_Lfastparse_all$();
-        const this$64 = $m_Lfastparse_all$();
-        const jsx$7 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("\""), this$64.implicitReprOps$1);
-        const this$65 = $m_Lfastparse_all$();
-        const p$23 = $m_Lio_kaitai_struct_exprlang_Lexical$().doublestringitem$1;
-        const jsx$6 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$23, this$65.implicitReprOps$1);
-        const this$66 = $m_Lfastparse_core_Implicits$Repeater$();
-        const p$24 = jsx$7.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$6.rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(new $c_Lfastparse_core_Implicits$LowPriRepeater$GenericRepeater().init___Lfastparse_core_Implicits$LowPriRepeater(this$66)), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$8 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$24, this$67.implicitReprOps$1);
+        const p$25 = $m_Lio_kaitai_struct_exprlang_Lexical$().doublestringitem$1;
+        const jsx$6 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$25, this$67.implicitReprOps$1);
+        const this$68 = $m_Lfastparse_core_Implicits$Repeater$();
+        const p$26 = jsx$7.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$6.rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(new $c_Lfastparse_core_Implicits$LowPriRepeater$GenericRepeater().init___Lfastparse_core_Implicits$LowPriRepeater(this$68)), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$8 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$26, this$69.implicitReprOps$1);
         const jsx$5 = $m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("\"");
-        const this$68 = $m_Lfastparse_core_Implicits$Sequencer$();
-        return jsx$8.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$5, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$68))
+        const this$70 = $m_Lfastparse_core_Implicits$Sequencer$();
+        return jsx$8.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$5, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$70))
       })
     })(this));
-    const name$9 = new $c_Lsourcecode_Name().init___T("doublestring");
-    const p$26 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$9.value$2, p$25, this$69.implicitReprOps$1);
-    this.doublestring$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$26, this$70.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$11$1) {
+    const name$11 = new $c_Lsourcecode_Name().init___T("doublestring");
+    const p$28 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$11.value$2, p$27, this$71.implicitReprOps$1);
+    this.doublestring$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$28, this$72.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$13$1) {
       return (function(x$2$2) {
         const x$2 = x$2$2;
         return x$2.mkString__T()
       })
     })(this)));
-    const this$73 = $m_Lfastparse_all$();
-    const p$29 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$12$1) {
+    const this$75 = $m_Lfastparse_all$();
+    const p$31 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$14$1) {
       return (function() {
-        const this$72 = $m_Lfastparse_all$();
-        const this$71 = $m_Lfastparse_all$();
-        const p$27 = $m_Lio_kaitai_struct_exprlang_Lexical$().doublestringchar$1;
-        const p$28 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$27, this$71.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$28, this$72.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().escapeseq$1)
+        const this$74 = $m_Lfastparse_all$();
+        const this$73 = $m_Lfastparse_all$();
+        const p$29 = $m_Lio_kaitai_struct_exprlang_Lexical$().doublestringchar$1;
+        const p$30 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$29, this$73.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$30, this$74.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().escapeseq$1)
       })
     })(this));
-    const name$10 = new $c_Lsourcecode_Name().init___T("doublestringitem");
-    this.doublestringitem$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$10.value$2, p$29, this$73.implicitReprOps$1);
-    const this$81 = $m_Lfastparse_all$();
-    const p$30 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$13$1) {
+    const name$12 = new $c_Lsourcecode_Name().init___T("doublestringitem");
+    this.doublestringitem$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$12.value$2, p$31, this$75.implicitReprOps$1);
+    const this$83 = $m_Lfastparse_all$();
+    const p$32 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$15$1) {
       return (function() {
-        const this$80 = $m_Lfastparse_all$().CharsWhile$2;
+        const this$82 = $m_Lfastparse_all$().CharsWhile$2;
         const pred$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$2) {
           return (function(x$3$2) {
             let x$3;
             if ((x$3$2 === null)) {
               x$3 = 0
             } else {
-              const this$75 = x$3$2;
-              x$3 = this$75.value$1
+              const this$77 = x$3$2;
+              x$3 = this$77.value$1
             };
-            const this$79 = new $c_sci_StringOps().init___T("\\\"");
+            const this$81 = new $c_sci_StringOps().init___T("\\\"");
             const elem$4 = new $c_jl_Character().init___C(x$3);
-            return (!$f_sc_SeqLike__contains__O__Z(this$79, elem$4))
+            return (!$f_sc_SeqLike__contains__O__Z(this$81, elem$4))
           })
-        })(this$13$1));
+        })(this$15$1));
         $m_Lfastparse_all$();
         const min$1 = 1;
-        return this$80.create__F1__I__Z__Lfastparse_parsers_Intrinsics$ElemsWhile(pred$2, min$1, true)
+        return this$82.create__F1__I__Z__Lfastparse_parsers_Intrinsics$ElemsWhile(pred$2, min$1, true)
       })
     })(this));
-    const name$11 = new $c_Lsourcecode_Name().init___T("doublestringchar");
-    this.doublestringchar$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$11.value$2, p$30, this$81.implicitReprOps$1);
-    const this$85 = $m_Lfastparse_all$();
-    const p$33 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$14$1) {
+    const name$13 = new $c_Lsourcecode_Name().init___T("doublestringchar");
+    this.doublestringchar$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$13.value$2, p$32, this$83.implicitReprOps$1);
+    const this$87 = $m_Lfastparse_all$();
+    const p$35 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$16$1) {
       return (function() {
-        const this$82 = $m_Lfastparse_all$();
-        const jsx$9 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("\\"), this$82.implicitReprOps$1);
         const this$84 = $m_Lfastparse_all$();
-        const this$83 = $m_Lfastparse_all$();
-        const p$31 = $m_Lio_kaitai_struct_exprlang_Lexical$().quotedchar$1;
-        const p$32 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$31, this$83.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().quotedoctal$1);
-        return jsx$9.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$32, this$84.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().quotedhex$1), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const jsx$9 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("\\"), this$84.implicitReprOps$1);
+        const this$86 = $m_Lfastparse_all$();
+        const this$85 = $m_Lfastparse_all$();
+        const p$33 = $m_Lio_kaitai_struct_exprlang_Lexical$().quotedchar$1;
+        const p$34 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$33, this$85.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().quotedoctal$1);
+        return jsx$9.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$34, this$86.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().quotedhex$1), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$12 = new $c_Lsourcecode_Name().init___T("escapeseq");
-    this.escapeseq$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$12.value$2, p$33, this$85.implicitReprOps$1);
+    const name$14 = new $c_Lsourcecode_Name().init___T("escapeseq");
+    this.escapeseq$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$14.value$2, p$35, this$87.implicitReprOps$1);
     const array$3 = [new $c_T2().init___O__O("a", "\u0007"), new $c_T2().init___O__O("b", "\b"), new $c_T2().init___O__O("t", "\t"), new $c_T2().init___O__O("n", "\n"), new $c_T2().init___O__O("v", "\v"), new $c_T2().init___O__O("f", "\f"), new $c_T2().init___O__O("r", "\r"), new $c_T2().init___O__O("e", "\u001b"), new $c_T2().init___O__O("'", "'"), new $c_T2().init___O__O("\"", "\""), new $c_T2().init___O__O("\\", "\\")];
-    const this$111 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
+    const this$113 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
     let i$3 = 0;
     const len$3 = (array$3.length | 0);
     while ((i$3 < len$3)) {
       const index$3 = i$3;
       const arg1$3 = array$3[index$3];
-      this$111.$$plus$eq__T2__scm_MapBuilder(arg1$3);
+      this$113.$$plus$eq__T2__scm_MapBuilder(arg1$3);
       i$3 = ((1 + i$3) | 0)
     };
-    this.QUOTED$undCC$1 = this$111.elems$1;
-    const this$112 = this.QUOTED$undCC$1;
-    const this$113 = new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(this$112);
-    const this$114 = $m_sci_List$();
-    const cbf$1 = this$114.ReusableCBFInstance$2;
-    const this$115 = $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$113, cbf$1);
+    this.QUOTED$undCC$1 = this$113.elems$1;
+    const this$114 = this.QUOTED$undCC$1;
+    const this$115 = new $c_sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike(this$114);
+    const this$116 = $m_sci_List$();
+    const cbf$1 = this$116.ReusableCBFInstance$2;
+    const this$117 = $f_sc_TraversableLike__to__scg_CanBuildFrom__O(this$115, cbf$1);
     const ord = $m_s_math_Ordering$String$();
-    this.VALID$undQUOTED$1 = $f_sc_SeqLike__sorted__s_math_Ordering__O(this$115, ord).mkString__T();
-    const this$123 = $m_Lfastparse_all$();
-    const this$122 = $m_Lfastparse_all$();
-    const p$35 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$15$1) {
+    this.VALID$undQUOTED$1 = $f_sc_SeqLike__sorted__s_math_Ordering__O(this$117, ord).mkString__T();
+    const this$125 = $m_Lfastparse_all$();
+    const this$124 = $m_Lfastparse_all$();
+    const p$37 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$17$1) {
       return (function() {
-        const this$121 = $m_Lfastparse_all$();
-        const this$118 = $m_Lfastparse_all$();
+        const this$123 = $m_Lfastparse_all$();
+        const this$120 = $m_Lfastparse_all$();
         const array$4 = [$m_s_Predef$().wrapString__T__sci_WrappedString($m_Lio_kaitai_struct_exprlang_Lexical$().VALID$undQUOTED$1)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
@@ -6133,187 +6148,187 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$3.array$6.push(elem$5);
           i$4 = ((1 + i$4) | 0)
         };
-        const p$34 = new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$3, this$118.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$());
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$34, this$121.implicitReprOps$1).$$bang__Lfastparse_core_Parser()
+        const p$36 = new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$3, this$120.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$());
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$36, this$123.implicitReprOps$1).$$bang__Lfastparse_core_Parser()
       })
     })(this));
-    const name$13 = new $c_Lsourcecode_Name().init___T("quotedchar");
-    const p$36 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$13.value$2, p$35, this$122.implicitReprOps$1);
-    this.quotedchar$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$36, this$123.implicitReprOps$1).map__F1__Lfastparse_core_Parser(this.QUOTED$undCC$1);
-    const this$127 = $m_Lfastparse_all$();
-    const this$126 = $m_Lfastparse_all$();
-    const p$39 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$16$1) {
+    const name$15 = new $c_Lsourcecode_Name().init___T("quotedchar");
+    const p$38 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$15.value$2, p$37, this$124.implicitReprOps$1);
+    this.quotedchar$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$38, this$125.implicitReprOps$1).map__F1__Lfastparse_core_Parser(this.QUOTED$undCC$1);
+    const this$129 = $m_Lfastparse_all$();
+    const this$128 = $m_Lfastparse_all$();
+    const p$41 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$18$1) {
       return (function() {
-        const this$125 = $m_Lfastparse_all$();
-        const this$124 = $m_Lfastparse_all$();
-        const p$37 = $m_Lio_kaitai_struct_exprlang_Lexical$().octdigit$1;
-        const qual$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$37, this$124.implicitReprOps$1);
-        const x$12 = qual$1.rep$default$2__Lfastparse_core_Parser();
-        const p$38 = qual$1.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$12, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$38, this$125.implicitReprOps$1).$$bang__Lfastparse_core_Parser()
+        const this$127 = $m_Lfastparse_all$();
+        const this$126 = $m_Lfastparse_all$();
+        const p$39 = $m_Lio_kaitai_struct_exprlang_Lexical$().octdigit$1;
+        const qual$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$39, this$126.implicitReprOps$1);
+        const x$10 = qual$1.rep$default$2__Lfastparse_core_Parser();
+        const p$40 = qual$1.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$10, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$40, this$127.implicitReprOps$1).$$bang__Lfastparse_core_Parser()
       })
     })(this));
-    const name$14 = new $c_Lsourcecode_Name().init___T("quotedoctal");
-    const p$40 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$14.value$2, p$39, this$126.implicitReprOps$1);
-    this.quotedoctal$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$40, this$127.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$17$1) {
+    const name$16 = new $c_Lsourcecode_Name().init___T("quotedoctal");
+    const p$42 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$16.value$2, p$41, this$128.implicitReprOps$1);
+    this.quotedoctal$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$42, this$129.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$19$1) {
       return (function(digits$2) {
         const digits = digits$2;
         const code = (65535 & $m_jl_Integer$().parseInt__T__I__I(digits, 8));
         return $g.String.fromCharCode(code)
       })
     })(this)));
-    const this$136 = $m_Lfastparse_all$();
-    const this$135 = $m_Lfastparse_all$();
-    const p$43 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$18$1) {
+    const this$138 = $m_Lfastparse_all$();
+    const this$137 = $m_Lfastparse_all$();
+    const p$45 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$20$1) {
       return (function() {
-        const this$132 = $m_Lfastparse_all$();
-        const jsx$10 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("u"), this$132.implicitReprOps$1);
         const this$134 = $m_Lfastparse_all$();
-        const this$133 = $m_Lfastparse_all$();
-        const p$41 = $m_Lio_kaitai_struct_exprlang_Lexical$().hexdigit$1;
-        const qual$2 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$41, this$133.implicitReprOps$1);
-        const x$17 = qual$2.rep$default$2__Lfastparse_core_Parser();
-        const p$42 = qual$2.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(0, x$17, 2147483647, 4, $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        return jsx$10.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$42, this$134.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const jsx$10 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("u"), this$134.implicitReprOps$1);
+        const this$136 = $m_Lfastparse_all$();
+        const this$135 = $m_Lfastparse_all$();
+        const p$43 = $m_Lio_kaitai_struct_exprlang_Lexical$().hexdigit$1;
+        const qual$2 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$43, this$135.implicitReprOps$1);
+        const x$15 = qual$2.rep$default$2__Lfastparse_core_Parser();
+        const p$44 = qual$2.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(0, x$15, 2147483647, 4, $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        return jsx$10.$$tilde$div__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$44, this$136.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$15 = new $c_Lsourcecode_Name().init___T("quotedhex");
-    const p$44 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$15.value$2, p$43, this$135.implicitReprOps$1);
-    this.quotedhex$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$44, this$136.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$19$1) {
+    const name$17 = new $c_Lsourcecode_Name().init___T("quotedhex");
+    const p$46 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$17.value$2, p$45, this$137.implicitReprOps$1);
+    this.quotedhex$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$46, this$138.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$21$1) {
       return (function(digits$3$2) {
         const digits$3 = digits$3$2;
         const code$1 = (65535 & $m_jl_Integer$().parseInt__T__I__I(digits$3, 16));
         return $g.String.fromCharCode(code$1)
       })
     })(this)));
-    const this$144 = $m_Lfastparse_all$();
-    const p$48 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$20$1) {
+    const this$146 = $m_Lfastparse_all$();
+    const p$50 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$22$1) {
       return (function() {
-        const this$143 = $m_Lfastparse_all$();
-        const this$142 = $m_Lfastparse_all$();
-        const this$141 = $m_Lfastparse_all$();
-        const p$45 = $m_Lio_kaitai_struct_exprlang_Lexical$().octinteger$1;
-        const p$46 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$45, this$141.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().hexinteger$1);
-        const p$47 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$46, this$142.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().bininteger$1);
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$47, this$143.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().decimalinteger$1)
-      })
-    })(this));
-    const name$16 = new $c_Lsourcecode_Name().init___T("integer");
-    this.integer$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$16.value$2, p$48, this$144.implicitReprOps$1);
-    const this$151 = $m_Lfastparse_all$();
-    const this$150 = $m_Lfastparse_all$();
-    const this$149 = $m_Lfastparse_all$();
-    const p$53 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$21$1) {
-      return (function() {
-        const this$148 = $m_Lfastparse_all$();
         const this$145 = $m_Lfastparse_all$();
-        const p$49 = $m_Lio_kaitai_struct_exprlang_Lexical$().nonzerodigit$1;
-        const jsx$11 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$49, this$145.implicitReprOps$1);
-        const this$147 = $m_Lfastparse_all$();
-        const this$146 = $m_Lfastparse_all$();
-        const p$50 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
-        const p$51 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$50, this$146.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"));
-        const p$52 = jsx$11.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$51, this$147.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$52, this$148.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"))
+        const this$144 = $m_Lfastparse_all$();
+        const this$143 = $m_Lfastparse_all$();
+        const p$47 = $m_Lio_kaitai_struct_exprlang_Lexical$().octinteger$1;
+        const p$48 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$47, this$143.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().hexinteger$1);
+        const p$49 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$48, this$144.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().bininteger$1);
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$49, this$145.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().decimalinteger$1)
       })
     })(this));
-    const name$17 = new $c_Lsourcecode_Name().init___T("decimalinteger");
-    const p$54 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$17.value$2, p$53, this$149.implicitReprOps$1);
-    const p$55 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$54, this$150.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-    this.decimalinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$55, this$151.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$22$1) {
+    const name$18 = new $c_Lsourcecode_Name().init___T("integer");
+    this.integer$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$18.value$2, p$50, this$146.implicitReprOps$1);
+    const this$153 = $m_Lfastparse_all$();
+    const this$152 = $m_Lfastparse_all$();
+    const this$151 = $m_Lfastparse_all$();
+    const p$55 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$23$1) {
+      return (function() {
+        const this$150 = $m_Lfastparse_all$();
+        const this$147 = $m_Lfastparse_all$();
+        const p$51 = $m_Lio_kaitai_struct_exprlang_Lexical$().nonzerodigit$1;
+        const jsx$11 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$51, this$147.implicitReprOps$1);
+        const this$149 = $m_Lfastparse_all$();
+        const this$148 = $m_Lfastparse_all$();
+        const p$52 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const p$53 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$52, this$148.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"));
+        const p$54 = jsx$11.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$53, this$149.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$54, this$150.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"))
+      })
+    })(this));
+    const name$19 = new $c_Lsourcecode_Name().init___T("decimalinteger");
+    const p$56 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$19.value$2, p$55, this$151.implicitReprOps$1);
+    const p$57 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$56, this$152.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
+    this.decimalinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$57, this$153.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$24$1) {
       return (function(x$4$2) {
         const x$4 = x$4$2;
         return $m_Lio_kaitai_struct_exprlang_Lexical$().parseNum__T__I__s_math_BigInt(x$4, 10)
       })
     })(this)));
-    const this$158 = $m_Lfastparse_all$();
-    const this$157 = $m_Lfastparse_all$();
-    const p$59 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$23$1) {
+    const this$160 = $m_Lfastparse_all$();
+    const this$159 = $m_Lfastparse_all$();
+    const p$61 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$25$1) {
       return (function() {
-        const this$154 = $m_Lfastparse_all$();
-        const this$152 = $m_Lfastparse_all$();
-        const jsx$12 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$152.implicitReprOps$1);
-        const this$153 = $m_Lfastparse_all$();
-        const p$56 = jsx$12.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("o"), this$153.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("O")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$13 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$56, this$154.implicitReprOps$1);
         const this$156 = $m_Lfastparse_all$();
+        const this$154 = $m_Lfastparse_all$();
+        const jsx$12 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$154.implicitReprOps$1);
         const this$155 = $m_Lfastparse_all$();
-        const p$57 = $m_Lio_kaitai_struct_exprlang_Lexical$().octdigit$1;
-        const qual$3 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$57, this$155.implicitReprOps$1);
-        const x$20 = qual$3.rep$default$2__Lfastparse_core_Parser();
-        const p$58 = qual$3.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$20, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        return jsx$13.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$58, this$156.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const p$58 = jsx$12.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("o"), this$155.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("O")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$13 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$58, this$156.implicitReprOps$1);
+        const this$158 = $m_Lfastparse_all$();
+        const this$157 = $m_Lfastparse_all$();
+        const p$59 = $m_Lio_kaitai_struct_exprlang_Lexical$().octdigit$1;
+        const qual$3 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$59, this$157.implicitReprOps$1);
+        const x$18 = qual$3.rep$default$2__Lfastparse_core_Parser();
+        const p$60 = qual$3.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$18, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        return jsx$13.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$60, this$158.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$18 = new $c_Lsourcecode_Name().init___T("octinteger");
-    const p$60 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$18.value$2, p$59, this$157.implicitReprOps$1);
-    this.octinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$60, this$158.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$24$1) {
+    const name$20 = new $c_Lsourcecode_Name().init___T("octinteger");
+    const p$62 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$20.value$2, p$61, this$159.implicitReprOps$1);
+    this.octinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$62, this$160.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$26$1) {
       return (function(x$5$2) {
         const x$5 = x$5$2;
         return $m_Lio_kaitai_struct_exprlang_Lexical$().parseNum__T__I__s_math_BigInt(x$5, 8)
       })
     })(this)));
-    const this$165 = $m_Lfastparse_all$();
-    const this$164 = $m_Lfastparse_all$();
-    const p$64 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$25$1) {
+    const this$167 = $m_Lfastparse_all$();
+    const this$166 = $m_Lfastparse_all$();
+    const p$66 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$27$1) {
       return (function() {
-        const this$161 = $m_Lfastparse_all$();
-        const this$159 = $m_Lfastparse_all$();
-        const jsx$14 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$159.implicitReprOps$1);
-        const this$160 = $m_Lfastparse_all$();
-        const p$61 = jsx$14.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("x"), this$160.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("X")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$15 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$61, this$161.implicitReprOps$1);
         const this$163 = $m_Lfastparse_all$();
+        const this$161 = $m_Lfastparse_all$();
+        const jsx$14 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$161.implicitReprOps$1);
         const this$162 = $m_Lfastparse_all$();
-        const p$62 = $m_Lio_kaitai_struct_exprlang_Lexical$().hexdigit$1;
-        const qual$4 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$62, this$162.implicitReprOps$1);
-        const x$24 = qual$4.rep$default$2__Lfastparse_core_Parser();
-        const p$63 = qual$4.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$24, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        return jsx$15.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$63, this$163.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const p$63 = jsx$14.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("x"), this$162.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("X")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$15 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$63, this$163.implicitReprOps$1);
+        const this$165 = $m_Lfastparse_all$();
+        const this$164 = $m_Lfastparse_all$();
+        const p$64 = $m_Lio_kaitai_struct_exprlang_Lexical$().hexdigit$1;
+        const qual$4 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$64, this$164.implicitReprOps$1);
+        const x$22 = qual$4.rep$default$2__Lfastparse_core_Parser();
+        const p$65 = qual$4.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$22, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        return jsx$15.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$65, this$165.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$19 = new $c_Lsourcecode_Name().init___T("hexinteger");
-    const p$65 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$19.value$2, p$64, this$164.implicitReprOps$1);
-    this.hexinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$65, this$165.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$26$1) {
+    const name$21 = new $c_Lsourcecode_Name().init___T("hexinteger");
+    const p$67 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$21.value$2, p$66, this$166.implicitReprOps$1);
+    this.hexinteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$67, this$167.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$28$1) {
       return (function(x$6$2) {
         const x$6 = x$6$2;
         return $m_Lio_kaitai_struct_exprlang_Lexical$().parseNum__T__I__s_math_BigInt(x$6, 16)
       })
     })(this)));
-    const this$172 = $m_Lfastparse_all$();
-    const this$171 = $m_Lfastparse_all$();
-    const p$69 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$27$1) {
+    const this$174 = $m_Lfastparse_all$();
+    const this$173 = $m_Lfastparse_all$();
+    const p$71 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$29$1) {
       return (function() {
-        const this$168 = $m_Lfastparse_all$();
-        const this$166 = $m_Lfastparse_all$();
-        const jsx$16 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$166.implicitReprOps$1);
-        const this$167 = $m_Lfastparse_all$();
-        const p$66 = jsx$16.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("b"), this$167.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("B")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$17 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$66, this$168.implicitReprOps$1);
         const this$170 = $m_Lfastparse_all$();
+        const this$168 = $m_Lfastparse_all$();
+        const jsx$16 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$168.implicitReprOps$1);
         const this$169 = $m_Lfastparse_all$();
-        const p$67 = $m_Lio_kaitai_struct_exprlang_Lexical$().bindigit$1;
-        const qual$5 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$67, this$169.implicitReprOps$1);
-        const x$28 = qual$5.rep$default$2__Lfastparse_core_Parser();
-        const p$68 = qual$5.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$28, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
-        return jsx$17.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$68, this$170.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const p$68 = jsx$16.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("b"), this$169.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("B")), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$17 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$68, this$170.implicitReprOps$1);
+        const this$172 = $m_Lfastparse_all$();
+        const this$171 = $m_Lfastparse_all$();
+        const p$69 = $m_Lio_kaitai_struct_exprlang_Lexical$().bindigit$1;
+        const qual$5 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$69, this$171.implicitReprOps$1);
+        const x$26 = qual$5.rep$default$2__Lfastparse_core_Parser();
+        const p$70 = qual$5.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$26, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        return jsx$17.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$70, this$172.implicitReprOps$1).$$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$20 = new $c_Lsourcecode_Name().init___T("bininteger");
-    const p$70 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$20.value$2, p$69, this$171.implicitReprOps$1);
-    this.bininteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$70, this$172.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$28$1) {
+    const name$22 = new $c_Lsourcecode_Name().init___T("bininteger");
+    const p$72 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$22.value$2, p$71, this$173.implicitReprOps$1);
+    this.bininteger$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$72, this$174.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$30$1) {
       return (function(x$7$2) {
         const x$7 = x$7$2;
         return $m_Lio_kaitai_struct_exprlang_Lexical$().parseNum__T__I__s_math_BigInt(x$7, 2)
       })
     })(this)));
-    const this$182 = $m_Lfastparse_all$();
-    const p$71 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$29$1) {
+    const this$184 = $m_Lfastparse_all$();
+    const p$73 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$31$1) {
       return (function() {
-        const this$179 = $m_Lfastparse_all$();
-        const this$176 = new $c_sr_RichChar().init___C(49);
+        const this$181 = $m_Lfastparse_all$();
+        const this$178 = new $c_sr_RichChar().init___C(49);
         const end$3 = new $c_jl_Character().init___C(57);
-        const array$5 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$176, end$3)];
+        const array$5 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$178, end$3)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b$4 = new $c_sjs_js_WrappedArray().init___();
@@ -6333,19 +6348,19 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$4.array$6.push(elem$6);
           i$5 = ((1 + i$5) | 0)
         };
-        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$4, this$179.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
+        return new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$4, this$181.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$())
       })
     })(this));
-    const name$21 = new $c_Lsourcecode_Name().init___T("nonzerodigit");
-    this.nonzerodigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$21.value$2, p$71, this$182.implicitReprOps$1);
-    const this$193 = $m_Lfastparse_all$();
-    const p$73 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$30$1) {
+    const name$23 = new $c_Lsourcecode_Name().init___T("nonzerodigit");
+    this.nonzerodigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$23.value$2, p$73, this$184.implicitReprOps$1);
+    const this$195 = $m_Lfastparse_all$();
+    const p$75 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$32$1) {
       return (function() {
-        const this$192 = $m_Lfastparse_all$();
-        const this$189 = $m_Lfastparse_all$();
-        const this$186 = new $c_sr_RichChar().init___C(48);
+        const this$194 = $m_Lfastparse_all$();
+        const this$191 = $m_Lfastparse_all$();
+        const this$188 = new $c_sr_RichChar().init___C(48);
         const end$4 = new $c_jl_Character().init___C(55);
-        const array$6 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$186, end$4)];
+        const array$6 = [$f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$188, end$4)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b$5 = new $c_sjs_js_WrappedArray().init___();
@@ -6365,37 +6380,37 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$5.array$6.push(elem$7);
           i$6 = ((1 + i$6) | 0)
         };
-        const p$72 = new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$5, this$189.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$());
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$72, this$192.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
+        const p$74 = new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$5, this$191.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$());
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$74, this$194.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
       })
     })(this));
-    const name$22 = new $c_Lsourcecode_Name().init___T("octdigit");
-    this.octdigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$22.value$2, p$73, this$193.implicitReprOps$1);
-    const this$196 = $m_Lfastparse_all$();
-    const p$75 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$31$1) {
+    const name$24 = new $c_Lsourcecode_Name().init___T("octdigit");
+    this.octdigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$24.value$2, p$75, this$195.implicitReprOps$1);
+    const this$198 = $m_Lfastparse_all$();
+    const p$77 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$33$1) {
       return (function() {
-        const this$195 = $m_Lfastparse_all$();
-        const this$194 = $m_Lfastparse_all$();
-        const p$74 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$194.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("1"));
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$74, this$195.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
-      })
-    })(this));
-    const name$23 = new $c_Lsourcecode_Name().init___T("bindigit");
-    this.bindigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$23.value$2, p$75, this$196.implicitReprOps$1);
-    const this$212 = $m_Lfastparse_all$();
-    const p$78 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$32$1) {
-      return (function() {
-        const this$211 = $m_Lfastparse_all$();
         const this$197 = $m_Lfastparse_all$();
-        const p$76 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
-        const jsx$19 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$76, this$197.implicitReprOps$1);
-        const this$208 = $m_Lfastparse_all$();
-        const this$201 = new $c_sr_RichChar().init___C(97);
+        const this$196 = $m_Lfastparse_all$();
+        const p$76 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("0"), this$196.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("1"));
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$76, this$197.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
+      })
+    })(this));
+    const name$25 = new $c_Lsourcecode_Name().init___T("bindigit");
+    this.bindigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$25.value$2, p$77, this$198.implicitReprOps$1);
+    const this$214 = $m_Lfastparse_all$();
+    const p$80 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$34$1) {
+      return (function() {
+        const this$213 = $m_Lfastparse_all$();
+        const this$199 = $m_Lfastparse_all$();
+        const p$78 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const jsx$19 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$78, this$199.implicitReprOps$1);
+        const this$210 = $m_Lfastparse_all$();
+        const this$203 = new $c_sr_RichChar().init___C(97);
         const end$5 = new $c_jl_Character().init___C(102);
-        const jsx$18 = $f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$201, end$5);
-        const this$205 = new $c_sr_RichChar().init___C(65);
+        const jsx$18 = $f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$203, end$5);
+        const this$207 = new $c_sr_RichChar().init___C(65);
         const end$6 = new $c_jl_Character().init___C(70);
-        const array$7 = [jsx$18, $f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$205, end$6)];
+        const array$7 = [jsx$18, $f_sr_IntegralProxy__to__O__sci_NumericRange$Inclusive(this$207, end$6)];
         $m_sc_Seq$();
         $m_sjs_js_WrappedArray$();
         const b$6 = new $c_sjs_js_WrappedArray().init___();
@@ -6415,140 +6430,101 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
           b$6.array$6.push(elem$8);
           i$7 = ((1 + i$7) | 0)
         };
-        const p$77 = jsx$19.$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$6, this$208.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$()));
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$77, this$211.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
+        const p$79 = jsx$19.$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(new $c_Lfastparse_parsers_Intrinsics$ElemIn().init___T__sc_Seq__Lfastparse_utils_ReprOps__Lfastparse_utils_ElemSetHelper("CharIn", b$6, this$210.implicitReprOps$1, $m_Lfastparse_utils_ElemSetHelper$CharBitSetHelper$()));
+        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$79, this$213.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"))
       })
     })(this));
-    const name$24 = new $c_Lsourcecode_Name().init___T("hexdigit");
-    this.hexdigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$24.value$2, p$78, this$212.implicitReprOps$1);
-    const this$214 = $m_Lfastparse_all$();
-    const p$80 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$33$1) {
-      return (function() {
-        const this$213 = $m_Lfastparse_all$();
-        const p$79 = $m_Lio_kaitai_struct_exprlang_Lexical$().exponentfloat$1;
-        return new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$79, this$213.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().pointfloat$1)
-      })
-    })(this));
-    const name$25 = new $c_Lsourcecode_Name().init___T("floatnumber");
-    this.floatnumber$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$25.value$2, p$80, this$214.implicitReprOps$1);
-    const this$224 = $m_Lfastparse_all$();
-    const this$223 = $m_Lfastparse_all$();
+    const name$26 = new $c_Lsourcecode_Name().init___T("hexdigit");
+    this.hexdigit$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$26.value$2, p$80, this$214.implicitReprOps$1);
     const this$222 = $m_Lfastparse_all$();
-    const p$85 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$34$1) {
+    const this$221 = $m_Lfastparse_all$();
+    const this$220 = $m_Lfastparse_all$();
+    const p$86 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$35$1) {
       return (function() {
-        const this$219 = $m_Lfastparse_all$();
         const this$217 = $m_Lfastparse_all$();
+        const this$216 = $m_Lfastparse_all$();
         const this$215 = $m_Lfastparse_all$();
-        const p$81 = $m_Lio_kaitai_struct_exprlang_Lexical$().intpart$1;
-        const jsx$23 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$81, this$215.implicitReprOps$1);
-        const this$216 = $m_Lfastparse_core_Implicits$Optioner$();
-        const p$82 = jsx$23.$$qmark__Lfastparse_core_Implicits$Optioner__Lfastparse_core_Parser(new $c_Lfastparse_core_Implicits$LowPriOptioner$GenericOptioner().init___Lfastparse_core_Implicits$LowPriOptioner(this$216));
-        const jsx$24 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$82, this$217.implicitReprOps$1);
-        const jsx$22 = $m_Lio_kaitai_struct_exprlang_Lexical$().fraction$1;
-        const this$218 = $m_Lfastparse_core_Implicits$Sequencer$();
-        const p$83 = jsx$24.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$22, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$218));
-        const jsx$25 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$83, this$219.implicitReprOps$1);
-        const this$220 = $m_Lfastparse_all$();
-        const p$84 = $m_Lio_kaitai_struct_exprlang_Lexical$().intpart$1;
-        const jsx$21 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$84, this$220.implicitReprOps$1);
-        const jsx$20 = $m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser(".");
-        const this$221 = $m_Lfastparse_core_Implicits$Sequencer$();
-        return jsx$25.$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(jsx$21.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$20, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$221)))
+        const p$81 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const qual$6 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$81, this$215.implicitReprOps$1);
+        const x$30 = qual$6.rep$default$2__Lfastparse_core_Parser();
+        const p$82 = qual$6.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$30, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        const p$83 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$82, this$216.implicitReprOps$1).$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().exponent$1, $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$21 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$83, this$217.implicitReprOps$1);
+        const this$218 = $m_Lfastparse_all$();
+        const p$84 = $m_Lio_kaitai_struct_exprlang_Lexical$().fixed$1;
+        const jsx$20 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$84, this$218.implicitReprOps$1);
+        const this$219 = $m_Lfastparse_all$();
+        const p$85 = $m_Lio_kaitai_struct_exprlang_Lexical$().exponent$1;
+        return jsx$21.$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(jsx$20.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$85, this$219.implicitReprOps$1).$$qmark__Lfastparse_core_Implicits$Optioner__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Optioner$UnitOptioner$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer()))
       })
     })(this));
-    const name$26 = new $c_Lsourcecode_Name().init___T("pointfloat");
-    const p$86 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$26.value$2, p$85, this$222.implicitReprOps$1);
-    const p$87 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$86, this$223.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-    this.pointfloat$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$87, this$224.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$35$1) {
+    const name$27 = new $c_Lsourcecode_Name().init___T("floatnumber");
+    const p$87 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$27.value$2, p$86, this$220.implicitReprOps$1);
+    const p$88 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$87, this$221.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
+    this.floatnumber$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$88, this$222.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$36$1) {
       return (function(x$8$2) {
         const x$8 = x$8$2;
-        const this$225 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
-        return this$225.exact__T__s_math_BigDecimal(x$8)
+        const this$223 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
+        return this$223.exact__T__s_math_BigDecimal(x$8)
       })
     })(this)));
-    const this$231 = $m_Lfastparse_all$();
-    const this$230 = $m_Lfastparse_all$();
-    const this$229 = $m_Lfastparse_all$();
-    const p$90 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$36$1) {
-      return (function() {
-        const this$227 = $m_Lfastparse_all$();
-        const this$226 = $m_Lfastparse_all$();
-        const p$88 = $m_Lio_kaitai_struct_exprlang_Lexical$().pointfloat$1;
-        const p$89 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$88, this$226.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().intpart$1);
-        const jsx$27 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$89, this$227.implicitReprOps$1);
-        const jsx$26 = $m_Lio_kaitai_struct_exprlang_Lexical$().exponent$1;
-        const this$228 = $m_Lfastparse_core_Implicits$Sequencer$();
-        return jsx$27.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(jsx$26, $f_Lfastparse_core_Implicits$LowPriSequencer__UnitSequencer__Lfastparse_core_Implicits$Sequencer(this$228))
-      })
-    })(this));
-    const name$27 = new $c_Lsourcecode_Name().init___T("exponentfloat");
-    const p$91 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$27.value$2, p$90, this$229.implicitReprOps$1);
-    const p$92 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$91, this$230.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-    this.exponentfloat$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$92, this$231.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$37$1) {
-      return (function(x$9$2) {
-        const x$9 = x$9$2;
-        const this$232 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
-        return this$232.exact__T__s_math_BigDecimal(x$9)
-      })
-    })(this)));
-    const this$236 = $m_Lfastparse_all$();
-    const this$235 = $m_Lfastparse_all$();
     const this$234 = $m_Lfastparse_all$();
-    const p$94 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$38$1) {
+    const p$99 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$37$1) {
       return (function() {
+        const this$228 = $m_Lfastparse_all$();
+        const this$226 = $m_Lfastparse_all$();
+        const this$225 = $m_Lfastparse_all$();
+        const this$224 = $m_Lfastparse_all$();
+        const p$89 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const p$90 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$89, this$224.implicitReprOps$1).rep__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        const p$91 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$90, this$225.implicitReprOps$1).$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("."), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$23 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$91, this$226.implicitReprOps$1);
+        const this$227 = $m_Lfastparse_all$();
+        const p$92 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const qual$7 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$92, this$227.implicitReprOps$1);
+        const x$34 = qual$7.rep$default$2__Lfastparse_core_Parser();
+        const p$93 = jsx$23.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(qual$7.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$34, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$24 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$93, this$228.implicitReprOps$1);
+        const this$231 = $m_Lfastparse_all$();
+        const this$230 = $m_Lfastparse_all$();
+        const this$229 = $m_Lfastparse_all$();
+        const p$94 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const qual$8 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$94, this$229.implicitReprOps$1);
+        const x$38 = qual$8.rep$default$2__Lfastparse_core_Parser();
+        const p$95 = qual$8.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$38, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$());
+        const p$96 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$95, this$230.implicitReprOps$1).$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("."), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$22 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$96, this$231.implicitReprOps$1);
         const this$233 = $m_Lfastparse_all$();
-        const p$93 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
-        const qual$6 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$93, this$233.implicitReprOps$1);
-        const x$32 = qual$6.rep$default$2__Lfastparse_core_Parser();
-        return qual$6.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$32, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$())
+        const this$232 = $m_Lfastparse_all$();
+        const p$97 = $m_Lio_kaitai_struct_exprlang_Lexical$().wscomment$1;
+        const p$98 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$97, this$232.implicitReprOps$1).$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser($m_Lio_kaitai_struct_exprlang_Lexical$().nameStart$1, $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        return jsx$24.$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(jsx$22.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$98, this$233.implicitReprOps$1).unary$und$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer()))
       })
     })(this));
-    const name$28 = new $c_Lsourcecode_Name().init___T("intpart");
-    const p$95 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$28.value$2, p$94, this$234.implicitReprOps$1);
-    const p$96 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$95, this$235.implicitReprOps$1).$$bang__Lfastparse_core_Parser();
-    this.intpart$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$96, this$236.implicitReprOps$1).map__F1__Lfastparse_core_Parser(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(this$39$1) {
-      return (function(x$10$2) {
-        const x$10 = x$10$2;
-        const this$237 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
-        return this$237.exact__T__s_math_BigDecimal(x$10)
-      })
-    })(this)));
-    const this$240 = $m_Lfastparse_all$();
-    const p$98 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$40$1) {
+    const name$28 = new $c_Lsourcecode_Name().init___T("fixed");
+    this.fixed$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$28.value$2, p$99, this$234.implicitReprOps$1);
+    const this$241 = $m_Lfastparse_all$();
+    const p$104 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$38$1) {
       return (function() {
-        const this$238 = $m_Lfastparse_all$();
-        const jsx$28 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("."), this$238.implicitReprOps$1);
         const this$239 = $m_Lfastparse_all$();
-        const p$97 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
-        const qual$7 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$97, this$239.implicitReprOps$1);
-        const x$36 = qual$7.rep$default$2__Lfastparse_core_Parser();
-        return jsx$28.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(qual$7.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$36, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+        const this$236 = $m_Lfastparse_all$();
+        const this$235 = $m_Lfastparse_all$();
+        const p$100 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("e"), this$235.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("E"));
+        const jsx$25 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$100, this$236.implicitReprOps$1);
+        const this$238 = $m_Lfastparse_all$();
+        const this$237 = $m_Lfastparse_all$();
+        const p$101 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("+"), this$237.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("-"));
+        const p$102 = jsx$25.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$101, this$238.implicitReprOps$1).$$qmark__Lfastparse_core_Implicits$Optioner__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Optioner$UnitOptioner$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
+        const jsx$26 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$102, this$239.implicitReprOps$1);
+        const this$240 = $m_Lfastparse_all$();
+        const p$103 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
+        const qual$9 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$103, this$240.implicitReprOps$1);
+        const x$42 = qual$9.rep$default$2__Lfastparse_core_Parser();
+        return jsx$26.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(qual$9.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$42, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
       })
     })(this));
-    const name$29 = new $c_Lsourcecode_Name().init___T("fraction");
-    this.fraction$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$29.value$2, p$98, this$240.implicitReprOps$1);
-    const this$247 = $m_Lfastparse_all$();
-    const p$103 = new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function(this$41$1) {
-      return (function() {
-        const this$245 = $m_Lfastparse_all$();
-        const this$242 = $m_Lfastparse_all$();
-        const this$241 = $m_Lfastparse_all$();
-        const p$99 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("e"), this$241.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("E"));
-        const jsx$29 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$99, this$242.implicitReprOps$1);
-        const this$244 = $m_Lfastparse_all$();
-        const this$243 = $m_Lfastparse_all$();
-        const p$100 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("+"), this$243.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("-"));
-        const p$101 = jsx$29.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$100, this$244.implicitReprOps$1).$$qmark__Lfastparse_core_Implicits$Optioner__Lfastparse_core_Parser($m_Lfastparse_core_Implicits$Optioner$UnitOptioner$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer());
-        const jsx$30 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$101, this$245.implicitReprOps$1);
-        const this$246 = $m_Lfastparse_all$();
-        const p$102 = $m_Lio_kaitai_struct_exprlang_Lexical$().digit$1;
-        const qual$8 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$102, this$246.implicitReprOps$1);
-        const x$40 = qual$8.rep$default$2__Lfastparse_core_Parser();
-        return jsx$30.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(qual$8.rep__I__Lfastparse_core_Parser__I__I__Lfastparse_core_Implicits$Repeater__Lfastparse_core_Parser(1, x$40, 2147483647, (-1), $m_Lfastparse_core_Implicits$Repeater$UnitRepeater$()), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
-      })
-    })(this));
-    const name$30 = new $c_Lsourcecode_Name().init___T("exponent");
-    this.exponent$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$30.value$2, p$103, this$247.implicitReprOps$1);
+    const name$29 = new $c_Lsourcecode_Name().init___T("exponent");
+    this.exponent$1 = new $c_Lfastparse_parsers_Combinators$Rule().init___T__F0__Lfastparse_utils_ReprOps(name$29.value$2, p$104, this$241.implicitReprOps$1);
     return this
   };
   parseNum__T__I__s_math_BigInt(literal, base) {
@@ -6558,13 +6534,9 @@ class $c_Lio_kaitai_struct_exprlang_Lexical$ extends $c_O {
   kw__T__Lfastparse_core_Parser(s) {
     const this$1 = $m_Lfastparse_all$();
     const jsx$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser(s), this$1.implicitReprOps$1);
-    const this$4 = $m_Lfastparse_all$();
-    const this$3 = $m_Lfastparse_all$();
     const this$2 = $m_Lfastparse_all$();
-    const p = this.letter$1;
-    const p$1 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p, this$2.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser(this.digit$1);
-    const p$2 = new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$1, this$3.implicitReprOps$1).$$bar__Lfastparse_core_Parser__Lfastparse_core_Parser($m_Lfastparse_all$().LiteralStr__T__Lfastparse_core_Parser("_"));
-    return jsx$1.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p$2, this$4.implicitReprOps$1).unary$und$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
+    const p = this.namePart$1;
+    return jsx$1.$$tilde__Lfastparse_core_Parser__Lfastparse_core_Implicits$Sequencer__Lfastparse_core_Parser(new $c_Lfastparse_core_ParserApiImpl().init___Lfastparse_core_Parser__Lfastparse_utils_ReprOps(p, this$2.implicitReprOps$1).unary$und$bang__Lfastparse_core_Parser(), $m_Lfastparse_core_Implicits$Sequencer$().SingleSequencer__Lfastparse_core_Implicits$Sequencer())
   };
 }
 const $d_Lio_kaitai_struct_exprlang_Lexical$ = new $TypeData().initClass({
