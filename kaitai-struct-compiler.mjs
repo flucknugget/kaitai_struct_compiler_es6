@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200719.002206.324beeef */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200726.173835.5f837d7b */
 
 'use strict';
 /* Scala.js runtime support
@@ -3881,9 +3881,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200719.002206.324beeef";
-    this.gitCommit$1 = "324beeef";
-    this.gitTime$1 = "2020-07-19T00:22:06+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200726.173835.5f837d7b";
+    this.gitCommit$1 = "5f837d7b";
+    this.gitTime$1 = "2020-07-26T17:38:35+00:00";
     return this
   };
 }
@@ -7828,7 +7828,7 @@ const $f_Lio_kaitai_struct_languages_components_AllocateAndStoreIO__extraAttrFor
   if ((x === rep)) {
     ioType = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$()
   } else {
-    ioType = new $c_Lio_kaitai_struct_datatype_DataType$ArrayTypeInStream().init___Lio_kaitai_struct_datatype_DataType($m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$())
+    ioType = new $c_Lio_kaitai_struct_datatype_DataType$ArrayTypeInStream().init___Lio_kaitai_struct_datatype_DataType($m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$())
   };
   $m_sci_List$();
   const array = [new $c_Lio_kaitai_struct_format_AttrSpec().init___sci_List__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_format_ConditionalSpec__s_Option__Lio_kaitai_struct_format_DocSpec($m_sci_Nil$(), ioId, ioType, ($m_Lio_kaitai_struct_format_AttrSpec$(), new $c_Lio_kaitai_struct_format_ConditionalSpec().init___s_Option__Lio_kaitai_struct_format_RepeatSpec($m_s_None$(), $m_Lio_kaitai_struct_format_NoRepeat$())), ($m_Lio_kaitai_struct_format_AttrSpec$(), $m_s_None$()), ($m_Lio_kaitai_struct_format_AttrSpec$(), $m_Lio_kaitai_struct_format_DocSpec$().EMPTY$1))];
@@ -26767,15 +26767,15 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
   };
   kaitaiType2NativeType__Lio_kaitai_struct_CppRuntimeConfig__Lio_kaitai_struct_datatype_DataType__Z__T(config, attrType, absolute) {
     _kaitaiType2NativeType: while (true) {
-      let rc69 = false;
-      let x2 = null;
       let rc70 = false;
-      let x4 = null;
+      let x2 = null;
       let rc71 = false;
+      let x4 = null;
+      let rc72 = false;
       let x30 = null;
       const x1 = attrType;
       if ($is_Lio_kaitai_struct_datatype_DataType$Int1Type(x1)) {
-        rc69 = true;
+        rc70 = true;
         x2 = x1;
         const p3 = x2.signed$3;
         if ((p3 === false)) {
@@ -26783,7 +26783,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
         }
       };
       if ($is_Lio_kaitai_struct_datatype_DataType$IntMultiType(x1)) {
-        rc70 = true;
+        rc71 = true;
         x4 = x1;
         const p5 = x4.signed$3;
         const p6 = x4.width$3;
@@ -26798,7 +26798,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "uint16_t"
         }
       };
-      if (rc70) {
+      if (rc71) {
         const p9 = x4.signed$3;
         const p10 = x4.width$3;
         let jsx$2;
@@ -26812,7 +26812,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "uint32_t"
         }
       };
-      if (rc70) {
+      if (rc71) {
         const p13 = x4.signed$3;
         const p14 = x4.width$3;
         let jsx$3;
@@ -26826,13 +26826,13 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "uint64_t"
         }
       };
-      if (rc69) {
+      if (rc70) {
         const p17 = x2.signed$3;
         if ((p17 === true)) {
           return "int8_t"
         }
       };
-      if (rc70) {
+      if (rc71) {
         const p19 = x4.signed$3;
         const p20 = x4.width$3;
         let jsx$4;
@@ -26846,7 +26846,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "int16_t"
         }
       };
-      if (rc70) {
+      if (rc71) {
         const p23 = x4.signed$3;
         const p24 = x4.width$3;
         let jsx$5;
@@ -26860,7 +26860,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "int32_t"
         }
       };
-      if (rc70) {
+      if (rc71) {
         const p27 = x4.signed$3;
         const p28 = x4.width$3;
         let jsx$6;
@@ -26875,7 +26875,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
         }
       };
       if ($is_Lio_kaitai_struct_datatype_DataType$FloatMultiType(x1)) {
-        rc71 = true;
+        rc72 = true;
         x30 = x1;
         const p31 = x30.width$3;
         const x$14 = $m_Lio_kaitai_struct_datatype_DataType$Width4$();
@@ -26883,7 +26883,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
           return "float"
         }
       };
-      if (rc71) {
+      if (rc72) {
         const p34 = x30.width$3;
         const x$16 = $m_Lio_kaitai_struct_datatype_DataType$Width8$();
         if ((x$16 === p34)) {
@@ -26981,74 +26981,95 @@ class $c_Lio_kaitai_struct_languages_CppCompiler$ extends $c_O {
         const array$13 = [this.kaitaiType2NativeType__Lio_kaitai_struct_CppRuntimeConfig__Lio_kaitai_struct_datatype_DataType__Z__T(config, inType$2, absolute)];
         return jsx$13.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13))
       };
-      const x$32 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$();
+      const x$32 = $m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$();
       if ((x$32 === x1)) {
-        const array$14 = ["", "*"];
-        const jsx$14 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14));
-        const array$15 = ["kaitai::kstream"];
-        return jsx$14.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$15))
-      };
-      const x$34 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$();
-      if ((x$34 === x1)) {
         const x1$4 = config.pointers$1;
-        const x$36 = $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$();
-        if ((x$36 === x1$4)) {
-          const array$16 = ["", "*"];
-          const jsx$15 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16));
-          const array$17 = ["kaitai::kstruct"];
-          return jsx$15.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))
+        const x$34 = $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$();
+        if ((x$34 === x1$4)) {
+          const array$14 = ["", "*"];
+          const jsx$14 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14));
+          const array$15 = ["kaitai::kstream"];
+          return jsx$14.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$15))
         } else {
-          const x$38 = $m_Lio_kaitai_struct_CppRuntimeConfig$SharedPointers$();
-          if ((x$38 === x1$4)) {
-            const array$18 = ["std::shared_ptr<", ">"];
-            const jsx$16 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$18));
-            const array$19 = ["kaitai::kstruct"];
-            return jsx$16.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$19))
+          const x$36 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
+          if ((x$36 === x1$4)) {
+            const array$16 = ["std::unique_ptr<", ">"];
+            const jsx$15 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$16));
+            const array$17 = ["kaitai::kstream"];
+            return jsx$15.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$17))
           } else {
-            const x$40 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
-            if ((x$40 === x1$4)) {
-              const array$20 = ["std::unique_ptr<", ">"];
-              const jsx$17 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$20));
-              const array$21 = ["kaitai::kstruct"];
-              return jsx$17.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$21))
-            } else {
-              throw new $c_s_MatchError().init___O(x1$4)
-            }
+            throw new $c_s_MatchError().init___O(x1$4)
           }
         }
       };
-      const x$42 = $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$();
-      if ((x$42 === x1)) {
+      const x$38 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$();
+      if ((x$38 === x1)) {
+        const array$18 = ["", "*"];
+        const jsx$16 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$18));
+        const array$19 = ["kaitai::kstream"];
+        return jsx$16.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$19))
+      };
+      const x$40 = $m_Lio_kaitai_struct_datatype_DataType$KaitaiStructType$();
+      if ((x$40 === x1)) {
         const x1$5 = config.pointers$1;
-        const x$44 = $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$();
-        if ((x$44 === x1$5)) {
-          const array$22 = ["", "*"];
-          const jsx$18 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$22));
-          const array$23 = ["kaitai::kstruct"];
-          return jsx$18.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$23))
+        const x$42 = $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$();
+        if ((x$42 === x1$5)) {
+          const array$20 = ["", "*"];
+          const jsx$17 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$20));
+          const array$21 = ["kaitai::kstruct"];
+          return jsx$17.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$21))
         } else {
-          const x$46 = $m_Lio_kaitai_struct_CppRuntimeConfig$SharedPointers$();
-          if ((x$46 === x1$5)) {
-            const array$24 = ["std::shared_ptr<", ">"];
-            const jsx$19 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$24));
-            const array$25 = ["kaitai::kstruct"];
-            return jsx$19.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$25))
+          const x$44 = $m_Lio_kaitai_struct_CppRuntimeConfig$SharedPointers$();
+          if ((x$44 === x1$5)) {
+            const array$22 = ["std::shared_ptr<", ">"];
+            const jsx$18 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$22));
+            const array$23 = ["kaitai::kstruct"];
+            return jsx$18.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$23))
           } else {
-            const x$48 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
-            if ((x$48 === x1$5)) {
-              const array$26 = ["", "*"];
-              const jsx$20 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$26));
-              const array$27 = ["kaitai::kstruct"];
-              return jsx$20.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$27))
+            const x$46 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
+            if ((x$46 === x1$5)) {
+              const array$24 = ["std::unique_ptr<", ">"];
+              const jsx$19 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$24));
+              const array$25 = ["kaitai::kstruct"];
+              return jsx$19.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$25))
             } else {
               throw new $c_s_MatchError().init___O(x1$5)
             }
           }
         }
       };
+      const x$48 = $m_Lio_kaitai_struct_datatype_DataType$CalcKaitaiStructType$();
+      if ((x$48 === x1)) {
+        const x1$6 = config.pointers$1;
+        const x$50 = $m_Lio_kaitai_struct_CppRuntimeConfig$RawPointers$();
+        if ((x$50 === x1$6)) {
+          const array$26 = ["", "*"];
+          const jsx$20 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$26));
+          const array$27 = ["kaitai::kstruct"];
+          return jsx$20.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$27))
+        } else {
+          const x$52 = $m_Lio_kaitai_struct_CppRuntimeConfig$SharedPointers$();
+          if ((x$52 === x1$6)) {
+            const array$28 = ["std::shared_ptr<", ">"];
+            const jsx$21 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$28));
+            const array$29 = ["kaitai::kstruct"];
+            return jsx$21.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$29))
+          } else {
+            const x$54 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
+            if ((x$54 === x1$6)) {
+              const array$30 = ["", "*"];
+              const jsx$22 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$30));
+              const array$31 = ["kaitai::kstruct"];
+              return jsx$22.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$31))
+            } else {
+              throw new $c_s_MatchError().init___O(x1$6)
+            }
+          }
+        }
+      };
       if ($is_Lio_kaitai_struct_datatype_DataType$SwitchType(x1)) {
-        const x67 = x1;
-        attrType = this.combineSwitchType__Lio_kaitai_struct_datatype_DataType$SwitchType__Lio_kaitai_struct_datatype_DataType(x67);
+        const x68 = x1;
+        attrType = this.combineSwitchType__Lio_kaitai_struct_datatype_DataType$SwitchType__Lio_kaitai_struct_datatype_DataType(x68);
         continue _kaitaiType2NativeType
       };
       throw new $c_s_MatchError().init___O(x1)
@@ -41974,6 +41995,51 @@ const $m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$ = (function() {
     $n_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$ = new $c_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$().init___()
   };
   return $n_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$
+});
+class $c_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$ extends $c_O {
+  init___() {
+    return this
+  };
+  productPrefix__T() {
+    return "OwnedKaitaiStreamType"
+  };
+  productArity__I() {
+    return 0
+  };
+  asNonOwning__Lio_kaitai_struct_datatype_DataType() {
+    return this
+  };
+  productElement__I__O(x$1) {
+    throw new $c_jl_IndexOutOfBoundsException().init___T(("" + x$1))
+  };
+  toString__T() {
+    return "OwnedKaitaiStreamType"
+  };
+  hashCode__I() {
+    return 58435912
+  };
+  productIterator__sc_Iterator() {
+    return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
+  };
+}
+const $d_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$ = new $TypeData().initClass({
+  Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$: 0
+}, false, "io.kaitai.struct.datatype.DataType$OwnedKaitaiStreamType$", {
+  Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$: 1,
+  O: 1,
+  Lio_kaitai_struct_datatype_DataType: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$.prototype.$classData = $d_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$;
+let $n_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$ = (void 0);
+const $m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$ = (function() {
+  if ((!$n_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$)) {
+    $n_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$ = new $c_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$().init___()
+  };
+  return $n_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$
 });
 class $c_Lio_kaitai_struct_datatype_DataType$Width2$ extends $c_Lio_kaitai_struct_datatype_DataType$IntWidth {
   init___() {
@@ -66319,7 +66385,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
         const jsx$4 = this.outSrc$2;
         const array$2 = ["", " = ", ";"];
         const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-        const array$3 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(new $c_Lio_kaitai_struct_format_IoStorageIdentifier().init___Lio_kaitai_struct_format_Identifier(new $c_Lio_kaitai_struct_format_RawIdentifier().init___Lio_kaitai_struct_format_Identifier(id))), this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$())];
+        const array$3 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(new $c_Lio_kaitai_struct_format_IoStorageIdentifier().init___Lio_kaitai_struct_format_Identifier(new $c_Lio_kaitai_struct_format_RawIdentifier().init___Lio_kaitai_struct_format_Identifier(id))), this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$())];
         jsx$4.puts__T__V(jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
       }
     };
@@ -66533,7 +66599,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
         const jsx$4 = this.outSrc$2;
         const array$2 = ["", " = ", ";"];
         const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-        const array$3 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(new $c_Lio_kaitai_struct_format_IoStorageIdentifier().init___Lio_kaitai_struct_format_Identifier(new $c_Lio_kaitai_struct_format_RawIdentifier().init___Lio_kaitai_struct_format_Identifier(id))), this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$())];
+        const array$3 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(new $c_Lio_kaitai_struct_format_IoStorageIdentifier().init___Lio_kaitai_struct_format_Identifier(new $c_Lio_kaitai_struct_format_RawIdentifier().init___Lio_kaitai_struct_format_Identifier(id))), this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$())];
         jsx$4.puts__T__V(jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
       }
     };
@@ -67641,7 +67707,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
         const jsx$9 = this.outSrc$2;
         const array$8 = ["", " = ", ";"];
         const jsx$8 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-        const array$9 = [ioId, this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$KaitaiStreamType$())];
+        const array$9 = [ioId, this.newVector__Lio_kaitai_struct_datatype_DataType__T($m_Lio_kaitai_struct_datatype_DataType$OwnedKaitaiStreamType$())];
         jsx$9.puts__T__V(jsx$8.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9)));
         const jsx$11 = this.outSrc$2;
         const array$10 = ["", "->reserve(", ");"];
@@ -68180,11 +68246,21 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
       const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
       const array$7 = ["kaitai::kstream", localIO, newStream];
       jsx$6.puts__T__V(jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7)));
-      const jsx$8 = this.outSrc$2;
-      const array$8 = ["", "->push_back(", ");"];
-      const jsx$7 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
-      const array$9 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(ioId), localIO];
-      jsx$8.puts__T__V(jsx$7.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9)));
+      const x$3 = this.config$1.cppConfig$1.pointers$1;
+      const x$4 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
+      if (((x$3 !== null) && (x$3 === x$4))) {
+        const jsx$8 = this.outSrc$2;
+        const array$8 = ["", "->emplace_back(", ");"];
+        const jsx$7 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
+        const array$9 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(ioId), localIO];
+        jsx$8.puts__T__V(jsx$7.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9)))
+      } else {
+        const jsx$10 = this.outSrc$2;
+        const array$10 = ["", "->push_back(", ");"];
+        const jsx$9 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
+        const array$11 = [this.privateMemberName__Lio_kaitai_struct_format_Identifier__T(ioId), localIO];
+        jsx$10.puts__T__V(jsx$9.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11)))
+      };
       ioName = localIO
     };
     return ioName
