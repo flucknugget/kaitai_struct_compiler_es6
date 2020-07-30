@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200727.145653.eb420a61 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200729.213212.61a577cb */
 
 'use strict';
 /* Scala.js runtime support
@@ -3881,9 +3881,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200727.145653.eb420a61";
-    this.gitCommit$1 = "eb420a61";
-    this.gitTime$1 = "2020-07-27T14:56:53+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200729.213212.61a577cb";
+    this.gitCommit$1 = "61a577cb";
+    this.gitTime$1 = "2020-07-29T21:32:12+00:00";
     return this
   };
 }
@@ -62753,7 +62753,7 @@ class $c_Lio_kaitai_struct_translators_PythonTranslator extends $c_Lio_kaitai_st
     return this.bytesLast__Lio_kaitai_struct_exprlang_Ast$expr__T(b)
   };
   strReverse__Lio_kaitai_struct_exprlang_Ast$expr__T(value) {
-    const array = ["", "[::-1]"];
+    const array = ["(", ")[::-1]"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(value)];
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
@@ -62838,7 +62838,7 @@ class $c_Lio_kaitai_struct_translators_PythonTranslator extends $c_Lio_kaitai_st
     return this.kaitaiStreamEof__Lio_kaitai_struct_exprlang_Ast$expr__T(value)
   };
   strSubstring__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$expr__T(s, from, to) {
-    const array = ["", "[", ":", "]"];
+    const array = ["(", ")[", ":", "]"];
     const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
     const array$1 = [this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(s), this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(from), this.translate__Lio_kaitai_struct_exprlang_Ast$expr__T(to)];
     return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
