@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200801.175310.2c323540 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200802.150750.07d71cce */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200801.175310.2c323540";
-    this.gitCommit$1 = "2c323540";
-    this.gitTime$1 = "2020-08-01T17:53:10+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200802.150750.07d71cce";
+    this.gitCommit$1 = "07d71cce";
+    this.gitTime$1 = "2020-08-02T15:07:50+00:00";
     return this
   };
 }
@@ -67433,6 +67433,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     };
     const array$2 = [jsx$1.types2class__sci_List__T(result)];
     jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)));
+    this.outHdr$2.puts__T__V("void _clean_up();");
     const this$9 = this.outSrc$2;
     this$9.sb$2.append__T__scm_StringBuilder("\n");
     const jsx$7 = this.outSrc$2;
@@ -67453,6 +67454,17 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     };
     const array$5 = [jsx$5, jsx$4.types2class__sci_List__T(result$1)];
     jsx$7.puts__T__V(jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)));
+    this.outSrc$2.inc__V();
+    this.outSrc$2.puts__T__V("_clean_up();");
+    this.outSrc$2.dec__V();
+    this.outSrc$2.puts__T__V("}");
+    const this$18 = this.outSrc$2;
+    this$18.sb$2.append__T__scm_StringBuilder("\n");
+    const jsx$9 = this.outSrc$2;
+    const array$6 = ["void ", "::_clean_up() {"];
+    const jsx$8 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
+    const array$7 = [$m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(name)];
+    jsx$9.puts__T__V(jsx$8.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7)));
     this.outSrc$2.inc__V()
   };
   destructWithSafeguardHeader$1__p2__T__V(ptr) {
@@ -68095,23 +68107,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
       this.outSrc$2.dec__V();
       this.outSrc$2.puts__T__V("} catch(...) {");
       this.outSrc$2.inc__V();
-      const jsx$3 = this.outSrc$2;
-      const array = ["// this->~", "();"];
-      const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-      const jsx$1 = $m_Lio_kaitai_struct_languages_CppCompiler$();
-      $m_sci_List$();
-      const array$1 = [$f_sc_LinearSeqOptimized__last__O(name)];
-      let i = (((-1) + (array$1.length | 0)) | 0);
-      let result = $m_sci_Nil$();
-      while ((i >= 0)) {
-        const this$7 = result;
-        const index = i;
-        const x$1 = array$1[index];
-        result = new $c_sci_$colon$colon().init___O__sci_List(x$1, this$7);
-        i = (((-1) + i) | 0)
-      };
-      const array$2 = [jsx$1.types2class__sci_List__T(result)];
-      jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)));
+      this.outSrc$2.puts__T__V("_clean_up();");
       this.outSrc$2.puts__T__V("throw;");
       this.outSrc$2.dec__V();
       this.outSrc$2.puts__T__V("}")
