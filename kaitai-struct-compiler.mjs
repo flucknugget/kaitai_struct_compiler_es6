@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200802.150750.07d71cce */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200812.095523.f725faf5 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200802.150750.07d71cce";
-    this.gitCommit$1 = "07d71cce";
-    this.gitTime$1 = "2020-08-02T15:07:50+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200812.095523.f725faf5";
+    this.gitCommit$1 = "f725faf5";
+    this.gitTime$1 = "2020-08-12T09:55:23+00:00";
     return this
   };
 }
@@ -67274,7 +67274,6 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
         } else {
           const x$17 = $m_Lio_kaitai_struct_CppRuntimeConfig$UniqueAndRawPointers$();
           if ((x$17 === x1$5)) {
-            this.importListSrc$2.addSystem__T__V("memory");
             const array$19 = ["std::unique_ptr<", ">(new ", "(", "", "", "))"];
             const jsx$14 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$19));
             const array$20 = [$m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(x10.name$3), $m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(x10.name$3), addParams, io, addArgs];
@@ -67408,13 +67407,6 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
       throw new $c_s_MatchError().init___O(id)
     }
   };
-  classForwardDeclaration__sci_List__V(name) {
-    const jsx$2 = this.outHdr$2;
-    const array = ["class ", ";"];
-    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
-    const array$1 = [$m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(name)];
-    jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
-  };
   classDestructorHeader__sci_List__Lio_kaitai_struct_datatype_DataType__sci_List__V(name, parentType, topClassName) {
     const jsx$3 = this.outHdr$2;
     const array = ["~", "();"];
@@ -67466,6 +67458,13 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     const array$7 = [$m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(name)];
     jsx$9.puts__T__V(jsx$8.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7)));
     this.outSrc$2.inc__V()
+  };
+  classForwardDeclaration__sci_List__V(name) {
+    const jsx$2 = this.outHdr$2;
+    const array = ["class ", ";"];
+    const jsx$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
+    const array$1 = [$m_Lio_kaitai_struct_languages_CppCompiler$().types2class__sci_List__T(name)];
+    jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)))
   };
   destructWithSafeguardHeader$1__p2__T__V(ptr) {
     const jsx$2 = this.outSrc$2;
@@ -67582,7 +67581,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
   };
   opaqueClassDeclaration__Lio_kaitai_struct_format_ClassSpec__V(classSpec) {
     this.classForwardDeclaration__sci_List__V(classSpec.name$1);
-    this.importListSrc$2.addLocal__T__V(this.outFileNameHeader__T__T(classSpec.name$1.head__O()))
+    this.importListHdr$2.addLocal__T__V(this.outFileNameHeader__T__T(classSpec.name$1.head__O()))
   };
   attributeDeclaration__Lio_kaitai_struct_format_Identifier__Lio_kaitai_struct_datatype_DataType__Z__V(attrName, attrType, isNullable) {
     this.ensureMode__Lio_kaitai_struct_languages_CppCompiler$AccessMode__V(this.PrivateAccess__Lio_kaitai_struct_languages_CppCompiler$PrivateAccess$());
@@ -67727,9 +67726,6 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
       i = ((1 + i) | 0)
     };
     return this$17.elems$1
-  };
-  importFile__T__V(file) {
-    this.importListHdr$2.addLocal__T__V(this.outFileNameHeader__T__T(file))
   };
   switchCaseStart__Lio_kaitai_struct_exprlang_Ast$expr__V(condition) {
     const jsx$2 = this.outSrc$2;
@@ -68571,7 +68567,6 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     jsx$2.puts__T__V(jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1)));
     const this$5 = this.outSrcHeader$2;
     this$5.sb$2.append__T__scm_StringBuilder("\n");
-    this.importListSrc$2.addSystem__T__V("memory");
     this.importListSrc$2.addLocal__T__V(this.outFileNameHeader__T__T(topClassName));
     if (this.config$1.cppConfig$1.usePragmaOnce$1) {
       this.outHdrHeader$2.puts__T__V("#pragma once")
