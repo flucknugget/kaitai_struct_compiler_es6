@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200812.095523.f725faf5 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200817.200618.b7c3af92 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200812.095523.f725faf5";
-    this.gitCommit$1 = "f725faf5";
-    this.gitTime$1 = "2020-08-12T09:55:23+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200817.200618.b7c3af92";
+    this.gitCommit$1 = "b7c3af92";
+    this.gitTime$1 = "2020-08-17T20:06:18+00:00";
     return this
   };
 }
@@ -67408,6 +67408,9 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     }
   };
   classDestructorHeader__sci_List__Lio_kaitai_struct_datatype_DataType__sci_List__V(name, parentType, topClassName) {
+    this.ensureMode__Lio_kaitai_struct_languages_CppCompiler$AccessMode__V(this.PrivateAccess__Lio_kaitai_struct_languages_CppCompiler$PrivateAccess$());
+    this.outHdr$2.puts__T__V("void _clean_up();");
+    this.ensureMode__Lio_kaitai_struct_languages_CppCompiler$AccessMode__V(this.PublicAccess__Lio_kaitai_struct_languages_CppCompiler$PublicAccess$());
     const jsx$3 = this.outHdr$2;
     const array = ["~", "();"];
     const jsx$2 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array));
@@ -67425,7 +67428,6 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
     };
     const array$2 = [jsx$1.types2class__sci_List__T(result)];
     jsx$3.puts__T__V(jsx$2.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2)));
-    this.outHdr$2.puts__T__V("void _clean_up();");
     const this$9 = this.outSrc$2;
     this$9.sb$2.append__T__scm_StringBuilder("\n");
     const jsx$7 = this.outSrc$2;
