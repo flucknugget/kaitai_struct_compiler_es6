@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200817.200618.b7c3af92 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200818.142131.57643e01 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200817.200618.b7c3af92";
-    this.gitCommit$1 = "b7c3af92";
-    this.gitTime$1 = "2020-08-17T20:06:18+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200818.142131.57643e01";
+    this.gitCommit$1 = "57643e01";
+    this.gitTime$1 = "2020-08-18T14:21:31+00:00";
     return this
   };
 }
@@ -67882,8 +67882,7 @@ class $c_Lio_kaitai_struct_languages_CppCompiler extends $c_Lio_kaitai_struct_la
   };
   readFooter__V() {
     this.outSrc$2.dec__V();
-    this.outSrc$2.puts__T__V("}");
-    this.ensureMode__Lio_kaitai_struct_languages_CppCompiler$AccessMode__V(this.PublicAccess__Lio_kaitai_struct_languages_CppCompiler$PublicAccess$())
+    this.outSrc$2.puts__T__V("}")
   };
   condRepeatExprHeader__Lio_kaitai_struct_format_Identifier__T__Lio_kaitai_struct_datatype_DataType__Lio_kaitai_struct_datatype_NeedRaw__Lio_kaitai_struct_exprlang_Ast$expr__V(id, io, dataType, needRaw, repeatExpr) {
     this.importListHdr$2.addSystem__T__V("vector");
