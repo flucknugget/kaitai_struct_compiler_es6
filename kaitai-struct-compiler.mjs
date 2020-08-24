@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20200818.142131.57643e01 */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20200824.150557.66d9aba8 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20200818.142131.57643e01";
-    this.gitCommit$1 = "57643e01";
-    this.gitTime$1 = "2020-08-18T14:21:31+00:00";
+    this.version$1 = "0.9-SNAPSHOT20200824.150557.66d9aba8";
+    this.gitCommit$1 = "66d9aba8";
+    this.gitTime$1 = "2020-08-24T15:05:57+00:00";
     return this
   };
 }
@@ -18103,30 +18103,6 @@ const $m_sr_RichChar$ = (function() {
     $n_sr_RichChar$ = new $c_sr_RichChar$().init___()
   };
   return $n_sr_RichChar$
-});
-class $c_sr_RichLong$ extends $c_O {
-  init___() {
-    return this
-  };
-  isValidInt$extension__J__Z($$this) {
-    const value = $$this.lo$2;
-    const hi = (value >> 31);
-    return ((value === $$this.lo$2) && (hi === $$this.hi$2))
-  };
-}
-const $d_sr_RichLong$ = new $TypeData().initClass({
-  sr_RichLong$: 0
-}, false, "scala.runtime.RichLong$", {
-  sr_RichLong$: 1,
-  O: 1
-});
-$c_sr_RichLong$.prototype.$classData = $d_sr_RichLong$;
-let $n_sr_RichLong$ = (void 0);
-const $m_sr_RichLong$ = (function() {
-  if ((!$n_sr_RichLong$)) {
-    $n_sr_RichLong$ = new $c_sr_RichLong$().init___()
-  };
-  return $n_sr_RichLong$
 });
 class $c_sr_ScalaRunTime$ extends $c_O {
   init___() {
@@ -80866,9 +80842,6 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       return jsx$1.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$1))
     }
   };
-  long2str__J__T(l) {
-    return ($m_sr_RichLong$().isValidInt$extension__J__Z(l) ? $m_sjsr_RuntimeLong$().scala$scalajs$runtime$RuntimeLong$$toString__I__I__T(l.lo$2, l.hi$2) : ($m_sjsr_RuntimeLong$().scala$scalajs$runtime$RuntimeLong$$toString__I__I__T(l.lo$2, l.hi$2) + "L"))
-  };
   switchCmpExpr__Lio_kaitai_struct_exprlang_Ast$expr__T(condition) {
     const e = new $c_Lio_kaitai_struct_exprlang_Ast$expr$Compare().init___Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_exprlang_Ast$cmpop__Lio_kaitai_struct_exprlang_Ast$expr(this.NAME$undSWITCH$undON$2, $m_Lio_kaitai_struct_exprlang_Ast$cmpop$Eq$(), condition);
     return $f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T(this, e)
@@ -81034,11 +81007,15 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
             const lo = t.lo$2;
             const hi = t.hi$2;
             const label = x0$2.$$und2__O();
-            const jsx$4 = $this.out$2;
+            const jsx$6 = $this.out$2;
             const array$2 = ["", "(", "),"];
-            const jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
-            const array$3 = [($m_Lio_kaitai_struct_Utils$(), label.toUpperCase()), $this.long2str__J__T(new $c_sjsr_RuntimeLong().init___I__I(lo, hi))];
-            jsx$4.puts__T__V(jsx$3.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
+            const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$2));
+            $m_Lio_kaitai_struct_Utils$();
+            const jsx$4 = label.toUpperCase();
+            const jsx$3 = $this.translator$2;
+            const this$11 = $m_s_math_BigInt$();
+            const array$3 = [jsx$4, jsx$3.doIntLiteral__s_math_BigInt__T(this$11.apply__J__s_math_BigInt(new $c_sjsr_RuntimeLong().init___I__I(lo, hi)))];
+            jsx$6.puts__T__V(jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$3)))
           } else {
             throw new $c_s_MatchError().init___O(x0$2)
           }
@@ -81051,53 +81028,57 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       const lo$1 = t$1.lo$2;
       const hi$1 = t$1.hi$2;
       const label$1 = x1.$$und2__O();
-      const jsx$6 = this.out$2;
+      const jsx$10 = this.out$2;
       const array$4 = ["", "(", ");"];
-      const jsx$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
-      const array$5 = [($m_Lio_kaitai_struct_Utils$(), label$1.toUpperCase()), this.long2str__J__T(new $c_sjsr_RuntimeLong().init___I__I(lo$1, hi$1))];
-      jsx$6.puts__T__V(jsx$5.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)))
+      const jsx$9 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$4));
+      $m_Lio_kaitai_struct_Utils$();
+      const jsx$8 = label$1.toUpperCase();
+      const jsx$7 = this.translator$2;
+      const this$19 = $m_s_math_BigInt$();
+      const array$5 = [jsx$8, jsx$7.doIntLiteral__s_math_BigInt__T(this$19.apply__J__s_math_BigInt(new $c_sjsr_RuntimeLong().init___I__I(lo$1, hi$1)))];
+      jsx$10.puts__T__V(jsx$9.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$5)))
     } else {
       throw new $c_s_MatchError().init___O(x1)
     };
-    const this$20 = this.out$2;
-    this$20.sb$2.append__T__scm_StringBuilder("\n");
+    const this$22 = this.out$2;
+    this$22.sb$2.append__T__scm_StringBuilder("\n");
     this.out$2.puts__T__V("private final long id;");
-    const jsx$8 = this.out$2;
+    const jsx$12 = this.out$2;
     const array$6 = ["", "(long id) { this.id = id; }"];
-    const jsx$7 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
+    const jsx$11 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$6));
     const array$7 = [enumClass];
-    jsx$8.puts__T__V(jsx$7.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7)));
+    jsx$12.puts__T__V(jsx$11.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$7)));
     this.out$2.puts__T__V("public long id() { return id; }");
-    const jsx$10 = this.out$2;
+    const jsx$14 = this.out$2;
     const array$8 = ["private static final Map<Long, ", "> byId = new HashMap<Long, ", ">(", ");"];
-    const jsx$9 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
+    const jsx$13 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$8));
     const array$9 = [enumClass, enumClass, enumColl.size__I()];
-    jsx$10.puts__T__V(jsx$9.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9)));
+    jsx$14.puts__T__V(jsx$13.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$9)));
     this.out$2.puts__T__V("static {");
     this.out$2.inc__V();
-    const jsx$12 = this.out$2;
+    const jsx$16 = this.out$2;
     const array$10 = ["for (", " e : ", ".values())"];
-    const jsx$11 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
+    const jsx$15 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
     const array$11 = [enumClass, enumClass];
-    jsx$12.puts__T__V(jsx$11.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11)));
+    jsx$16.puts__T__V(jsx$15.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11)));
     this.out$2.inc__V();
-    const jsx$13 = this.out$2;
+    const jsx$17 = this.out$2;
     const array$12 = ["byId.put(e.id(), e);"];
-    jsx$13.puts__T__V(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12)).s__sc_Seq__T($m_sci_Nil$()));
+    jsx$17.puts__T__V(new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12)).s__sc_Seq__T($m_sci_Nil$()));
     this.out$2.dec__V();
     this.out$2.dec__V();
     this.out$2.puts__T__V("}");
-    const jsx$15 = this.out$2;
+    const jsx$19 = this.out$2;
     const array$13 = ["public static ", " byId(long id) { return byId.get(id); }"];
-    const jsx$14 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13));
+    const jsx$18 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13));
     const array$14 = [enumClass];
-    jsx$15.puts__T__V(jsx$14.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14)));
+    jsx$19.puts__T__V(jsx$18.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$14)));
     this.out$2.dec__V();
     this.out$2.puts__T__V("}");
-    const this$39 = this.importList$2;
-    $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$39.list$1, "java.util.Map");
-    const this$40 = this.importList$2;
-    $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$40.list$1, "java.util.HashMap")
+    const this$41 = this.importList$2;
+    $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$41.list$1, "java.util.Map");
+    const this$42 = this.importList$2;
+    $m_Lio_kaitai_struct_Utils$().addUniqueAttr__scm_ListBuffer__O__V(this$42.list$1, "java.util.HashMap")
   };
   enumDeclaration__sci_List__T__sc_Seq__V(curClass, enumName, enumColl) {
     $f_Lio_kaitai_struct_languages_components_NoNeedForFullClassPath__enumDeclaration__sci_List__T__sc_Seq__V(this, curClass, enumName, enumColl)
