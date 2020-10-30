@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20201027.231532.2ae4572b */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20201030.204447.6809f29e */
 
 'use strict';
 /* Scala.js runtime support
@@ -3888,9 +3888,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20201027.231532.2ae4572b";
-    this.gitCommit$1 = "2ae4572b";
-    this.gitTime$1 = "2020-10-27T23:15:32+00:00";
+    this.version$1 = "0.9-SNAPSHOT20201030.204447.6809f29e";
+    this.gitCommit$1 = "6809f29e";
+    this.gitTime$1 = "2020-10-30T20:44:47+00:00";
     return this
   };
 }
@@ -70932,7 +70932,7 @@ class $c_Lio_kaitai_struct_languages_JavaScriptCompiler extends $c_Lio_kaitai_st
     const jsx$8 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$10));
     const array$11 = [$m_Lio_kaitai_struct_languages_JavaScriptCompiler$().types2class__sci_List__T(topClass.name$1), rootArgs];
     const jsx$7 = jsx$8.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$11));
-    const array$12 = ["}(this, function (", ") {"];
+    const array$12 = ["}(typeof self !== 'undefined' ? self : this, function (", ") {"];
     const jsx$6 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$12));
     const array$13 = [$f_sc_TraversableOnce__mkString__T__T__T__T(argClasses, "", ", ", "")];
     return (((((((((("(function (root, factory) {\n  if (typeof define === 'function' && define.amd) {\n" + jsx$15) + jsx$13) + "  } else if (typeof module === 'object' && module.exports) {\n") + jsx$12) + jsx$10) + "  } else {\n") + jsx$9) + jsx$7) + "  }\n") + jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array(array$13)))
