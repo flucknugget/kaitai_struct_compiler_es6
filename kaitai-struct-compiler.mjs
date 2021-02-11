@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20210206.142540.313075ef */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20210211.130354.e616927a */
 
 'use strict';
 /* Scala.js runtime support
@@ -3805,9 +3805,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20210206.142540.313075ef";
-    this.gitCommit$1 = "313075ef";
-    this.gitTime$1 = "2021-02-06T14:25:40+00:00";
+    this.version$1 = "0.9-SNAPSHOT20210211.130354.e616927a";
+    this.gitCommit$1 = "e616927a";
+    this.gitTime$1 = "2021-02-11T13:03:54+00:00";
     return this
   };
 }
@@ -54746,7 +54746,7 @@ class $c_Lio_kaitai_struct_format_ValueInstanceSpec extends $c_Lio_kaitai_struct
     return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
   };
   dataTypeComposite__Lio_kaitai_struct_datatype_DataType() {
-    return this.dataTypeOpt$2.get__O()
+    return this.dataType__Lio_kaitai_struct_datatype_DataType()
   };
 }
 const $isArrayOf_Lio_kaitai_struct_format_ValueInstanceSpec = (function(obj, depth) {
