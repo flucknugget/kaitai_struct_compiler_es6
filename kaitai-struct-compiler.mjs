@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20210211.130354.e616927a */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20210321.221357.3d4d850b */
 
 'use strict';
 /* Scala.js runtime support
@@ -3805,9 +3805,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20210211.130354.e616927a";
-    this.gitCommit$1 = "e616927a";
-    this.gitTime$1 = "2021-02-11T13:03:54+00:00";
+    this.version$1 = "0.9-SNAPSHOT20210321.221357.3d4d850b";
+    this.gitCommit$1 = "3d4d850b";
+    this.gitTime$1 = "2021-03-21T22:13:57+00:00";
     return this
   };
 }
