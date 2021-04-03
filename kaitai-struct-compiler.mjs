@@ -1,4 +1,4 @@
-/* kaitai_struct_compiler 0.9-SNAPSHOT20210321.221357.3d4d850b */
+/* kaitai_struct_compiler 0.9-SNAPSHOT20210403.171736.0acfa604 */
 
 'use strict';
 /* Scala.js runtime support
@@ -3805,9 +3805,9 @@ class $c_Lio_kaitai_struct_Version$ extends $c_O {
   };
   init___() {
     this.name$1 = "kaitai-struct-compiler-js";
-    this.version$1 = "0.9-SNAPSHOT20210321.221357.3d4d850b";
-    this.gitCommit$1 = "3d4d850b";
-    this.gitTime$1 = "2021-03-21T22:13:57+00:00";
+    this.version$1 = "0.9-SNAPSHOT20210403.171736.0acfa604";
+    this.gitCommit$1 = "0acfa604";
+    this.gitTime$1 = "2021-04-03T17:17:36+00:00";
     return this
   };
 }
@@ -74654,7 +74654,7 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
       const include = x2.include$2;
       const consume = x2.consume$2;
       const eosError = x2.eosError$2;
-      expr = (((((((((io + ".readBytesTerm(") + terminator) + ", ") + include) + ", ") + consume) + ", ") + eosError) + ")")
+      expr = (((((((((io + ".readBytesTerm((byte) ") + terminator) + ", ") + include) + ", ") + consume) + ", ") + eosError) + ")")
     } else if ((dataType instanceof $c_Lio_kaitai_struct_datatype_DataType$BitsType1)) {
       const x4 = dataType;
       const bitEndian = x4.bitEndian$2;
@@ -75267,7 +75267,9 @@ class $c_Lio_kaitai_struct_languages_JavaCompiler extends $c_Lio_kaitai_struct_l
     if ((proc instanceof $c_Lio_kaitai_struct_format_ProcessXor)) {
       const x2 = proc;
       const xorValue = x2.key$1;
-      expr$2 = (((("KaitaiStream.processXor(" + srcExpr) + ", ") + $f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T(this, xorValue)) + ")")
+      const x1$2 = this.translator$2.detectType__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType(xorValue);
+      const xorValueStr = ((x1$2 instanceof $c_Lio_kaitai_struct_datatype_DataType$IntType) ? this.translator$2.doCast__Lio_kaitai_struct_exprlang_Ast$expr__Lio_kaitai_struct_datatype_DataType__T(xorValue, new $c_Lio_kaitai_struct_datatype_DataType$Int1Type().init___Z(true)) : $f_Lio_kaitai_struct_languages_components_ObjectOrientedLanguage__expression__Lio_kaitai_struct_exprlang_Ast$expr__T(this, xorValue));
+      expr$2 = (((("KaitaiStream.processXor(" + srcExpr) + ", ") + xorValueStr) + ")")
     } else {
       const x = $m_Lio_kaitai_struct_format_ProcessZlib$();
       if ((x === proc)) {
